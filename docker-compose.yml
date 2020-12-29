@@ -4,7 +4,7 @@ version: '3'
 services:
   nginx:
     # https://hub.docker.com/_/nginx
-    container_name: nginx
+    container_name: marvel_nginx
     build: ./docker/nginx
     volumes:
       - ./:/var/www/:cached
@@ -18,7 +18,7 @@ services:
 
   php:
     # https://hub.docker.com/_/php
-    container_name: php
+    container_name: marvel_php
     build: ./docker/php
     environment:
       PHP_MEMORY_LIMIT: '128M'
@@ -35,7 +35,7 @@ services:
 
   mysql:
     # https://hub.docker.com/_/mysql
-    container_name: mysql
+    container_name: marvel_mysql
     image: mysql/mysql-server:latest
     environment:
       MYSQL_ROOT_PASSWORD: 'root'
