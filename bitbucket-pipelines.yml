@@ -1,0 +1,81 @@
+image: php:7.4-fpm
+
+pipelines:
+  pull-requests:
+    '**':
+      - step:
+          name: Build & Test
+          caches:
+            - composer
+          script:
+            - apt-get update && apt-get install -qy git libonig-dev libxml2-dev libzip-dev unzip zip
+            - docker-php-ext-install bcmath ctype json mbstring pdo_mysql tokenizer xml zip
+            - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+            - cd storage
+            - mkdir framework
+            - cd framework
+            - mkdir sessions
+            - mkdir views
+            - mkdir cache
+            - cd ../../
+            - composer install
+            - composer run lint
+            - composer run phpcs
+            - composer run phpstan
+            - ln -f -s .env.pipelines .env
+            - rm .env.testing
+            - ln -f -s .env.pipelines .env.testing
+            - php artisan config:clear
+            - php artisan passport:keys
+            - php artisan migrate
+            - php artisan serve &
+            - sleep 5
+            - composer run test
+          services:
+            - mysql
+    release/*:
+      - step:
+          name: Build & Test
+          caches:
+            - composer
+          script:
+            - apt-get update && apt-get install -qy git libonig-dev libxml2-dev libzip-dev unzip zip
+            - docker-php-ext-install bcmath ctype json mbstring pdo_mysql tokenizer xml zip
+            - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+            - cd storage
+            - mkdir framework
+            - cd framework
+            - mkdir sessions
+            - mkdir views
+            - mkdir cache
+            - cd ../../
+            - composer install
+            - composer run lint
+            - composer run phpcs
+            - composer run phpstan
+            - ln -f -s .env.pipelines .env
+            - rm .env.testing
+            - ln -f -s .env.pipelines .env.testing
+            - php artisan config:clear
+            - php artisan passport:keys
+            - php artisan migrate
+            - php artisan serve &
+            - sleep 5
+            - composer run test
+          services:
+            - mysql
+      - step:
+          name: Deploy to Live
+          deployment: production
+          trigger: manual
+          script:
+            - wget https://envoyer.io/deploy/f6RUGErETndYwae1vWmcUbhw3yXQOpXMIpEXCpeu
+definitions:
+  services:
+    mysql:
+      image: mysql:5.7
+      environment:
+        MYSQL_DATABASE: 'pipelines'
+        MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+        MYSQL_USER: 'test_user'
+        MYSQL_PASSWORD: 'test_user_password'

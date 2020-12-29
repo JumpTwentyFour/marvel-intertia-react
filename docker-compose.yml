@@ -1,0 +1,54 @@
+# https://docs.docker.com/compose/compose-file/#/versioning
+version: '3'
+
+services:
+  nginx:
+    # https://hub.docker.com/_/nginx
+    container_name: nginx
+    build: ./docker/nginx
+    volumes:
+      - ./:/var/www/:cached
+    ports:
+      - '80:80'
+      - '443:443'
+    networks:
+      docker_network:
+        aliases:
+          - office-calculator.test
+
+  php:
+    # https://hub.docker.com/_/php
+    container_name: php
+    build: ./docker/php
+    environment:
+      PHP_MEMORY_LIMIT: '128M'
+      DB_HOST: 'mysql'
+      DB_USER: 'root'
+      DB_PASSWORD: 'root'
+      DB_NAME: 'marvel_local'
+    volumes:
+      - ./:/var/www/vhost/:cached
+    ports:
+      - '9000:9000'
+    networks:
+      - docker_network
+
+  mysql:
+    # https://hub.docker.com/_/mysql
+    container_name: mysql
+    image: mysql/mysql-server:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'marvel_local'
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql:cached
+      - ./docker/mysql/seeds:/docker-entrypoint-initdb.d
+    ports:
+      - '3306:3306'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    networks:
+      - docker_network
+
+networks:
+  docker_network:
+    driver: bridge
