@@ -4,15 +4,26 @@ namespace App\Http\Controllers\Characters;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Inertia\Inertia;
+use Inertia\Response;
 use Marvel\Characters;
+use App\Http\Resources\Characters as CharactersResourceCollection;
 
 class ListAllCharacters extends Controller
 {
+
+
     public function __invoke(Request $request, Characters $characterClient): Response
     {
         $characters = $characterClient->index(1, 900);
 
-        return response()->view('characters.list-all', ['characters' => $characters]);
+        return Inertia::render(
+            'Characters',
+            [
+                'characters' => new CharactersResourceCollection($characters->data),
+            ]
+        );
     }
+
+
 }

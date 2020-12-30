@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset>
-    <config name="installed_paths" value="vendor/slevomat/coding-standard"/>
+    <config name="installed_paths" value="./vendor/slevomat/coding-standard"/>
     <include-pattern>*\.php$</include-pattern><!-- Repeat for any other extensions you use for PHP files. -->
     <rule ref="PSR1"/>
     <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
@@ -47,6 +47,7 @@
     <rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue"/>
     <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing"/>
     <rule ref="SlevomatCodingStandard.Variables.DuplicateAssignmentToVariable"/>
+    <exclude name="Squiz.Files.FileExtension.ClassFound"/>
 
     <exclude-pattern>_ide_helper.php$</exclude-pattern>
     <exclude-pattern>_ide_helper_models.php$</exclude-pattern>

@@ -7,11 +7,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ mix('/js/app.js') }}" defer></script>
+
 </head>
 <body class="antialiased">
-<!-- This example requires Tailwind CSS v2.0+ -->
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    @yield('content')
+    @inertia
 </div>
 </body>
 </html>
