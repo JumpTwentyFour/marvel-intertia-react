@@ -6,8 +6,10 @@ services:
     # https://hub.docker.com/_/nginx
     container_name: marvel_nginx
     build: ./docker/nginx
+    depends_on:
+      - php
     volumes:
-      - ./:/var/www/:cached
+      - ./:/var/www/vhost/:cached
     ports:
       - '80:80'
       - '443:443'

@@ -26,12 +26,11 @@ grumphp:
       group: [ "request", "rule", "controller", "mailable", "middleware", "model" ]
       always_execute: true
     phpversion:
-      project: '7.4'
+      project: '8.0'
     git_commit_message:
       allow_empty_message: false
       max_body_width: 300
       max_subject_width: 200
       enforce_no_subject_trailing_period: false
       matchers: [/^(build:|chore:|ci:|docs:|feat:|fix:|perf:|refactor:|revert:|style:|test:|Merge|update:|delete:).+/]
-    git_branch_name:
-      whitelist: [/^(^(feature\/|bugfix\/|hotfix\/|release\/|shift*).+/]
+
