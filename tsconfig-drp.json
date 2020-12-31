@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+    "rootDir": "src",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "esnext",
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "baseUrl": "src",
+        "noEmit": true,
+        "moduleResolution": "node"
+},
+    "exclude": ["node_modules", "dist"],
+    "include": ["src"]
+}

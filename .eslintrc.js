@@ -6,12 +6,10 @@ const [IGNORE, WARNING, ERROR] = [0, 1, 2]
  * existing or being defined.
  */
 const JEST_CONFIG = {
-    files: [
-        '*.test.js',
-    ],
+    files: ['*.test.{js,ts,tsx}'],
     env: {
         jest: true,
-    }
+    },
 }
 
 /**
@@ -19,35 +17,51 @@ const JEST_CONFIG = {
  * to define prop-types as it is something of a waste of time.
  */
 const STORYBOOK_CONFIG = {
-    files : [
-        '*.story.js'
-    ],
+    files: ['*.story.{js,ts,tsx}'],
     rules: {
-        'react/prop-types': IGNORE
-    }
+        'react/prop-types': IGNORE,
+    },
 }
 
-module.exports = {
+/**
+ * Additional configuration for TypeScript integration
+ */
+const TS_CONFIG = {
+    files: ['*.ts', '*.tsx'],
     parser: '@typescript-eslint/parser',
     extends: [
         'standard',
+        'plugin:@typescript-eslint/recommended',
         'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended', // Uses the recommended rules from @typescript-eslint/eslint-plugin
-        'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
-        'plugin:prettier/recommended'
+        'plugin:prettier/recommended',
+        'prettier/@typescript-eslint',
     ],
-    plugins: [
-        'react',
-        'react-hooks',
-        'import',
+    rules: {
+        'react/prop-types': IGNORE, // typescript-eslint enforces typed props already
+        'no-void': IGNORE, // `void` is fine to use in TS for void-return functions
+        'no-undef': IGNORE, // tsc will catch these errors, and it causes problems with optional chaining (3.7)
+        // TS Specific overrides
+        '@typescript-eslint/camelcase': IGNORE,
+        '@typescript-eslint/explicit-function-return-type': [
+            ERROR,
+            { allowExpressions: true },
+        ],
+    },
+}
+
+module.exports = {
+    parser: 'babel-eslint',
+    extends: [
+        'standard',
+        'plugin:react/recommended',
+        'plugin:prettier/recommended',
     ],
+    plugins: ['react', 'react-hooks', 'import'],
     parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: 'module', // Allows for the use of imports
         ecmaFeatures: {
             jsx: true,
             modules: true,
-        }
+        },
     },
     env: {
         browser: true,
@@ -69,48 +83,56 @@ module.exports = {
         'react/jsx-uses-vars': WARNING,
         'react/jsx-uses-react': WARNING,
         'react/jsx-curly-spacing': [ERROR, 'never'],
-        'react/jsx-curly-brace-presence': [ERROR, { props: 'never', children: 'never' }],
+        'react/jsx-curly-brace-presence': [
+            ERROR,
+            { props: 'never', children: 'never' },
+        ],
         'react/sort-prop-types': [ERROR, { sortShapeProp: true }],
         'react/jsx-closing-bracket-location': [ERROR, { location: 'line-aligned' }],
-        'react/sort-comp': [ERROR, {
-            order: [
-                'static-methods',
-                'instance-variables',
-                'lifecycle',
-                'everything-else',
-                'handlers',
-                'rendering'
-            ],
-            groups: {
-                rendering: [
-                    '/^render.+$/',
-                    'render'
+        'react/sort-comp': [
+            ERROR,
+            {
+                order: [
+                    'static-methods',
+                    'instance-variables',
+                    'lifecycle',
+                    'everything-else',
+                    'handlers',
+                    'rendering',
                 ],
-                handlers: [
-                    '/^handle.+$/',
-                ]
-            }
-        }],
+                groups: {
+                    rendering: ['/^render.+$/', 'render'],
+                    handlers: ['/^handle.+$/'],
+                },
+            },
+        ],
 
         /**
          * React Hooks specific rules
          */
-        'react-hooks/exhaustive-deps': WARNING,
+        'react-hooks/exhaustive-deps': IGNORE,
         'react-hooks/rules-of-hooks': ERROR,
 
         /**
          * Import specific rules
          */
         'import/newline-after-import': ERROR,
-        'import/order': [ERROR, { 'groups': [['builtin', 'external', 'internal'], 'parent', 'sibling', 'index'] }],
+        'import/order': [
+            ERROR,
+            {
+                groups: [
+                    ['builtin', 'external', 'internal'],
+                    'parent',
+                    'sibling',
+                    'index',
+                ],
+            },
+        ],
     },
     settings: {
         react: {
-            version: 'detect'
-        }
+            version: 'detect',
+        },
     },
-    overrides: [
-        JEST_CONFIG,
-        STORYBOOK_CONFIG,
-    ]
+    overrides: [JEST_CONFIG, STORYBOOK_CONFIG, TS_CONFIG],
 }
