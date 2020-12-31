@@ -1,11 +1,17 @@
-import React from "react";
+import React, { FC, ReactElement } from 'react'
 
-const Characters = () => {
-    return (
-        <h1>
-            Here are all the characters
-        </h1>
-    );
-};
+interface CharactersObject {
+  characters: Array<Record<string, unknown>>
+}
 
-export default Characters;
+type CharactersProps = {
+  characters: Array<Record<string, unknown>>
+}
+
+const Characters: FC<CharactersProps> = (
+  characters: CharactersObject,
+): ReactElement => {
+  return <h1>Here are all the characters</h1>
+}
+
+export default Characters

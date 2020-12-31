@@ -31653,14 +31653,14 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
+/***/ "./resources/css/app.scss":
+/*!********************************!*\
+  !*** ./resources/css/app.scss ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/src/index.js):\nTypeError: getProcessedPlugins is not a function\n    at /Users/danielnewns/Sites/marvel-inertia-js/node_modules/tailwindcss/lib/processTailwindFeatures.js:75:83\n    at LazyResult.run (/Users/danielnewns/Sites/marvel-inertia-js/node_modules/postcss/lib/lazy-result.js:288:14)\n    at LazyResult.asyncTick (/Users/danielnewns/Sites/marvel-inertia-js/node_modules/postcss/lib/lazy-result.js:212:26)\n    at LazyResult.asyncTick (/Users/danielnewns/Sites/marvel-inertia-js/node_modules/postcss/lib/lazy-result.js:225:14)\n    at /Users/danielnewns/Sites/marvel-inertia-js/node_modules/postcss/lib/lazy-result.js:254:14\n    at new Promise (<anonymous>)\n    at LazyResult.async (/Users/danielnewns/Sites/marvel-inertia-js/node_modules/postcss/lib/lazy-result.js:250:23)\n    at LazyResult.then (/Users/danielnewns/Sites/marvel-inertia-js/node_modules/postcss/lib/lazy-result.js:131:17)\n    at Promise.resolve.then.then (/Users/danielnewns/Sites/marvel-inertia-js/node_modules/postcss-loader/src/index.js:142:8)\n    at process._tickCallback (internal/process/next_tick.js:68:7)\n    at runLoaders (/Users/danielnewns/Sites/marvel-inertia-js/node_modules/webpack/lib/NormalModule.js:316:20)\n    at /Users/danielnewns/Sites/marvel-inertia-js/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/danielnewns/Sites/marvel-inertia-js/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/Users/danielnewns/Sites/marvel-inertia-js/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Promise.resolve.then.then.catch (/Users/danielnewns/Sites/marvel-inertia-js/node_modules/postcss-loader/src/index.js:208:9)\n    at process._tickCallback (internal/process/next_tick.js:68:7)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -31713,7 +31713,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var Characters = function () {
-    return (react_1.default.createElement("h1", null, "Here are all the characters"));
+    return react_1.default.createElement("h1", null, "Here are all the characters");
 };
 exports.default = Characters;
 
@@ -31756,7 +31756,7 @@ var inertia_react_1 = __webpack_require__(/*! @inertiajs/inertia-react */ "./nod
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_dom_1 = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 var app = document.getElementById('app');
-react_dom_1.render(react_1.default.createElement(inertia_react_1.InertiaApp, { initialPage: app ? JSON.parse(app.dataset.page) : "{}", resolveComponent: function (name) {
+react_dom_1.render(react_1.default.createElement(inertia_react_1.InertiaApp, { initialPage: app ? JSON.parse(app.dataset.page) : '{}', resolveComponent: function (name) {
         return Promise.resolve().then(function () { return __importStar(__webpack_require__("./resources/js/Pages sync recursive ^\\.\\/.*$")("./" + name)); }).then(function (module) { return module.default; });
     } }), app);
 
@@ -31764,14 +31764,14 @@ react_dom_1.render(react_1.default.createElement(inertia_react_1.InertiaApp, { i
 /***/ }),
 
 /***/ 0:
-/*!************************************************************!*\
-  !*** multi ./resources/js/app.tsx ./resources/css/app.css ***!
-  \************************************************************/
+/*!*************************************************************!*\
+  !*** multi ./resources/js/app.tsx ./resources/css/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/danielnewns/Sites/marvel-inertia-js/resources/js/app.tsx */"./resources/js/app.tsx");
-module.exports = __webpack_require__(/*! /Users/danielnewns/Sites/marvel-inertia-js/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /Users/dannewns/Sites/marvel-inertia-js/resources/js/app.tsx */"./resources/js/app.tsx");
+module.exports = __webpack_require__(/*! /Users/dannewns/Sites/marvel-inertia-js/resources/css/app.scss */"./resources/css/app.scss");
 
 
 /***/ })
