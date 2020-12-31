@@ -28,11 +28,13 @@ const STORYBOOK_CONFIG = {
 }
 
 module.exports = {
-    parser: 'babel-eslint',
+    parser: '@typescript-eslint/parser',
     extends: [
         'standard',
         'plugin:react/recommended',
-        'plugin:prettier/recommended',
+        'plugin:@typescript-eslint/recommended', // Uses the recommended rules from @typescript-eslint/eslint-plugin
+        'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+        'plugin:prettier/recommended'
     ],
     plugins: [
         'react',
@@ -40,6 +42,8 @@ module.exports = {
         'import',
     ],
     parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module', // Allows for the use of imports
         ecmaFeatures: {
             jsx: true,
             modules: true,

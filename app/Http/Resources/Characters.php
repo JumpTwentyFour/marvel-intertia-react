@@ -6,7 +6,6 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class Characters extends ResourceCollection
 {
-
     /**
      * The resource that this resource collects.
      *

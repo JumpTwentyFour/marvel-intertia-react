@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0a106a873e60dda6f0cbc69678e3c99",
+    "content-hash": "ec6ef4585bdb8a9f94a2d6df53d416b8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -10478,6 +10478,50 @@
                 "source": "https://github.com/Seldaek/phar-utils/tree/master"
             },
             "time": "2020-07-07T18:42:57+00:00"
+        },
+        {
+            "name": "sirbrillig/phpcs-import-detection",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sirbrillig/phpcs-import-detection.git",
+                "reference": "1275eb752ecb221e7abc59c2b6678d4a78e06c2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sirbrillig/phpcs-import-detection/zipball/1275eb752ecb221e7abc59c2b6678d4a78e06c2b",
+                "reference": "1275eb752ecb221e7abc59c2b6678d4a78e06c2b",
+                "shasum": ""
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+                "limedeck/phpunit-detailed-printer": "^3.1",
+                "phpunit/phpunit": "^6.4",
+                "sirbrillig/phpcs-variable-analysis": "^2.0.1",
+                "squizlabs/php_codesniffer": "3.3.0"
+            },
+            "type": "phpcodesniffer-standard",
+            "autoload": {
+                "psr-4": {
+                    "ImportDetection\\": "ImportDetection/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Payton Swick",
+                    "email": "payton@foolord.com"
+                }
+            ],
+            "description": "A set of phpcs sniffs to look for unused or unimported symbols.",
+            "support": {
+                "issues": "https://github.com/sirbrillig/phpcs-import-detection/issues",
+                "source": "https://github.com/sirbrillig/phpcs-import-detection/tree/master"
+            },
+            "time": "2018-07-27T00:56:31+00:00"
         },
         {
             "name": "slevomat/coding-standard",
