@@ -17,8 +17,7 @@
     },
     "pre-commit": [
         "lint",
-        "tsc",
-        //"style:lint"
+        "tsc"
     ],
     "dependencies": {
         "@babel/runtime": "^7.8.4",
