@@ -13,12 +13,12 @@
         "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
         "test": "jest",
         "tsc": "tsc --noEmit",
-        "style:lint": "stylelint src/sass/**/*.scss"
+        "style:lint": "stylelint resources/css/**/*.scss"
     },
     "pre-commit": [
         "lint",
         "tsc",
-       // "style:lint"
+        //"style:lint"
     ],
     "dependencies": {
         "@babel/runtime": "^7.8.4",
