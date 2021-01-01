@@ -22,7 +22,7 @@ class MarvelClientServiceProvider extends ServiceProvider
 
             return new Client($publicKey, $privateKey);
         });
-
+        
         $this->app->singleton(Characters::class, function (): Characters {
             $client = app()->make(Client::class);
 

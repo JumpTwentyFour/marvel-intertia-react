@@ -18,7 +18,7 @@
     "pre-commit": [
         "lint",
         "tsc",
-        "style:lint"
+       // "style:lint"
     ],
     "dependencies": {
         "@babel/runtime": "^7.8.4",
@@ -28,6 +28,7 @@
         "classnames": "^2.2.6",
         "core-js": "^3.6.5",
         "prettier": "^1.19.1",
+        "prop-types": "^15.7.2",
         "react": "^16.8.0",
         "react-dom": "^16.8.0"
     },
@@ -42,6 +43,7 @@
         "@testing-library/react": "^11.2.2",
         "@types/jest": "^26.0.19",
         "@types/node": "^13.7.4",
+        "@types/prop-types": "^15.7.3",
         "@types/react": "^16.8.0",
         "@types/react-dom": "^16.9.5",
         "@typescript-eslint/eslint-plugin": "^4.11.1",
