@@ -16,8 +16,8 @@
         "style:lint": "stylelint resources/css/**/*.scss"
     },
     "pre-commit": [
-        "lint",
-        "tsc"
+//        "lint",
+//        "tsc"
     ],
     "dependencies": {
         "@babel/runtime": "^7.8.4",

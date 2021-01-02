@@ -1,17 +1,18 @@
 import React, { FC, ReactElement } from 'react'
-
-interface CharactersObject {
-  characters: Array<Record<string, unknown>>
-}
+import Layout from '../Layout'
 
 type CharactersProps = {
   characters: Array<Record<string, unknown>>
 }
 
-const Characters: FC<CharactersProps> = (
-  characters: CharactersObject,
-): ReactElement => {
-  return <h1>Here are all the characters</h1>
+const Characters = (props: CharactersProps): JSX.Element => {
+  return <h1>Here</h1>
+}
+
+Characters.displayName = 'Characters'
+
+Characters.layout = (page: JSX.Element): JSX.Element => {
+  return <Layout children={page.props.children} />
 }
 
 export default Characters

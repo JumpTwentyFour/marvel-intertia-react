@@ -19,7 +19,7 @@ indent_style = space
 indent_size = 4
 
 # HTML-Files LESS-Files SASS-Files CSS-Files JS-Files JSON-Files
-[{*.html,*.less,*.sass,*.css,*.js,*.json}]
+[{*.html,*.less,*.sass,*.css,*.json}]
 indent_size = 4
 
 [*.vue]
@@ -31,5 +31,5 @@ indent_style = space
 indent_size = 2
 
 # HTML-Files LESS-Files SASS-Files CSS-Files JS-Files JSON-Files
-[{*.tsx}]
+[{*.tsx, *.js}]
 indent_size = 2

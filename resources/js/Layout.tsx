@@ -1,15 +1,15 @@
 import React, { FC, ReactElement } from 'react'
-import { InertiaLink } from '@inertiajs/inertia-react'
+import Navigation from './Components/Global/Navigation'
 
 const Layout: FC = ({ children }): ReactElement => {
   return (
     <main>
       <header>
-        <InertiaLink href='/'>Home</InertiaLink>
-        <InertiaLink href='/characters'>Characters</InertiaLink>
-        <InertiaLink href='/assemble'>Assemble</InertiaLink>
+        <nav>
+          <Navigation />
+        </nav>
       </header>
-      <article>{children}</article>
+      <section>{children}</section>
     </main>
   )
 }
