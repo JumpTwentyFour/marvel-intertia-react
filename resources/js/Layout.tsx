@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react'
 import Navigation from './Components/Global/Navigation'
 
-const Layout: FC = ({ children }): ReactElement => {
+const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
     <main>
       <header>

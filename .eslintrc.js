@@ -37,6 +37,7 @@ const TS_CONFIG = {
     'prettier/@typescript-eslint',
   ],
   rules: {
+    'react/display-name': IGNORE,
     'no-use-before-define': [0],
     '@typescript-eslint/no-use-before-define': [1],
     'react/prop-types': IGNORE, // typescript-eslint enforces typed props already

@@ -31,5 +31,5 @@ indent_style = space
 indent_size = 2
 
 # HTML-Files LESS-Files SASS-Files CSS-Files JS-Files JSON-Files
-[{*.tsx, *.js}]
+[{*.tsx, *.js, *.ts}]
 indent_size = 2

@@ -4,14 +4,14 @@ import { InertiaLink } from '@inertiajs/inertia-react'
 const Navigation: FC = (): ReactElement => {
   return (
     <nav>
-      <ul>
-        <li>
+      <ul className='flex'>
+        <li className='flex-1 justify-center'>
           <InertiaLink href='/'>Home</InertiaLink>
         </li>
-        <li>
+        <li className='flex-1'>
           <InertiaLink href='/characters'>Characters</InertiaLink>
         </li>
-        <li>
+        <li className='flex-1'>
           <InertiaLink href='/assemble'>Assemble</InertiaLink>
         </li>
       </ul>
