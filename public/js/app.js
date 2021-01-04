@@ -1980,6 +1980,63 @@ exports.default = Characters;
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Home.tsx":
+/*!*************************************!*\
+  !*** ./resources/js/Pages/Home.tsx ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Layout_1 = __importDefault(__webpack_require__(/*! ../Layout */ "./resources/js/Layout.tsx"));
+
+var CharacterCard_1 = __importDefault(__webpack_require__(/*! ../Components/CharacterCard */ "./resources/js/Components/CharacterCard.tsx"));
+
+var Home = function Home(props) {
+  if (props.characters.data.length === 0) {
+    return react_1["default"].createElement(react_1["default"].Fragment, null);
+  }
+
+  return react_1["default"].createElement(react_1["default"].Fragment, null, props.characters.data.map(function (character, index) {
+    return react_1["default"].createElement(CharacterCard_1["default"], {
+      key: index,
+      id: character.id,
+      name: character.name,
+      description: character.description,
+      thumbnail: character.thumbnail,
+      resourceURI: character.resourceURI,
+      comics: character.comics,
+      series: character.series,
+      stories: character.stories,
+      events: character.events,
+      urls: character.urls
+    });
+  }));
+};
+
+Home.displayName = 'Home';
+
+Home.layout = function (page) {
+  return react_1["default"].createElement(Layout_1["default"], null, page);
+};
+
+exports.default = Home;
+
+/***/ }),
+
 /***/ "./resources/js/app.tsx":
 /*!******************************!*\
   !*** ./resources/js/app.tsx ***!
@@ -31785,7 +31842,9 @@ if (false) {} else {
 
 var map = {
 	"./Characters": "./resources/js/Pages/Characters.tsx",
-	"./Characters.tsx": "./resources/js/Pages/Characters.tsx"
+	"./Characters.tsx": "./resources/js/Pages/Characters.tsx",
+	"./Home": "./resources/js/Pages/Home.tsx",
+	"./Home.tsx": "./resources/js/Pages/Home.tsx"
 };
 
 
