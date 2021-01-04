@@ -27,7 +27,6 @@ pipelines:
             - apt-get install -y zip
             - docker-php-ext-install bcmath
             - docker-php-ext-install ctype
-            - docker-php-ext-install json
             - docker-php-ext-install mbstring
             - docker-php-ext-install pdo_mysql
             - docker-php-ext-install tokenizer
