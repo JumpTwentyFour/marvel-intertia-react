@@ -12,8 +12,27 @@ pipelines:
             - composer
             - node
           script:
-            - apt-get update && apt-get install -qy git libonig-dev libxml2-dev libzip-dev unzip zip
-            - docker-php-ext-install bcmath ctype json mbstring pdo_mysql tokenizer xml zip
+            - apt-get clean
+            - apt-get update
+            - apt-get upgrade -y
+            - apt-get install -y git
+            - apt-get install -y libcurl4-openssl-dev
+            - apt-get install -y libonig-dev
+            - apt-get install -y libpng-dev
+            - apt-get install -y libssl-dev
+            - apt-get install -y libxml2-dev
+            - apt-get install -y libzip-dev
+            - apt-get install -y unzip
+            - apt-get install -y wget
+            - apt-get install -y zip
+            - docker-php-ext-install bcmath
+            - docker-php-ext-install ctype
+            - docker-php-ext-install json
+            - docker-php-ext-install mbstring
+            - docker-php-ext-install pdo_mysql
+            - docker-php-ext-install tokenizer
+            - docker-php-ext-install xml
+            - docker-php-ext-install zip
             - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
             - composer install
             - cp .env.example .env
