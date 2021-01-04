@@ -34,7 +34,19 @@ services:
       - '9000:9000'
     networks:
       - docker_network
-
+  node:
+    # https://hub.docker.com/_/php
+    container_name: marvel_node
+    image: node:15.5.0-buster
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./:/var/www/vhost/:cached
+    working_dir: /var/www/vhost
+    entrypoint: "npm"
+    command: ["install"]
+    networks:
+      - docker_network
   mysql:
     # https://hub.docker.com/_/mysql
     container_name: marvel_mysql
