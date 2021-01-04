@@ -1,16 +1,22 @@
-image: php:8-fpm
-
 pipelines:
   pull-requests:
     '**':
       - step:
-          name: Build
-          services:
-            - docker
+          name: Testing CSS and JavaScript
+          image: node:15
           caches:
-            - docker
-            - composer
             - node
+          script:
+            - npm install
+            - npm run stylelint
+            - npm run lint
+            - npm run tsc
+            - npm run test
+      - step:
+          name: Testing PHP
+          image: php:8-fpm
+          caches:
+            - composer
           script:
             - apt-get clean
             - apt-get update
@@ -36,26 +42,3 @@ pipelines:
             - composer install
             - cp .env.example .env
             - php artisan key:generate
-            - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-            - source ~/.bashrc || true
-            - npm install
-      - step:
-          name: Testing CSS
-          script:
-            - npm run stylelint
-      - step:
-          name: Testing JavaScript
-          script:
-            - npm run lint
-            - npm run tsc
-            - npm run test
-      - step:
-          name: Testing PHP
-          script:
-            - composer run lint
-            - composer run phpcs
-            - composer run phpstan
-            - php artisan optimize:clear
-            - php artisan serve &
-            - sleep 5
-            - composer run test
