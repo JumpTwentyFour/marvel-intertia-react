@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react'
+import React from 'react'
 import Navigation from './Components/Global/Navigation'
 
 const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
