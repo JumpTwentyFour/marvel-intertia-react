@@ -7,8 +7,8 @@ use Tests\TestCase;
 
 class HomeTest extends TestCase
 {
-   public function test_homepage_will_return_six_random_characters(): void
-   {
+    public function test_homepage_will_return_six_random_characters(): void
+    {
         $this->get('/')
             ->assertStatus(Response::HTTP_OK)
             ->assertHasProp('characters')
@@ -55,5 +55,5 @@ class HomeTest extends TestCase
 
                 $this->assertEquals(['type', 'url'], array_keys($characters[0]['urls'][0]));
             });
-   }
+    }
 }

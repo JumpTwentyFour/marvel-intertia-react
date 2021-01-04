@@ -7,7 +7,8 @@ use Tests\Concerns\UsesInertiaResponses;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesApplication, UsesInertiaResponses;
+    use CreatesApplication;
+    use UsesInertiaResponses;
 
     protected function setUp(): void
     {
