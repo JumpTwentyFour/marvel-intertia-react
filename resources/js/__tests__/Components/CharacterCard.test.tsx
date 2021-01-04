@@ -10,16 +10,9 @@ describe('<CharacterCard />', () => {
         name='test'
         description='test'
         thumbnail={{ path: '2213', extension: 'jpg' }}
-        resourceURI={['asd']}
-        comics={[]}
-        series={}
-        stories={}
-        events={}
-        urls={}
       />,
     )
     const link = getByText(/Assemble/)
-
     expect(link).toBeInTheDocument()
   })
 })
