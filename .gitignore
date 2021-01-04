@@ -128,6 +128,7 @@ docker/mysql/data/**
 /public/storage
 /public/css/*
 /public/js/*
+/public/mix-manifest.json
 /storage/*.key
 /vendor
 .env
