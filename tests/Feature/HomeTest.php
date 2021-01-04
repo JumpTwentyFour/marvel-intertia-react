@@ -26,7 +26,7 @@ class HomeTest extends TestCase
                         'series',
                         'stories',
                         'events',
-                        'urls'
+                        'urls',
                     ],
                     array_keys($characters[0])
                 );
