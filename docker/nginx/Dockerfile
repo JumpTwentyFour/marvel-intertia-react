@@ -6,6 +6,7 @@ FROM nginx
 WORKDIR /var/www/vhost/
 
 # Vhost Config
+COPY ./config/default.conf /etc/nginx/conf.d/default.conf
 COPY ./config/vhost.conf /etc/nginx/conf.d/vhost.conf
 
 # Self-signed SSL Certificates (see README.md)
