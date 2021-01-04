@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\Characters as CharactersResourceCollection;
 use Inertia\Inertia;
+use Inertia\Response;
 use Marvel\Characters;
 
 class HomeController extends Controller
 {
-    public function __invoke(Characters $characterClient)
+    public function __invoke(Characters $characterClient): Response
     {
         $maxSupportedPage = 248;
 
