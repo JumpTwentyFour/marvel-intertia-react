@@ -5,6 +5,8 @@ pipelines:
     '**':
       - step:
           name: Build
+          services:
+            - docker
           caches:
             - docker
             - composer
@@ -14,6 +16,7 @@ pipelines:
             - docker-php-ext-install bcmath ctype json mbstring pdo_mysql tokenizer xml zip
             - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
             - composer install
+            - cp .env.example .env
             - php artisan key:generate
             - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
             - source ~/.bashrc
