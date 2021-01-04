@@ -29,8 +29,8 @@ grumphp:
       project: '8.0'
     git_commit_message:
       allow_empty_message: false
+      enforce_capitalized_subject: false
       max_body_width: 300
       max_subject_width: 200
       enforce_no_subject_trailing_period: false
       matchers: [/^(build:|chore:|ci:|docs:|feat:|fix:|perf:|refactor:|revert:|style:|test:|Merge|update:|delete:).+/]
-

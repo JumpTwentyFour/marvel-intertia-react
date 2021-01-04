@@ -118,12 +118,9 @@
             "@phpstan"
         ],
         "project-install-local": [
-            "cp .env.local .env",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@composer install",
-            "@php artisan app:install"
-        ],
-        "project-update-local": [
-            "@php artisan app:update"
+            "@php artisan key:generate"
         ]
     },
     "config": {
