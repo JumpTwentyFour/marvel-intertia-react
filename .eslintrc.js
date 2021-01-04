@@ -45,7 +45,7 @@ const TS_CONFIG = {
     'no-undef': IGNORE, // tsc will catch these errors, and it causes problems with optional chaining (3.7)
     '@typescript-eslint/no-unused-vars': ['error'],
     // TS Specific overrides
-    // '@typescript-eslint/camelcase': IGNORE,
+    '@typescript-eslint/camelcase': IGNORE,
     '@typescript-eslint/explicit-function-return-type': [
       ERROR,
       { allowExpressions: true },
