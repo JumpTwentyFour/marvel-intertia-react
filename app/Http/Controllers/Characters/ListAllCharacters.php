@@ -15,6 +15,8 @@ class ListAllCharacters extends Controller
     {
         $characters = $characterClient->index(1, 900);
 
+        dd($characters->data[0]['comics']);
+
         return Inertia::render(
             'Characters',
             [
