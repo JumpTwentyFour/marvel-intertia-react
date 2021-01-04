@@ -2,7 +2,7 @@ export type CharacterType = {
   id: number
   name: string
   description: string
-  thumbnail: Array<string>
+  thumbnail: Record<'path' | 'extension', string>
   resourceURI: string
   comics: Array<string>
   series: Array<string>
