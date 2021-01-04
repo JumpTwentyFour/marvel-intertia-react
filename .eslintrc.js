@@ -49,6 +49,7 @@ const TS_CONFIG = {
       ERROR,
       { allowExpressions: true },
     ],
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
 }
 

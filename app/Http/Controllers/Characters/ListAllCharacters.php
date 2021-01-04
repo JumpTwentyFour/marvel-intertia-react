@@ -20,6 +20,6 @@ class ListAllCharacters extends Controller
             [
                 'characters' => new CharactersResourceCollection($characters->data),
             ]
-        );
+        )->withViewData(['meta' => 'A list of marvel characters.']);
     }
 }
