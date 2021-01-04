@@ -10,10 +10,11 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+        "lint": "eslint '*/**/*.{js,ts,tsx}'",
+        "lint-fix": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
         "test": "jest",
         "tsc": "tsc --noEmit",
-        "style:lint": "stylelint resources/css/**/*.scss"
+        "stylelint": "stylelint resources/css/**/*.scss"
     },
     "pre-commit": [
         "lint",

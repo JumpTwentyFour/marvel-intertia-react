@@ -31,8 +31,6 @@ RUN docker-php-ext-install \
     xml \
     zip
 
-
-
 # Install Composer from Official Docker Image
 # https://hub.docker.com/_/composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
