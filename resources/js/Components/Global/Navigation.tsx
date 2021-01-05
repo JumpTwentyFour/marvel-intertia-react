@@ -5,13 +5,13 @@ const Navigation: FC = (): ReactElement => {
   return (
     <nav>
       <ul className='flex'>
-        <li className='flex-1 justify-center'>
+        <li>
           <InertiaLink href='/'>Home</InertiaLink>
         </li>
-        <li className='flex-1'>
+        <li>
           <InertiaLink href='/characters'>Characters</InertiaLink>
         </li>
-        <li className='flex-1'>
+        <li>
           <InertiaLink href='/assemble'>Assemble</InertiaLink>
         </li>
       </ul>
