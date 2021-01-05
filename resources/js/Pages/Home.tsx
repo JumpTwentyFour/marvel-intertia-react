@@ -7,14 +7,14 @@ type CharactersProps = {
   characters: Record<'data', Array<CharacterType>>
 }
 
-const Characters = (props: CharactersProps): JSX.Element => {
+const Home = (props: CharactersProps): JSX.Element => {
   return <CharacterList characters={props.characters.data} />
 }
 
-Characters.displayName = 'Characters'
+Home.displayName = 'Home'
 
-Characters.layout = (page: JSX.Element): JSX.Element => {
+Home.layout = (page: JSX.Element): JSX.Element => {
   return <Layout>{page}</Layout>
 }
 
-export default Characters
+export default Home
