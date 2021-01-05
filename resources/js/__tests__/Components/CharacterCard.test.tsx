@@ -7,12 +7,12 @@ describe('<CharacterCard />', () => {
     const { getByText } = render(
       <CharacterCard
         id={123}
-        name='test'
+        name='test name'
         description='test'
         thumbnail={{ path: '2213', extension: 'jpg' }}
       />,
     )
-    const link = getByText(/Assemble/)
+    const link = getByText(/test name/)
     expect(link).toBeInTheDocument()
   })
 })

@@ -38,8 +38,7 @@
         "roave/security-advisories": "dev-master",
         "sirbrillig/phpcs-import-detection": "^1.0",
         "slevomat/coding-standard": "^6.1",
-        "squizlabs/php_codesniffer": "^3.4",
-        "sustainabil-it/phpstan-higher-order-collections": "dev-main"
+        "squizlabs/php_codesniffer": "^3.4"
     },
     "autoload": {
         "classmap": [
