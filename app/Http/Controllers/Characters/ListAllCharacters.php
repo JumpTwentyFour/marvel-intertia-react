@@ -14,7 +14,7 @@ class ListAllCharacters extends Controller
     public function __invoke(Request $request, Characters $characterClient): Response
     {
         $characters = $characterClient->index(1, 900);
-
+        
         return Inertia::render(
             'Characters',
             [
