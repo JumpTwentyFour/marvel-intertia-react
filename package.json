@@ -21,7 +21,7 @@
         "@babel/runtime": "^7.8.4",
         "@inertiajs/inertia": "^0.8.2",
         "@inertiajs/inertia-react": "^0.5.0",
-        "axios": "^0.19",
+        "axios": "^0.21.1",
         "classnames": "^2.2.6",
         "core-js": "^3.6.5",
         "prettier": "^1.19.1",

@@ -3,14 +3,16 @@ import Navigation from './Components/Global/Navigation'
 
 const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
-    <main>
+    <div className='site-wrapper'>
       <header>
         <nav>
           <Navigation />
         </nav>
       </header>
-      <section>{children}</section>
-    </main>
+      <main>
+        <section>{children}</section>
+      </main>
+    </div>
   )
 }
 
