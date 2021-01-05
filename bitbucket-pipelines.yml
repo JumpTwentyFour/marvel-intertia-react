@@ -43,6 +43,7 @@ pipelines:
               - composer install
               - echo MARVEL_PUBLIC_API_KEY=$MARVEL_PUBLIC_API_KEY >> .env.pipeline
               - echo MARVEL_PRIVATE_API_KEY=$MARVEL_PRIVATE_API_KEY >> .env.pipeline
+              - cat .env.pipeline
               - cp .env.pipeline .env
               - php artisan key:generate
               - composer run lint
