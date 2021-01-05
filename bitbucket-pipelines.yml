@@ -41,9 +41,7 @@ pipelines:
               - docker-php-ext-install zip
               - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
               - composer install
-              - echo MARVEL_PUBLIC_API_KEY=${MARVEL_PUBLIC_API_KEY} >> .env.pipeline
-              - echo MARVEL_PRIVATE_API_KEY=${MARVEL_PRIVATE_API_KEY} >> .env.pipeline
-              - cp .env.pipeline .env
+              - cp .env.example .env
               - php artisan key:generate
               - composer run lint
               - composer run phpcs
