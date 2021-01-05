@@ -5,12 +5,16 @@ const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
     <div className='site-wrapper'>
       <header>
-        <nav>
+        <div className='container'>
           <Navigation />
-        </nav>
+        </div>
       </header>
       <main>
-        <section>{children}</section>
+        <section>
+          <div className='container'>
+            {children}
+          </div>
+        </section>
       </main>
     </div>
   )

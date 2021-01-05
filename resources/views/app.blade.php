@@ -14,7 +14,7 @@
 
 </head>
 <body class="antialiased">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="site">
     @inertia
 </div>
 </body>
