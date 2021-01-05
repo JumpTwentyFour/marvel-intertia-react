@@ -2,6 +2,6 @@ FROM node:15.5.0-buster
 
 WORKDIR /var/www/vhost
 
-RUN npm install
+RUN rm -rf node_modules
 
-CMD ["npm", "run", "watch"]
+CMD ["npm", "install", "npm", "run", "watch"]

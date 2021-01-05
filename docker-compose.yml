@@ -35,7 +35,7 @@ services:
     environment:
       - NODE_ENV=development
     volumes:
-      - ./:/var/www/vhost/:cached
+      - ./:/var/www/vhost
     working_dir: /var/www/vhost
     networks:
       - docker_network
