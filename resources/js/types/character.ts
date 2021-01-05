@@ -3,6 +3,8 @@ import faker from 'faker'
 import { ComicsListType } from './list/comicslisttype'
 import { SeriesListType } from './list/serieslisttype'
 import { StoriesListType } from './list/storieslisttype'
+import { EventListType } from './list/eventlisttype'
+import { UrlType } from './urltype'
 
 export type CharacterType = {
   id: number
@@ -13,8 +15,8 @@ export type CharacterType = {
   comics?: Array<ComicsListType>
   series?: Array<SeriesListType>
   stories?: Array<StoriesListType>
-  events?: Array<string>
-  urls?: Array<string>
+  events?: Array<EventListType>
+  urls?: Array<UrlType>
 }
 
 export const characterTypeMock = Factory.Sync.makeFactory<CharacterType>({
