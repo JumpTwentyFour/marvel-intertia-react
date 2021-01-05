@@ -1,4 +1,5 @@
 const mix = require('laravel-mix')
+const path = require('path')
 
 /*
  |--------------------------------------------------------------------------
@@ -17,5 +18,8 @@ mix
   .options({
     processCssUrls: false,
     postCss: [require('tailwindcss')],
+  })
+  .alias({
+    ziggy: path.resolve('vendor/tightenco/ziggy/dist'),
   })
   .version()

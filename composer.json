@@ -16,7 +16,8 @@
         "inertiajs/inertia-laravel": "^0.3.5",
         "laravel/framework": "^8.1",
         "laravel/helpers": "^1.2",
-        "mad-web/laravel-initializer": "^3.0"
+        "mad-web/laravel-initializer": "^3.0",
+        "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9.0",
