@@ -30,7 +30,8 @@ services:
       - docker_network
   node:
     build:
-      context: ./.docker/node
+      context: .
+      dockerfile: .docker/node/Dockerfile
     container_name: marvel_node
     environment:
       - NODE_ENV=development
