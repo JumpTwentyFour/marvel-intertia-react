@@ -1,18 +1,20 @@
 import React, { FC, ReactElement } from 'react'
 import { InertiaLink } from '@inertiajs/inertia-react'
+import route from 'ziggy'
+import { Ziggy } from '../../ziggy'
 
 const Navigation: FC = (): ReactElement => {
   return (
     <nav>
       <ul className='flex'>
         <li className='flex-1 justify-center'>
-          <InertiaLink href='/'>Home</InertiaLink>
+          <InertiaLink href={route('characters.list-all', undefined, undefined, Ziggy)}>Home</InertiaLink>
         </li>
         <li className='flex-1'>
-          <InertiaLink href='/characters'>Characters</InertiaLink>
+          <InertiaLink href={route('characters.list-all', undefined, undefined, Ziggy)}>Characters</InertiaLink>
         </li>
         <li className='flex-1'>
-          <InertiaLink href='/assemble'>Assemble</InertiaLink>
+          <InertiaLink href={route('characters.list-all', undefined, undefined, Ziggy)}>Assemble</InertiaLink>
         </li>
       </ul>
     </nav>
