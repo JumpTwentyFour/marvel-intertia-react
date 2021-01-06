@@ -8,13 +8,19 @@ const Navigation: FC = (): ReactElement => {
     <nav>
       <ul className='flex'>
         <li className='flex-1 justify-center'>
-          <InertiaLink href={route('characters.list-all', undefined, undefined, Ziggy)}>Home</InertiaLink>
+          <InertiaLink href={route('/home', undefined, undefined, Ziggy)}>
+            Home
+          </InertiaLink>
         </li>
         <li className='flex-1'>
-          <InertiaLink href={route('characters.list-all', undefined, undefined, Ziggy)}>Characters</InertiaLink>
+          <InertiaLink
+            href={route('characters.list-all', undefined, undefined, Ziggy)}
+          >
+            Characters
+          </InertiaLink>
         </li>
         <li className='flex-1'>
-          <InertiaLink href={route('characters.list-all', undefined, undefined, Ziggy)}>Assemble</InertiaLink>
+          <InertiaLink href='/assemble'>Assemble</InertiaLink>
         </li>
       </ul>
     </nav>
