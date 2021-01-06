@@ -13,13 +13,160 @@ Documentation: https://inertiajs.com/
 Start Docker.
 
 ```
-docker-compose up --build
+$ docker-compose up --build
 ```
 
-Install PHP dependencies using composer
+This command will bring up Nginx and PHP containers that remain running to handle requests.
+
+It will also launch a node container that will start, install our dependencies with `npm install`, and then shutdown.
+
+We now need to install our PHP dependencies using composer:
 
 ```
-docker exec -it marvel_php sh -c "composer run project-install-local"
+$ docker-compose exec php composer run project-install-local
+```
+
+If your `.env` file doesn't exist, this will copy the `.env.example` file, and then install your PHP dependencies using composer.
+
+It will then generate an `APP_KEY` using artisan.
+
+
+---
+
+
+## Commands
+
+These are using `docker-compose exec SERVICE_NAME` not `docker exec CONTAINER_NAME`, this is intentional.
+
+You will notice that the Node commands use `docker-compose run --rm SERVICE_NAME`, this is because the node container isn't running, so it launches it first.
+
+You can run multiple commands at the same time, for example, you could run the command for `npm run watch` in one tab, and then the command for `npm run lint` in another tab, and it will just launch another container to run that command, and then shut it down when the command finishes running.
+
+As with any other command, you can hit `ctrl` + `c` to exit and kill the container.
+
+
+---
+
+
+### PHP
+
+```
+$ docker-compose exec php COMMAND
+```
+
+
+#### Commands:
+
+##### composer install
+
+```
+$ docker-compose exec php composer install
+```
+
+##### composer update
+
+```
+$ docker-compose exec php composer update
+```
+
+##### composer require vendor/package
+
+```
+$ docker-compose exec php composer require guzzlehttp/guzzle
+```
+
+##### composer remove vendor/package
+
+```
+$ docker-compose exec php composer remove guzzlehttp/guzzle
+```
+
+
+#### Composer Scripts:
+
+##### composer run lint
+
+```
+$ docker-compose exec php composer run lint
+```
+
+
+#### Artisan Commands:
+
+##### php artisan help
+
+```
+$ docker-compose exec php php artisan help
+```
+
+
+---
+
+
+### Node
+
+```
+$ docker-compose run --rm node COMMAND
+```
+
+
+#### Commands:
+
+##### npm install
+
+```
+$ docker-compose run --rm node npm install
+```
+
+##### npm update
+
+```
+$ docker-compose run --rm node npm update
+```
+
+##### npm audit
+
+```
+$ docker-compose run --rm node npm audit
+```
+
+##### npm install PACKAGE
+
+```
+$ docker-compose run --rm node npm install left-pad
+```
+
+##### npm remove PACKAGE
+
+```
+$ docker-compose run --rm node npm remove left-pad
+```
+
+
+#### NPM Scripts:
+
+##### npm run dev
+
+```
+$ docker-compose run --rm node npm run dev
+```
+
+##### npm run watch
+
+```
+$ docker-compose run --rm node npm run watch
+```
+
+##### npm run hot
+
+```
+$ docker-compose run --rm node npm run hot
+```
+
+##### npm run test
+
+```
+$ docker-compose run --rm node npm run test
 ```
 
 
