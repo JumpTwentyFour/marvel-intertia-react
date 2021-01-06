@@ -19,7 +19,12 @@ module.exports = {
       'blue': '#090228',
       'pink': '#340432',
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        '3xl': '0px 10px 30px -10px rgba(0, 0, 0, 0.5)',
+        '4xl': '0px 25px 35px -25px rgba(0, 0, 0, 1)',
+      },
+    },
   },
   variants: {
     extend: {},
