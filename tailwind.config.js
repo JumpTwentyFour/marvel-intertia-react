@@ -15,14 +15,14 @@ module.exports = {
       gray: colors.trueGray,
       indigo: colors.indigo,
       purple: colors.violet,
+      pink: colors.pink,
       red: colors.rose,
       'blue': '#090228',
-      'pink': '#340432',
     },
     extend: {
       boxShadow: {
         '3xl': '0px 10px 30px -10px rgba(0, 0, 0, 0.5)',
-        '4xl': '0px 25px 35px -25px rgba(0, 0, 0, 1)',
+        '4xl': '0px 35px 35px -25px rgba(0, 0, 0, 0.8)',
       },
     },
   },

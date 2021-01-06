@@ -3,7 +3,7 @@ import { InertiaLink } from '@inertiajs/inertia-react'
 
 const Navigation: FC = (): ReactElement => {
   return (
-    <nav className='col-span-12'>
+    <nav className='col-span-6 md:col-span-12'>
       <ul className='site-menu flex justify-center items-center'>
         <li className='site-menu__item'>
           <InertiaLink href='/' className='site-menu__link'>

@@ -14,9 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
       <main className='py-14'>
         <section>
           <div className='container'>
-            <div className='content'>
-              {children}
-            </div>
+            <div className='content'>{children}</div>
           </div>
         </section>
       </main>

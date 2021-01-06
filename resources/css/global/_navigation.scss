@@ -1,5 +1,7 @@
 .site-menu__item {
-  @apply mx-8;
+  @apply mx-3
+    sm:mx-5
+    md:mx-8;
 }
 
 .site-menu__link {
