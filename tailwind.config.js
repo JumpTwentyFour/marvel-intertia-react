@@ -53,7 +53,6 @@ module.exports = {
     container: false,
     float: false,
     clear: false,
-    objectFit: false,
     objectPosition: false,
     fontVariantNumeric: false,
     placeholderColor: false,
