@@ -69,13 +69,13 @@ $ docker-compose exec php composer install
 $ docker-compose exec php composer update
 ```
 
-##### composer require vendor/package
+##### composer require PACKAGE
 
 ```
 $ docker-compose exec php composer require guzzlehttp/guzzle
 ```
 
-##### composer remove vendor/package
+##### composer remove PACKAGE
 
 ```
 $ docker-compose exec php composer remove guzzlehttp/guzzle
@@ -93,10 +93,10 @@ $ docker-compose exec php composer run lint
 
 #### Artisan Commands:
 
-##### php artisan help
+##### php artisan COMMAND
 
 ```
-$ docker-compose exec php php artisan help
+$ docker-compose exec php php artisan list
 ```
 
 
