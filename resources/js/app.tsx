@@ -4,7 +4,9 @@ import { render } from 'react-dom'
 
 const app = document.getElementById('app')
 
-const initialPageLoaded = app ? JSON.parse(app.dataset.page!) : '{}'
+const initialPageLoaded = app?.dataset?.page
+  ? JSON.parse(app.dataset.page)
+  : '{}'
 
 render(
   <InertiaApp

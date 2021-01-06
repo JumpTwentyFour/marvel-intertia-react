@@ -6,20 +6,13 @@ describe('<CharacterCard />', () => {
   test('Should display All Character Elements', async () => {
     const { getByText } = render(
       <CharacterCard
-        id={}
-        name={}
-        description={}
-        thumbnail={}
-        resourceURI={}
-        comics={}
-        series={}
-        stories={}
-        events={}
-        urls={}
+        id={123}
+        name='test name'
+        description='test'
+        thumbnail={{ path: '2213', extension: 'jpg' }}
       />,
     )
-    const link = getByText(/Assemble/)
-
+    const link = getByText(/test name/)
     expect(link).toBeInTheDocument()
   })
 })
