@@ -7,10 +7,10 @@ const Navigation: FC = (): ReactElement => {
     <nav>
       <ul className='flex'>
         <li className='flex-1 justify-center'>
-          <InertiaLink href={route('home').toString()}>Home</InertiaLink>
+          <InertiaLink href={route('home').url()}>Home</InertiaLink>
         </li>
         <li className='flex-1'>
-          <InertiaLink href={route('characters.list-all').toString()}>
+          <InertiaLink href={route('characters.list-all').url()}>
             Characters
           </InertiaLink>
         </li>
