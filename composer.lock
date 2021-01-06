@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "208d86072a5e7ba16bf50073f7dfedd3",
+    "content-hash": "b52c7bc3277ed14025613836322133ba",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1099,10 +1099,6 @@
                 "framework",
                 "laravel"
             ],
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
             "time": "2020-12-22T21:21:19+00:00"
         },
         {
@@ -5650,6 +5646,76 @@
             "time": "2020-12-15T11:41:54+00:00"
         },
         {
+            "name": "claudiodekker/inertia-laravel-testing",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/claudiodekker/inertia-laravel-testing.git",
+                "reference": "ff97339f43d85a33df70ab0d2dd58852118f2a3d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/claudiodekker/inertia-laravel-testing/zipball/ff97339f43d85a33df70ab0d2dd58852118f2a3d",
+                "reference": "ff97339f43d85a33df70ab0d2dd58852118f2a3d",
+                "shasum": ""
+            },
+            "require": {
+                "inertiajs/inertia-laravel": "^v0.3",
+                "laravel/framework": "^6.0|^7.0|^8.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ClaudioDekker\\Inertia\\InertiaTestingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ClaudioDekker\\Inertia\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Claudio Dekker",
+                    "email": "claudio@ubient.net",
+                    "homepage": "https://dekker.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Testing helpers for https://github.com/inertiajs/inertia-laravel",
+            "homepage": "https://github.com/claudiodekker/inertia-laravel-testing",
+            "keywords": [
+                "claudiodekker",
+                "helpers",
+                "inertia",
+                "laravel",
+                "phpunit",
+                "testing"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/claudiodekker",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/reinink",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T13:46:59+00:00"
+        },
+        {
             "name": "composer/ca-bundle",
             "version": "1.2.8",
             "source": {
@@ -7671,10 +7737,6 @@
                 "php",
                 "symfony"
             ],
-            "support": {
-                "issues": "https://github.com/nunomaduro/collision/issues",
-                "source": "https://github.com/nunomaduro/collision"
-            },
             "funding": [
                 {
                     "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L",
@@ -7764,10 +7826,6 @@
                 "php",
                 "static analysis"
             ],
-            "support": {
-                "issues": "https://github.com/nunomaduro/larastan/issues",
-                "source": "https://github.com/nunomaduro/larastan/tree/v0.6.12"
-            },
             "funding": [
                 {
                     "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L",
@@ -9388,10 +9446,6 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "support": {
-                "issues": "https://github.com/Roave/SecurityAdvisories/issues",
-                "source": "https://github.com/Roave/SecurityAdvisories/tree/latest"
-            },
             "funding": [
                 {
                     "url": "https://github.com/Ocramius",
@@ -11273,5 +11327,5 @@
         "php": ">=8"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }
