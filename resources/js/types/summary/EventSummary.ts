@@ -1,12 +1,12 @@
 import * as Factory from 'factory.ts'
 import faker from 'faker'
 
-export type StorySummaryType = {
+export type EventSummary = {
   resourceURI?: string
   name?: string
 }
 
-export const StorySummaryTypeMock = Factory.Sync.makeFactory<StorySummaryType>({
+export const EventSummaryTypeMock = Factory.Sync.makeFactory<EventSummary>({
   name: faker.name.firstName(),
   resourceURI: faker.internet.url(),
 })

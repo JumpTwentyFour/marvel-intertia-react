@@ -12,6 +12,9 @@ const Navigation: FC = (): ReactElement => {
           <InertiaLink href='/characters'>Characters</InertiaLink>
         </li>
         <li className='flex-1'>
+          <InertiaLink href='/comics'>Comics</InertiaLink>
+        </li>
+        <li className='flex-1'>
           <InertiaLink href='/assemble'>Assemble</InertiaLink>
         </li>
       </ul>

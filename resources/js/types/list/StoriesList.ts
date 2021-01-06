@@ -1,15 +1,15 @@
 import * as Factory from 'factory.ts'
 import faker from 'faker'
-import { EventSummaryType } from '../summary/eventsummarytype'
+import { StorySummary } from '../summary/StorySummary'
 
-export type EventListType = {
+export type StoriesList = {
   available: number
   collectionURI: string
   returned: number
-  items: Array<EventSummaryType>
+  items: Array<StorySummary>
 }
 
-export const EventListTypeMock = Factory.Sync.makeFactory<EventListType>({
+export const StoriesListTypeMock = Factory.Sync.makeFactory<StoriesList>({
   available: faker.random.number(1),
   collectionURI: faker.internet.url(),
   returned: faker.random.number(1),

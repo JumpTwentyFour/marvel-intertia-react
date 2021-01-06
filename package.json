@@ -16,11 +16,7 @@
         "tsc": "tsc --noEmit",
         "stylelint": "stylelint resources/css/**/*.scss"
     },
-    "pre-commit": [
-        "lint",
-        "tsc",
-        "stylelint"
-    ],
+    "pre-commit": [],
     "dependencies": {
         "@babel/runtime": "^7.8.4",
         "@inertiajs/inertia": "^0.8.2",

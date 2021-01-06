@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { shallow } from 'enzyme'
 import CharacterList from '../../Components/CharacterList'
-import { characterTypeMock } from '../../types/character'
+import { characterTypeMock } from '../../mocks/character'
 
 describe('<CharacterList />', () => {
   test('Will display no characters found when no characters are returned', async () => {
