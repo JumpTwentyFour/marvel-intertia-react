@@ -13,7 +13,7 @@ Documentation: https://inertiajs.com/
 Start Docker.
 
 ```
-$ docker-compose up --build
+$ docker-compose up --build -d
 ```
 
 This command will bring up Nginx and PHP containers that remain running to handle requests.
