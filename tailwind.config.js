@@ -16,14 +16,36 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       red: colors.rose,
+      'blue': '#090228',
+      'pink': '#340432',
     },
     extend: {},
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    ({ addComponents, theme }) => {
+      addComponents({
+        '.container': {
+          marginInline: 'auto',
+          paddingInline: theme('spacing.5'),
+          maxWidth: '100%',
+          '@screen md': {
+            paddingInline: theme('spacing.8'),
+          },
+          '@screen lg': {
+            paddingInline: theme('spacing.10'),
+          },
+          '@screen 2xl': {
+            maxWidth: theme('screens.2xl'),
+          },
+        },
+      })
+    },
+  ],
   corePlugins: {
+    container: false,
     float: false,
     clear: false,
     objectFit: false,

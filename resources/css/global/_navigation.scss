@@ -1,0 +1,27 @@
+.site-menu__item {
+  @apply mx-8;
+}
+
+.site-menu__link {
+  @apply flex
+    uppercase
+    text-xs
+    font-medium
+    relative
+    pb-7;
+}
+
+.site-menu__link:before {
+  @apply absolute
+    w-full
+    h-0
+    bg-white
+    bg-opacity-20
+    left-0
+    bottom-0;
+  content: '';
+}
+
+.site-menu__link--active:before {
+  @apply h-0.5;
+}

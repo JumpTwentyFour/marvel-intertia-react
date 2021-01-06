@@ -4,7 +4,7 @@ import { CharacterType } from '../types/character'
 const CharacterCard = (props: CharacterType): JSX.Element => {
   const characterImageUrl = `${props.thumbnail.path}.${props.thumbnail.extension}`
   return (
-    <div>
+    <div className='card col-span-4 mb-10 bg-blue'>
       <h3>{props.name}</h3>
       <img src={characterImageUrl} alt={props.name} />
       <p>{props.description}</p>

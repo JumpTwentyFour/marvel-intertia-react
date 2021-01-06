@@ -1,0 +1,9 @@
+.header-link {
+  @apply flex
+    uppercase
+    text-xs
+    font-medium
+    relative
+    self-end
+    text-opacity-50;
+}
