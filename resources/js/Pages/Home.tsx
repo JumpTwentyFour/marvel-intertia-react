@@ -17,7 +17,7 @@ Home.displayName = 'Home'
 Home.layout = (page: JSX.Element): JSX.Element => {
   return (
     <Layout>
-      <header className='col-span-6 md:col-span-12 border-b border-solid border-gray-200 border-opacity-10 pb-2.5 mb-10 flex items-center'>
+      <header className='col-span-6 md:col-span-12 border-b border-solid border-gray-200 border-opacity-10 pb-2.5 mb-5 md:mb-8 xl:mb-10 flex items-center'>
         <h1 className='header-title text-3xl md:text-5xl font-semibold flex-grow'>
           Featured Characters
         </h1>

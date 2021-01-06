@@ -2,7 +2,7 @@ body {
   @apply font-body
     text-white
     bg-no-repeat;
-  background-image: linear-gradient(-325deg, #090228 0%, #340432 100%);
+  background-image: linear-gradient(93deg, #090228 0%, #340432 100%);
 }
 
 .container {
@@ -12,8 +12,8 @@ body {
 .content {
   @apply grid
     grid-cols-6
-    gap-x-5
-    md:gap-x-8
+    gap-5
+    md:gap-8
     md:grid-cols-12
-    lg:gap-x-10;
+    lg:gap-10;
 }
