@@ -1,12 +1,13 @@
-import { ComicsType } from './comics'
+import { ComicType } from './comic'
+import { Thumbnail } from './thumbnail'
 
 export type CharacterType = {
   id: number
   name: string
   description: string
-  thumbnail: Record<'path' | 'extension', string>
+  thumbnail: Thumbnail
   resourceURI?: string
-  comics?: Array<ComicsType>
+  comics?: Array<ComicType>
   series?: Array<string>
   stories?: Array<string>
   events?: Array<string>
