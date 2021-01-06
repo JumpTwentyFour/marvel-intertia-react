@@ -160,7 +160,7 @@ $ docker-compose run --rm node npm run watch
 ##### npm run hot
 
 ```
-$ docker-compose run --rm node npm run hot
+$ docker-compose run -p 8080:8080 --rm node npm run hot
 ```
 
 ##### npm run test
