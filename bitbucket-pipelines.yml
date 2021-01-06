@@ -19,12 +19,6 @@ pipelines:
             caches:
               - composer
             script:
-              - printenv
-              - echo $MARVEL_PUBLIC_API_KEY
-              - export MARVEL_PUBLIC_API_KEY=$MARVEL_PUBLIC_API_KEY
-              - echo $MARVEL_PRIVATE_API_KEY
-              - export MARVEL_PRIVATE_API_KEY=$MARVEL_PRIVATE_API_KEY
-              - printenv
               - apt-get clean
               - apt-get update
               - apt-get upgrade -y
