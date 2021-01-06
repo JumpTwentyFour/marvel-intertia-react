@@ -25,7 +25,7 @@ services:
     volumes:
       - ./:/var/www/vhost/:cached
     ports:
-      - '9003:9000'
+      - '9000:9000'
     networks:
       - docker_network
   node:
