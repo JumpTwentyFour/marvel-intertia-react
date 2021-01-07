@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+| Run `php artisan ziggy:generate` when you update routes.
+|
 */
 
 Route::get('/', [HomeController::class, '__invoke'])->name('home');

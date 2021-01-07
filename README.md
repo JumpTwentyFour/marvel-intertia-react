@@ -30,6 +30,15 @@ If your `.env` file doesn't exist, this will copy the `.env.example` file, and t
 
 It will then generate an `APP_KEY` using artisan.
 
+You will need to get API keys for the Marvel API, they are saved in 1Password, or you can generate new ones here:
+https://developer.marvel.com/account
+
+You will need to set these variables in your `.env` file:
+
+```
+MARVEL_PUBLIC_API_KEY=
+MARVEL_PRIVATE_API_KEY=
+```
 
 ---
 
@@ -84,10 +93,16 @@ $ docker-compose exec php composer remove guzzlehttp/guzzle
 
 #### Composer Scripts:
 
-##### composer run lint
+##### PHP Linter
 
 ```
 $ docker-compose exec php composer run lint
+```
+
+##### PHP Tests
+
+```
+$ docker-compose exec php composer run test
 ```
 
 
@@ -97,6 +112,12 @@ $ docker-compose exec php composer run lint
 
 ```
 $ docker-compose exec php php artisan list
+```
+
+##### Re-generate Ziggy Routes
+
+```
+$ docker-compose exec php php artisan ziggy:generate
 ```
 
 
@@ -145,25 +166,29 @@ $ docker-compose run --rm node npm remove left-pad
 
 #### NPM Scripts:
 
-##### npm run dev
+##### Build Development Dependencies
 
 ```
 $ docker-compose run --rm node npm run dev
 ```
 
-##### npm run watch
+##### Build Development Dependencies and watch files to trigger a rebuild
 
 ```
 $ docker-compose run --rm node npm run watch
 ```
 
-##### npm run hot
+##### Build Development Dependencies, watch files to trigger a rebuild and automatically update the browser using Webpack Hot Module Replacement.
+
+This only works when you load the site over `http://localhost` not `https://localhost` due to websockets connecting over `ws://` and not `wss://`.
+
+We have had to open port `8080` on the Docker container for the `webpack-dev-server` to be accessible. It is in the command below.
 
 ```
 $ docker-compose run -p 8080:8080 --rm node npm run hot
 ```
 
-##### npm run test
+##### Run Tests using Jest
 
 ```
 $ docker-compose run --rm node npm run test
@@ -173,8 +198,11 @@ $ docker-compose run --rm node npm run test
 ---
 
 
-## Marvel API
+## Links
 
-Documentation: https://developer.marvel.com/docs
+Laravel Documentation:
 
-If you need to generate keys for the Marvel API: https://developer.marvel.com/account
+Inertia.js Documentation:
+
+Marvel API Documentation: https://developer.marvel.com/docs
+
