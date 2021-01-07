@@ -1,5 +1,6 @@
 import React from 'react'
 import { Inertia } from '@inertiajs/inertia'
+import route from 'ziggy-js'
 import Layout from '../Layout'
 import { ComicType } from '../types/comic'
 import ComicList from '../Components/ComicList'
@@ -11,7 +12,10 @@ type ComicsProps = {
 
 const Comics = (props: ComicsProps): JSX.Element => {
   const handleChange = (term: string): void => {
-    Inertia.visit('/comics', { data: { title: term }, preserveState: true })
+    Inertia.visit(route('comics.list-all').toString(), {
+      data: { title: term },
+      preserveState: true,
+    })
   }
 
   const params = new URLSearchParams(window.location.search)
