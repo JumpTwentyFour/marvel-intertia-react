@@ -8,7 +8,7 @@ type ComicsProps = {
 }
 
 const Comics = (props: ComicsProps): JSX.Element => {
-  return <ComicList comics={props.comics.data}/>
+  return <ComicList comics={props.comics.data} />
 }
 
 Comics.displayName = 'Comics'
