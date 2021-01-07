@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { shallow } from 'enzyme'
 import ComicList from '../../Components/ComicList'
+import { comicTypeMock } from '../../mocks/comic'
 
 describe('<ComicList />', () => {
   test('Will display no comics found when no comics are returned', async () => {
@@ -18,18 +19,7 @@ describe('<ComicList />', () => {
   })
 
   test('Will render comic card component when comics exist in the list', async () => {
-    const wrapper = shallow(
-      <ComicList
-        comics={[
-          {
-            id: 1,
-            title: 'Official Handbook of the Marvel Universe',
-            description: 'Test',
-            thumbnail: { path: '', extension: '' },
-          },
-        ]}
-      />,
-    )
+    const wrapper = shallow(<ComicList comics={[comicTypeMock.build()]} />)
     expect(wrapper.find('ComicCard')).toHaveLength(1)
   })
 })
