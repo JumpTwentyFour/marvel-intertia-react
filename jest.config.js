@@ -4,8 +4,8 @@ module.exports = {
   // `<rootDir>` is a token Jest substitutes
   roots: ['<rootDir>/resources/js'],
   displayName: {
-    name: 'Marvel',
-    color: 'red',
+    name: 'Marvel Inertia',
+    color: 'white',
   },
 
   // Jest transformations -- this adds support for TypeScript
