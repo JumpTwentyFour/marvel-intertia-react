@@ -10,6 +10,7 @@ services:
       - php
     volumes:
       - ./:/var/www/vhost/:cached
+    working_dir: /var/www/vhost/
     ports:
       - '80:80'
       - '443:443'
@@ -22,25 +23,27 @@ services:
     build: ./docker/php
     environment:
       PHP_MEMORY_LIMIT: '128M'
+      COMPOSER_MEMORY_LIMIT: '-1'
     volumes:
       - ./:/var/www/vhost/:cached
+    working_dir: /var/www/vhost/
     ports:
       - '9000:9000'
     networks:
       - docker_network
+
   node:
-    # https://hub.docker.com/_/php
     container_name: marvel_node
-    image: node:15.5.0-buster
+    image: "node:15"
+    user: "node"
     environment:
       - NODE_ENV=development
     volumes:
       - ./:/var/www/vhost/:cached
-    working_dir: /var/www/vhost
-    entrypoint: "npm"
-    command: ["install"]
+    working_dir: /var/www/vhost/
     networks:
       - docker_network
+    command: "npm install"
 
 networks:
   docker_network:

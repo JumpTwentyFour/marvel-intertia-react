@@ -1,4 +1,4 @@
-const mix = require('laravel-mix')
+const mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,10 +12,23 @@ const mix = require('laravel-mix')
  */
 
 mix
+  .webpackConfig({
+    devServer: {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
+      host: '0.0.0.0',
+      port: 8080,
+    }
+  })
+  .options({
+    hmrOptions: {
+      host: '127.0.0.1',
+      port: '8080'
+    },
+    postCss: [require('tailwindcss')],
+    processCssUrls: false,
+  })
   .ts('resources/js/app.tsx', 'public/js')
   .sass('resources/css/app.scss', 'public/css')
-  .options({
-    processCssUrls: false,
-    postCss: [require('tailwindcss')],
-  })
-  .version()
+  .version();
