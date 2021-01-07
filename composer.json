@@ -62,7 +62,7 @@
     },
     "scripts": {
         "project-install": [
-            "cp .env.example .env",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@composer install"
         ],
         "post-root-package-install": [
