@@ -93,7 +93,5 @@ class ComicTest extends TestCase
                     $this->assertStringContainsString('Marvel', $comic['title']);
                 }
             });
-
-
     }
 }
