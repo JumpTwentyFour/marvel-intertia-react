@@ -30,17 +30,15 @@ class ShowComic extends Controller
             abort(404, 'We couldn\'t find that comic');
         }
 
-        $comic = [
-            'id' => $comic->id,
-            'title' => $comic->title,
-            'description' => $comic->description ?? '',
-            'thumbnail' => $comic->thumbnail,
-        ];
-
         return Inertia::render(
             'ShowComicPage',
             [
-                'comic' => $comic,
+                'comic' => [
+                    'id' => $comic->id,
+                    'title' => $comic->title,
+                    'description' => $comic->description ?? '',
+                    'thumbnail' => $comic->thumbnail
+                ]
             ]
         )->withViewData(['meta' => $comic->description ?? 'A marvel comic.']);
     }
