@@ -16,7 +16,7 @@ class AssembleCharacters extends Controller
         $characters = $characterClient->assemble();
 
         return Inertia::render(
-            'Characters',
+            'Assemble',
             [
                 'characters' => new CharactersResourceCollection($characters),
             ]
