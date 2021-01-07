@@ -9,6 +9,7 @@
         @endif
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <script src="{{ mix('js/app.js') }}" defer></script>
+        @routes
     </head>
     <body class="antialiased">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
