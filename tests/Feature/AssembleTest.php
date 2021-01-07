@@ -11,10 +11,9 @@ class AssembleTest extends TestCase
     {
         $response = $this->get('/assemble');
         $response->assertInertia();
+
         $response->assertStatus(Response::HTTP_OK);
         $response->assertHasProp('characters');
         $response->assertPropCount('characters.data', 7);
-        $props = $response->inertiaProps();
-        dd($props);
     }
 }
