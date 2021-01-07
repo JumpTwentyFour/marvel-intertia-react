@@ -10,6 +10,7 @@ services:
       - php
     volumes:
       - ./:/var/www/vhost/:cached
+    working_dir: /var/www/vhost/
     ports:
       - '80:80'
       - '443:443'
@@ -22,24 +23,27 @@ services:
     build: ./docker/php
     environment:
       PHP_MEMORY_LIMIT: '128M'
+      COMPOSER_MEMORY_LIMIT: '-1'
     volumes:
       - ./:/var/www/vhost/:cached
+    working_dir: /var/www/vhost/
     ports:
       - '9000:9000'
     networks:
       - docker_network
+
   node:
-    build:
-      context: .
-      dockerfile: .docker/node/Dockerfile
     container_name: marvel_node
+    image: "node:15"
+    user: "node"
     environment:
       - NODE_ENV=development
     volumes:
       - ./:/var/www/vhost/:cached
+    working_dir: /var/www/vhost/
     networks:
       - docker_network
-    command: /var/www/vhost/.docker/entrypoint.sh
+    command: "npm install"
 
 networks:
   docker_network:
