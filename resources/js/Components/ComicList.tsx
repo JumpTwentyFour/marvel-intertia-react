@@ -1,7 +1,6 @@
 import React from 'react'
 import { ComicType } from '../types/comic'
-import CharacterCard from './CharacterCard'
-import ComicCard from "./ComicCard";
+import ComicCard from './ComicCard'
 
 type ComicListProps = {
   comics: Array<ComicType>

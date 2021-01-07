@@ -1,8 +1,13 @@
-import React, { FC, ReactElement, useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 
-const Search: FC = (): ReactElement => {
+type SearchType = {
+  term?: string
+  handleChange?: (term: string) => void
+}
+
+const Search = (props: SearchType): ReactElement => {
   const [state, setState] = useState({
-    term: '',
+    term: props.term,
   })
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -10,6 +15,10 @@ const Search: FC = (): ReactElement => {
       ...state,
       term: event.currentTarget.value,
     })
+
+    if (props.handleChange) {
+      props.handleChange(event.currentTarget.value)
+    }
   }
 
   return (

@@ -1,18 +1,23 @@
 import React, { FC, ReactElement } from 'react'
 import { InertiaLink } from '@inertiajs/inertia-react'
+import route from 'ziggy-js'
 
 const Navigation: FC = (): ReactElement => {
   return (
     <nav>
       <ul className='flex'>
         <li className='flex-1 justify-center'>
-          <InertiaLink href='/'>Home</InertiaLink>
+          <InertiaLink href={route('home').toString()}>Home</InertiaLink>
         </li>
         <li className='flex-1'>
-          <InertiaLink href='/characters'>Characters</InertiaLink>
+          <InertiaLink href={route('characters.list-all').toString()}>
+            Characters
+          </InertiaLink>
         </li>
         <li className='flex-1'>
-          <InertiaLink href='/comics'>Comics</InertiaLink>
+          <InertiaLink href={route('comics.list-all').toString()}>
+            Comics
+          </InertiaLink>
         </li>
         <li className='flex-1'>
           <InertiaLink href='/assemble'>Assemble</InertiaLink>

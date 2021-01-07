@@ -82,4 +82,18 @@ class ComicTest extends TestCase
                 );
             });
     }
+
+    public function test_will_return_comics_by_title(): void
+    {
+        $this->get('/comics?title=Marvel')
+            ->assertStatus(Response::HTTP_OK)
+            ->assertHasProp('comics')
+            ->assertPropValue('comics.data', function ($comics) {
+                foreach($comics as $comic) {
+                    $this->assertStringContainsString('Marvel', $comic['title']);
+                }
+            });
+
+
+    }
 }
