@@ -114,6 +114,12 @@ $ docker-compose exec php composer run test
 $ docker-compose exec php php artisan list
 ```
 
+##### Clear Laravel cache
+
+```
+$ docker-compose exec php php artisan optimise:clear
+```
+
 ##### Re-generate Ziggy Routes
 
 ```
@@ -194,6 +200,19 @@ $ docker-compose run -p 8080:8080 --rm node npm run hot
 $ docker-compose run --rm node npm run test
 ```
 
+
+---
+
+
+## Troubleshooting
+
+### Ziggy is not defined
+
+You may have an issue where you get an error "Ziggy is not defined" in the browser console, you will also see `@routes` as text on the page. I think this is because your Laravel views are cached. To clear your cache, run this command:
+
+```
+$ docker-compose exec php php artisan optimise:clear
+```
 
 ---
 
