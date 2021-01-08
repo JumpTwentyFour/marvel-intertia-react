@@ -28,10 +28,23 @@ class ListAllComicsRequest extends FormRequest
 
     public function title()
     {
-        if (!$this->request->get('title')) {
+        $title = $this->request->get('title');
+
+        if (!$title) {
             return null;
         }
 
-        return trim($this->request->get('title'));
+        return trim($title);
+    }
+
+    public function page(): int
+    {
+        $page = trim($this->request->get('page'));
+
+        if (!$page && !is_numeric($page)) {
+            return 1;
+        }
+
+        return (int)$this->request->get('page');
     }
 }

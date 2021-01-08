@@ -13,7 +13,7 @@ class ListAllComics extends Controller
 {
     public function __invoke(ListAllComicsRequest $request, Comics $comicsClient): Response
     {
-        $comics = $comicsClient->index(1, 100, ['title' => $request->title()]);
+        $comics = $comicsClient->index($request->page(), 100, ['title' => $request->title()]);
 
         return Inertia::render(
             'Comics',
