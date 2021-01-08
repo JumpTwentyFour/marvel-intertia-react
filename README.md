@@ -200,9 +200,8 @@ $ docker-compose run --rm node npm run test
 
 ## Links
 
-Laravel Documentation:
+Laravel Documentation: https://laravel.com/docs/8.x/
 
-Inertia.js Documentation:
+Inertia.js Documentation: https://inertiajs.com/
 
 Marvel API Documentation: https://developer.marvel.com/docs
-
