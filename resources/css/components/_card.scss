@@ -1,0 +1,17 @@
+.card,
+.card:hover {
+  transition: all 0.6s ease-in-out;
+}
+
+.card__image {
+  padding-bottom: 100%;
+}
+
+.card__image img {
+  @apply top-0
+    left-0;
+}
+
+.card__title {
+  text-shadow: 2px 2px #9D174D;
+}

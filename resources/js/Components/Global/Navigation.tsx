@@ -4,21 +4,33 @@ import route from 'ziggy-js'
 
 const Navigation: FC = (): ReactElement => {
   return (
-    <nav>
-      <ul className='flex'>
-        <li className='flex-1 justify-center'>
-          <InertiaLink href={route('home').toString()}>Home</InertiaLink>
+    <nav className='col-span-12'>
+      <ul className='site-menu flex justify-center items-center'>
+        <li className='site-menu__item'>
+          <InertiaLink
+            href={route('home').toString()}
+            className='site-menu__link'
+          >
+            Home
+          </InertiaLink>
         </li>
-        <li className='flex-1'>
-          <InertiaLink href={route('characters.list-all').toString()}>
+        <li className='site-menu__item'>
+          <InertiaLink
+            href={route('characters.list-all').toString()}
+            className='site-menu__link'
+          >
             Characters
           </InertiaLink>
         </li>
-        <li className='flex-1'>
-          <InertiaLink href='/comics'>Comics</InertiaLink>
+        <li className='site-menu__item'>
+          <InertiaLink href='/comics' className='site-menu__link'>
+            Comics
+          </InertiaLink>
         </li>
-        <li className='flex-1'>
-          <InertiaLink href='/assemble'>Assemble</InertiaLink>
+        <li className='site-menu__item'>
+          <InertiaLink href='/assemble' className='site-menu__link'>
+            Assemble
+          </InertiaLink>
         </li>
       </ul>
     </nav>

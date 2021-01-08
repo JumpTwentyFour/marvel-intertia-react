@@ -1,0 +1,19 @@
+body {
+  @apply font-body
+    text-white
+    bg-no-repeat;
+  background-image: linear-gradient(93deg, #090228 0%, #340432 100%);
+}
+
+.container {
+  @apply w-full;
+}
+
+.content {
+  @apply grid
+    grid-cols-6
+    gap-5
+    md:gap-8
+    md:grid-cols-12
+    lg:gap-10;
+}
