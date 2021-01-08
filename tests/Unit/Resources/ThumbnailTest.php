@@ -12,13 +12,13 @@ class ThumbnailTest extends TestCase
     {
         $thumbnail = new Thumbnail([
             'path' => 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available',
-            'extension' => '.jpg'
+            'extension' => '.jpg',
         ]);
 
         $this->assertEquals(
             [
                 'path' => config('app.url') . '/images/marvel-placeholder',
-                'extension' => '.jpg'
+                'extension' => '.jpg',
             ],
             $thumbnail->toArray(new Request()),
         );

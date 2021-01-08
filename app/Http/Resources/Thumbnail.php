@@ -17,7 +17,7 @@ class Thumbnail extends JsonResource
     {
         return [
             'path' => $this->determinePath($this['path']),
-            'extension' => $this['extension']
+            'extension' => $this['extension'],
         ];
     }
 
