@@ -15,19 +15,29 @@ const Search = (props: SearchType): ReactElement => {
       ...state,
       term: event.currentTarget.value,
     })
+  }
+
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ): void => {
+    event.preventDefault()
 
     if (props.handleChange) {
-      props.handleChange(event.currentTarget.value)
+      props.handleChange(state.term ?? '')
     }
   }
 
   return (
     <div>
       <input
+        placeholder='Search...'
         value={state.term}
         aria-label='search-input'
         onChange={handleChange}
       />
+      <button aria-label='search-button' onClick={handleClick}>
+        Search
+      </button>
     </div>
   )
 }
