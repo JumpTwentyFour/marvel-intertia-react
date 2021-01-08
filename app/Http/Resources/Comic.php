@@ -18,7 +18,7 @@ class Comic extends JsonResource
             'id' => $this['id'],
             'title' => $this['title'],
             'description' => (string)$this['description'],
-            'thumbnail' => $this['thumbnail']
+            'thumbnail' => $this['thumbnail'],
         ];
     }
 }
