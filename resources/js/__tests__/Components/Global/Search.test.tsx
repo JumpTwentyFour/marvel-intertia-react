@@ -24,7 +24,7 @@ describe('<Search />', () => {
       return term
     })
 
-    const search = render(<Search handleChange={handler} term={''} />)
+    const search = render(<Search handleChange={handler} />)
     fireEvent.change(search.getByLabelText('search-input'), {
       target: { value: 'Hulk' },
     })
