@@ -1,0 +1,15 @@
+.header-title {
+  text-shadow: 2px 2px #9D174D;
+}
+
+.header-link {
+  @apply hidden
+    flex-shrink-0
+    uppercase
+    text-xs
+    font-medium
+    relative
+    self-end
+    text-opacity-50
+    md:flex;
+}
