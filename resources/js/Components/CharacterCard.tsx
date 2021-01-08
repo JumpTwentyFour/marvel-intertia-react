@@ -1,4 +1,5 @@
 import React from 'react'
+import { truncate } from '../helpers/truncate'
 import { CharacterType } from '../types/character'
 
 const CharacterCard = (props: CharacterType): JSX.Element => {
@@ -14,7 +15,7 @@ const CharacterCard = (props: CharacterType): JSX.Element => {
       </div>
       <div className='card__details flex flex-col p-5 md:p-8 lg:p-10'>
         <h3 className='card__title text-3xl font-semibold'>{props.name}</h3>
-        <p>{props.description}</p>
+        <p className='mt-6'>{truncate(props.description, 120)}</p>
       </div>
     </div>
   )

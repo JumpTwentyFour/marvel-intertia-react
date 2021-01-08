@@ -7,6 +7,10 @@
   padding-bottom: 100%;
 }
 
+.card__image--comic {
+  @apply pb-0;
+}
+
 .card__image img {
   @apply top-0
     left-0;
