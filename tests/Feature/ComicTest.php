@@ -32,7 +32,7 @@ class ComicTest extends TestCase
             ->assertStatus(Response::HTTP_OK)
             ->assertHasProp('comics')
             ->assertPropValue('comics.data', function ($comics) {
-                foreach($comics as $comic) {
+                foreach ($comics as $comic) {
                     $this->assertStringContainsString('Marvel', $comic['title']);
                 }
             });
