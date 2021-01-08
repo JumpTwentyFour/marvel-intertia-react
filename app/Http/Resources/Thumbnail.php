@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Str;
 
-class Comic extends JsonResource
+class Thumbnail extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +16,13 @@ class Comic extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this['id'],
-            'title' => $this['title'],
-            'description' => (string)$this['description'],
-            'thumbnail' => new Thumbnail($this['thumbnail']),
+            'path' => $this->determinePath($this['path']),
+            'extension' => $this['extension']
         ];
+    }
+
+    private function determinePath(string $path): string
+    {
+        return Str::contains($path, 'image_not_available') ? asset('images/marvel-placeholder') : $path;
     }
 }
