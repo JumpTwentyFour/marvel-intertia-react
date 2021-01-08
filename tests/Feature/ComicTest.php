@@ -17,68 +17,11 @@ class ComicTest extends TestCase
                 $this->assertEquals(
                     [
                         'id',
-                        'digitalId',
                         'title',
-                        'issueNumber',
-                        'variantDescription',
                         'description',
-                        'modified',
-                        'isbn',
-                        'upc',
-                        'diamondCode',
-                        'ean',
-                        'issn',
-                        'format',
-                        'pageCount',
-                        'textObjects',
-                        'resourceURI',
-                        'urls',
-                        'series',
-                        'variants',
-                        'collections',
-                        'collectedIssues',
-                        'dates',
-                        'prices',
                         'thumbnail',
-                        'images',
-                        'creators',
-                        'characters',
-                        'stories',
-                        'events',
                     ],
                     array_keys($comics[0])
-                );
-
-                $this->assertEquals(['type', 'url'], array_keys($comics[0]['urls'][0]));
-
-                $this->assertEquals(['resourceURI', 'name'], array_keys($comics[0]['series']));
-
-                $this->assertEquals(['resourceURI', 'name'], array_keys($comics[0]['variants'][0]));
-
-                $this->assertEquals(['type', 'date'], array_keys($comics[0]['dates'][0]));
-
-                $this->assertEquals(['type', 'price'], array_keys($comics[0]['prices'][0]));
-
-                $this->assertEquals(['path', 'extension'], array_keys($comics[0]['thumbnail']));
-
-                $this->assertEquals(
-                    ['available', 'collectionURI', 'items', 'returned'],
-                    array_keys($comics[0]['creators'])
-                );
-
-                $this->assertEquals(
-                    ['available', 'collectionURI', 'items', 'returned'],
-                    array_keys($comics[0]['characters'])
-                );
-
-                $this->assertEquals(
-                    ['available', 'collectionURI', 'items', 'returned'],
-                    array_keys($comics[0]['stories'])
-                );
-
-                $this->assertEquals(
-                    ['available', 'collectionURI', 'items', 'returned'],
-                    array_keys($comics[0]['events'])
                 );
             });
     }
