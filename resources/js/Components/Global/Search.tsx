@@ -17,6 +17,14 @@ const Search = (props: SearchType): ReactElement => {
     })
   }
 
+  const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+    if (event.key === 'Enter') {
+      if (props.handleChange) {
+        props.handleChange(event.currentTarget.value)
+      }
+    }
+  }
+
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): void => {
@@ -33,6 +41,7 @@ const Search = (props: SearchType): ReactElement => {
         placeholder='Search...'
         value={state.term}
         aria-label='search-input'
+        onKeyDown={handleEnter}
         onChange={handleChange}
       />
       <button aria-label='search-button' onClick={handleClick}>
