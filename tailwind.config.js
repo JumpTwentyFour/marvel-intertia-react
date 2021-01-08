@@ -1,12 +1,77 @@
 // tailwind.config.js
+const colors = require('tailwindcss/colors')
 module.exports = {
-    purge: ['./resources/**/*.blade.php', './resources/**/*.js', './resources/**/*.vue'],
-    darkMode: false, // or 'media' or 'class'
-    theme: {
-        extend: {},
+  purge: ['./resources/**/*.blade.php', './resources/**/*.js', './resources/**/*.vue'],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    fontFamily: {
+      'body': ['Montserrat', 'Helvetica', 'sans-serif'],
     },
-    variants: {
-        extend: {},
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.trueGray,
+      indigo: colors.indigo,
+      purple: colors.violet,
+      pink: colors.pink,
+      red: colors.rose,
+      'blue': '#090228',
     },
-    plugins: [],
+    extend: {
+      boxShadow: {
+        '3xl': '0px 10px 30px -10px rgba(0, 0, 0, 0.5)',
+        '4xl': '0px 35px 35px -25px rgba(0, 0, 0, 0.8)',
+      },
+    },
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [
+    ({ addComponents, theme }) => {
+      addComponents({
+        '.container': {
+          marginInline: 'auto',
+          paddingInline: theme('spacing.5'),
+          maxWidth: '100%',
+          '@screen md': {
+            paddingInline: theme('spacing.8'),
+          },
+          '@screen lg': {
+            paddingInline: theme('spacing.10'),
+          },
+          '@screen 2xl': {
+            maxWidth: theme('screens.2xl'),
+          },
+        },
+      })
+    },
+  ],
+  corePlugins: {
+    container: false,
+    float: false,
+    clear: false,
+    objectPosition: false,
+    fontVariantNumeric: false,
+    placeholderColor: false,
+    placeholderOpacity: false,
+    verticalAlign: false,
+    divideWidth: false,
+    divideColor: false,
+    divideOpacity: false,
+    divideStyle: false,
+    ringWidth: false,
+    ringColor: false,
+    ringOpacity: false,
+    ringOffsetWidth: false,
+    ringOffsetColor: false,
+    borderCollapse: false,
+    tableLayout: false,
+    resize: false,
+    outline: false,
+    appearance: false,
+    userSelect: false,
+  },
 }
