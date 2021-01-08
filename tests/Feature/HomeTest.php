@@ -19,7 +19,6 @@ class HomeTest extends TestCase
                         'id',
                         'name',
                         'description',
-                        'modified',
                         'thumbnail',
                         'resourceURI',
                         'comics',
