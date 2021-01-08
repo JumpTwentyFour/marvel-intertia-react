@@ -7,7 +7,7 @@ const Characters = (props: CharactersProps): JSX.Element => {
   return <CharacterList characters={props.characters.data} />
 }
 
-Characters.displayName = 'Characters'
+Characters.displayName = 'Assemble'
 
 Characters.layout = (page: JSX.Element): JSX.Element => {
   return <Layout>{page}</Layout>
