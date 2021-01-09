@@ -56,6 +56,7 @@
     <exclude-pattern>config/*$</exclude-pattern>
     <exclude-pattern>database/*$</exclude-pattern>
     <exclude-pattern>public/*$</exclude-pattern>
+    <exclude-pattern>node_modules/*$</exclude-pattern>
     <exclude-pattern>storage/*$</exclude-pattern>
     <exclude-pattern>vendor/*$</exclude-pattern>
 </ruleset>
