@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Comics;
 
+use App\DataTransferObjects\ComicData;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -12,21 +13,17 @@ class ShowComic extends Controller
 {
     public function __invoke(Request $request, Comics $comicsClient): Response
     {
-        $comic = $comicsClient->load($request->id);
+        $resource = $comicsClient->load($request->id);
+        $comic = ComicData::fromMarvelComicsResource($resource);
 
-        if (!isset($comic->id)) {
+        if ($comic === null) {
             abort(404, 'We couldn\'t find that comic');
         }
 
         return Inertia::render(
             'Comics/ShowComic',
             [
-                'comic' => [
-                    'id' => $comic->id,
-                    'title' => $comic->title,
-                    'description' => $comic->description ?? '',
-                    'thumbnail' => $comic->thumbnail,
-                ],
+                'comic' => $comic,
             ]
         )->withViewData(['meta' => 'A marvel comic.']);
     }
