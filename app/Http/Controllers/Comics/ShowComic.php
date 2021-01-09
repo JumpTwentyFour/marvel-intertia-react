@@ -19,14 +19,14 @@ class ShowComic extends Controller
         }
 
         return Inertia::render(
-            'ShowComicPage',
+            'Comics/ShowComic',
             [
                 'comic' => [
                     'id' => $comic->id,
                     'title' => $comic->title,
                     'description' => $comic->description ?? '',
-                    'thumbnail' => $comic->thumbnail
-                ]
+                    'thumbnail' => $comic->thumbnail,
+                ],
             ]
         )->withViewData(['meta' => $comic->description ?? 'A marvel comic.']);
     }
