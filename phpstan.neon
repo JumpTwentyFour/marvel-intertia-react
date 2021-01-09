@@ -11,4 +11,3 @@ parameters:
         - '_ide_helper.php'
         - 'server.php'
     checkMissingIterableValueType: false
-
