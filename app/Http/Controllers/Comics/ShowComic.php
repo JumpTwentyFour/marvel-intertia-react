@@ -28,6 +28,6 @@ class ShowComic extends Controller
                     'thumbnail' => $comic->thumbnail,
                 ],
             ]
-        )->withViewData(['meta' => $comic->description ?? 'A marvel comic.']);
+        )->withViewData(['meta' => 'A marvel comic.']);
     }
 }
