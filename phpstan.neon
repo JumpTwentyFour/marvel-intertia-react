@@ -11,7 +11,4 @@ parameters:
         - '_ide_helper.php'
         - 'server.php'
     checkMissingIterableValueType: false
-    universalObjectCratesClasses:
-        - Marvel\Client
-        - Marvel\Comics
-        - Marvel\Resources\Base
+
