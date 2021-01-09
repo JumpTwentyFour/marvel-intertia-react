@@ -14,18 +14,6 @@ class ShowComic extends Controller
     {
         $comic = $comicsClient->load($request->id);
 
-        /*
-            What is the best way of checking if a comic has been returned?
-
-            $comic->count; // Always returns 0 even when there is a result.
-            $comic->total; // Always returns 0 even when there is a result.
-            $comic->count(); // Always returns an error: "Argument #1 ($value) must be of type Countable|array, string given"
-            iterator_count($comic); // Always returns 0 even when there is a result.
-            $comic->payload['code'] // Always returns ''
-            $comic->payload['error'] // Always returns ''
-            $comic->data // Always returns ''
-        */
-
         if (!isset($comic->id)) {
             abort(404, 'We couldn\'t find that comic');
         }
