@@ -40,6 +40,32 @@ MARVEL_PUBLIC_API_KEY=
 MARVEL_PRIVATE_API_KEY=
 ```
 
+Finally, you will need to build the CSS and JavaScript.
+
+```
+docker-compose run --rm node npm run dev
+```
+
+Now you should be able to access the site by visiting: http://localhost
+
+
+### Optional:
+
+This step isn't required as only one project is running from the web server, but if you would like to set a domain to access this site from, add it to your `/etc/hosts` file, for example:
+
+```
+127.0.0.1   marvel.test
+```
+
+You will also want to update your `.env` so when Ziggy routes are generated it uses your domain.
+
+```
+APP_URL=http://marvel.test
+```
+
+You can also use `https://` if you prefer, but this means you won't be able to use Webpack Hot Module Replacement until I can figure out how to configure it to use WebSockets over `wss://` instead of `ws://`
+
+
 ---
 
 
