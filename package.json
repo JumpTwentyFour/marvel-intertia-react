@@ -24,6 +24,7 @@
         "axios": "^0.21.1",
         "classnames": "^2.2.6",
         "core-js": "^3.6.5",
+        "danger": "^10.6.0",
         "prettier": "^1.19.1",
         "prop-types": "^15.7.2",
         "react": "^16.8.0",
