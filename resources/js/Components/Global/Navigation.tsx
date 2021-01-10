@@ -23,7 +23,7 @@ const Navigation: FC = (): ReactElement => {
           </InertiaLink>
         </li>
         <li className='site-menu__item'>
-          <InertiaLink href='/comics' className='site-menu__link'>
+          <InertiaLink href={route('comics.list-all').toString()}>
             Comics
           </InertiaLink>
         </li>

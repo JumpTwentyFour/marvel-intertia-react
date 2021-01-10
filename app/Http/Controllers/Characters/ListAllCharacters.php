@@ -13,8 +13,8 @@ class ListAllCharacters extends Controller
 {
     public function __invoke(Request $request, Characters $characterClient): Response
     {
-        $characters = $characterClient->index(1, 900);
-        
+        $characters = $characterClient->index(1, 900, ['nameStartsWith' => $request->get('name')]);
+
         return Inertia::render(
             'Characters',
             [
