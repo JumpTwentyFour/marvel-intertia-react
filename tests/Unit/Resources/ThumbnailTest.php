@@ -23,4 +23,20 @@ class ThumbnailTest extends TestCase
             $thumbnail->toArray(new Request()),
         );
     }
+
+    public function test_correct_image_size_is_appended_to_path(): void
+    {
+        $thumbnail = new Thumbnail([
+            'path' => 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/tester',
+            'extension' => '.jpg',
+        ]);
+
+        $this->assertEquals(
+            [
+                'path' => 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/tester/portrait_uncanny',
+                'extension' => '.jpg',
+            ],
+            $thumbnail->toArray(new Request()),
+        );
+    }
 }
