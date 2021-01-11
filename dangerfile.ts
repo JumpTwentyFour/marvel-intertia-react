@@ -58,7 +58,18 @@ if (danger.bitbucket_cloud.pr.description.length < 10) {
 }
 
 /**
- * Rule: Ensure the package lock file is committrd when the package.json is updated
+ * Rule: Ensure the branch name prefix is either feature, hotfix or release
+ * Reason: All branches should start with one of the three to follow our Git Flow pattern.
+ */
+const branchPrefixPattern = /^(feature|hotfix|release)/
+const branchName = danger.bitbucket_cloud.pr.source.branch.name
+
+if (!branchPrefixPattern.test(branchName)) {
+  fail(`Incorrect branch prefix used. Please use Feature, Hotfix or Release.`)
+}
+
+/**
+ * Rule: Ensure the package lock file is committed when the package.json is updated
  * Reason: The package lock must always be generated from the package json file
  */
 const packageJson = danger.git.fileMatch('package.json')
@@ -113,6 +124,7 @@ const nvmrcFile = danger.git.fileMatch('.nvrmrc')
 if (!nvmrcFile) {
   warn('Please commit an NVMRC file is a JS project')
 }
+
 
 /**
  * Rule: Ensure a PR does not exceed the character threshold
