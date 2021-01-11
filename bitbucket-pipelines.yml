@@ -5,10 +5,10 @@ pipelines:
         - step:
             name: Testing CSS and JavaScript
             image: node:15
-#            caches:
-#              - node
+            caches:
+              - node
             script:
-              - npm install
+              - npm ci
               - npm run dev
               - npm run stylelint
               - npm run lint
