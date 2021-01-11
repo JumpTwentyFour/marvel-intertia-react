@@ -1,11 +1,11 @@
 includes:
-    - ./vendor/nunomaduro/larastan/extension.neon
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/nunomaduro/larastan/extension.neon
 
 parameters:
+    level: 8
     paths:
         - app
-    # The level 8 is the highest level
-    level: 8
     excludes_analyse:
         - '.phpstorm.meta.php'
         - '_ide_helper.php'
