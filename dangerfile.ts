@@ -5,7 +5,7 @@
  * 1) Rules that require or suggest changes to the code, the PR, etc.
  * 2) Rules that celebrate achievements
  */
-import { danger, fail, warn } from 'danger'
+import { danger, fail, message, warn } from 'danger'
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ~ Required or suggested changes                                          ~ */
@@ -126,7 +126,6 @@ if (!nvmrcFile) {
   warn('Please commit an NVMRC file is a JS project')
 }
 
-
 /**
  * Rule: Ensure a PR does not exceed the character threshold
  * Reason: We should be creating small PRS
@@ -140,5 +139,10 @@ if (!nvmrcFile) {
 // }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-/* ~ Achievemnts                                                            ~ */
+/* ~ Achievements                                                            ~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+const documentation = danger.git.fileMatch('**/*.md')
+
+if (documentation.edited) {
+  message('Thank you for updating the documentation :smile:')
+}
