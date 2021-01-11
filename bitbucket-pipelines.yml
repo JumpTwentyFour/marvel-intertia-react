@@ -13,6 +13,9 @@ pipelines:
               - npm run lint
               - npm run tsc
               - npm run test
+              - npm install -g danger
+              - export LANG="C.UTF-8"
+              - npm danger --dangerfile "dangerfile.ts" ci
         - step:
             name: Testing PHP
             image: php:8-fpm
