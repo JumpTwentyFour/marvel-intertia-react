@@ -36,15 +36,20 @@ const Search = (props: SearchType): ReactElement => {
   }
 
   return (
-    <div>
+    <div className='col-span-8 col-start-5 content-center'>
       <input
+        className='px-4 py-2 text-black placeholder-gray-700'
         placeholder='Search...'
         value={state.term}
         aria-label='search-input'
         onKeyDown={handleEnter}
         onChange={handleChange}
       />
-      <button aria-label='search-button' onClick={handleClick}>
+      <button
+        aria-label='search-button'
+        className='bg-red-500 hover:bg-red-700 px-4 py-2 ml-8'
+        onClick={handleClick}
+      >
         Search
       </button>
     </div>

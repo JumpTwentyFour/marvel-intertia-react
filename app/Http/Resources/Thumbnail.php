@@ -23,6 +23,7 @@ class Thumbnail extends JsonResource
 
     private function determinePath(string $path): string
     {
-        return Str::contains($path, 'image_not_available') ? asset('images/marvel-placeholder') : $path;
+        return Str::contains($path, 'image_not_available')
+            ? asset('images/marvel-placeholder') : $path . '/portrait_uncanny';
     }
 }

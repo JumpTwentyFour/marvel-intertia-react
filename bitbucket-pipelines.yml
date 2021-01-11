@@ -42,6 +42,8 @@ pipelines:
               - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
               - composer install
               - cp .env.example .env
+              - echo "MARVEL_PUBLIC_API_KEY=$MARVEL_PUBLIC_API_KEY" >> .env
+              - echo "MARVEL_PRIVATE_API_KEY=$MARVEL_PRIVATE_API_KEY" >> .env
               - php artisan key:generate
               - composer run lint
               - composer run phpcs
