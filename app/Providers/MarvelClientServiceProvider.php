@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Services\Characters;
+use Illuminate\Support\ServiceProvider;
 use Marvel\Client;
 
 class MarvelClientServiceProvider extends ServiceProvider
