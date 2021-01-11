@@ -9,6 +9,7 @@ pipelines:
               - node
             script:
               - npm install
+              - npm run prod
               - npm run stylelint
               - npm run lint
               - npm run tsc
@@ -20,8 +21,6 @@ pipelines:
             image: php:8-fpm
             caches:
               - composer
-            artifacts:
-              - public/**
             script:
               - apt-get clean
               - apt-get update
