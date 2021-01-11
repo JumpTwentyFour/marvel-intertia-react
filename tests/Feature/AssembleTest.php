@@ -10,8 +10,6 @@ class AssembleTest extends TestCase
     public function test_assemble_page_will_return_the_avenger_characters(): void
     {
         $response = $this->get('/assemble');
-
-        dd($response);
         
         $response->assertStatus(Response::HTTP_OK);
         $response->assertHasProp('characters');
