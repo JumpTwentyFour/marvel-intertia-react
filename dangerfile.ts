@@ -111,9 +111,10 @@ if (newFiles > 10) {
  * Rule: Ensure the .env file is not committed to projects
  * Reason: It should never be committed
  */
-const envFile = danger.git.fileMatch('/^.env$/')
-if (envFile) {
-  fail('Please do not commit the env file to GIT')
+const envPattern = /^.env$/
+
+if (!envPattern.test(danger.bitbucket_cloud.pr.source.branch.name)) {
+  fail(`Please do not commit the env file to GIT.`)
 }
 
 /**
