@@ -48,20 +48,35 @@ const Search = (props: SearchType): ReactElement => {
 
   return (
     <div className='search flex items-center'>
-      <div className={`field absolute flex items-center right-0 top-1 w-0 overflow-hidden ${isSearchVisible ? '' : 'hidden'}`}>
+      <div
+        className={`search__field absolute flex items-center left-0 -top-1 w-full overflow-hidden ${
+          state.isSearchVisible ? 'z-inset-1' : 'z-1'
+        }`}
+      >
         <input
-          className='px-4 py-2 text-black placeholder-gray-700'
+          className={`fade-up bg-transparent header-title text-3xl md:text-5xl font-semibold flex-grow text-white placeholder-white ${
+            state.isSearchVisible ? '' : 'fade-up--active'
+          }`}
           placeholder='Search...'
           value={state.term}
           aria-label='search-input'
           onKeyDown={handleEnter}
           onChange={handleChange}
         />
-        <button aria-label='search-button' onClick={handleClick}>
+        <button
+          aria-label='search-button'
+          onClick={handleClick}
+          className={`${state.isSearchVisible ? 'hidden' : 'flex'}`}
+        >
           <SearchIcon className='fill-white w-10 h-10' />
         </button>
       </div>
-      <span className='search__trigger cursor-pointer' onClick={showSearch}>
+      <span
+        className={`search__trigger cursor-pointer ${
+          state.isSearchVisible ? '' : 'search__trigger--active'
+        }`}
+        onClick={showSearch}
+      >
         <SearchIcon className='fill-white w-10 h-10' />
       </span>
     </div>

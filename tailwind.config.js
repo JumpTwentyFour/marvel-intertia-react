@@ -5,7 +5,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      'body': ['Montserrat', 'Helvetica', 'sans-serif'],
+      body: ['Montserrat', 'Helvetica', 'sans-serif'],
     },
     colors: {
       transparent: 'transparent',
@@ -17,7 +17,7 @@ module.exports = {
       purple: colors.violet,
       pink: colors.pink,
       red: colors.rose,
-      'blue': '#090228',
+      blue: '#090228',
     },
     fill: {
       transparent: 'transparent',
@@ -29,12 +29,16 @@ module.exports = {
       purple: colors.violet,
       pink: colors.pink,
       red: colors.rose,
-      'blue': '#090228',
+      blue: '#090228',
     },
     extend: {
       boxShadow: {
         '3xl': '0px 10px 30px -10px rgba(0, 0, 0, 0.5)',
         '4xl': '0px 35px 35px -25px rgba(0, 0, 0, 0.8)',
+      },
+      zIndex: {
+        '1': '1',
+        'inset-1': '-1',
       },
     },
   },
@@ -67,7 +71,6 @@ module.exports = {
     clear: false,
     objectPosition: false,
     fontVariantNumeric: false,
-    placeholderColor: false,
     placeholderOpacity: false,
     verticalAlign: false,
     divideWidth: false,
