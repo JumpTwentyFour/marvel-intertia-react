@@ -11,6 +11,8 @@ class AssembleTest extends TestCase
     {
         $response = $this->get('/assemble');
 
+        dd($response);
+        
         $response->assertStatus(Response::HTTP_OK);
         $response->assertHasProp('characters');
         $response->assertPropCount('characters.data', 7);
