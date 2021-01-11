@@ -48,4 +48,6 @@ pipelines:
               - composer run lint
               - composer run phpcs
               - composer run phpstan
+              - php artisan serve &
+              - sleep 5
               - composer run test
