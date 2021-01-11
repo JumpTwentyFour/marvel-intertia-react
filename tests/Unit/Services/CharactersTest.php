@@ -14,5 +14,9 @@ class CharactersTest extends TestCase
         $randomCharacters = $characters->randomCharactersForHomepage();
 
         $this->assertCount(6, $randomCharacters);
+
+        $cachedRandomCharacters = $characters->randomCharactersForHomepage();
+
+        $this->assertSame($randomCharacters, $cachedRandomCharacters);
     }
 }
