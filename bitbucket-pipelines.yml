@@ -1,6 +1,16 @@
 pipelines:
   pull-requests:
     '**':
+      - step:
+          name: Install and Build NPM
+          image: node:15
+          caches:
+            - node
+          script:
+            - npm ci
+            - npm run prod
+          artifacts:
+            - public/**
       - parallel:
         - step:
             name: Testing CSS and JavaScript
@@ -8,14 +18,10 @@ pipelines:
             caches:
               - node
             script:
-              - npm ci
-              - npm run dev
               - npm run stylelint
               - npm run lint
               - npm run tsc
               - npm run test
-            artifacts:
-              - public/**
         - step:
             name: Testing PHP
             image: php:8-fpm
