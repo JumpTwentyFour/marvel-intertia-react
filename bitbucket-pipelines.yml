@@ -13,6 +13,8 @@ pipelines:
               - npm run lint
               - npm run tsc
               - npm run test
+            artifacts:
+              - public/**
         - step:
             name: Testing PHP
             image: php:8-fpm
@@ -48,6 +50,4 @@ pipelines:
               - composer run lint
               - composer run phpcs
               - composer run phpstan
-              - php artisan serve &
-              - sleep 5
               - composer run test
