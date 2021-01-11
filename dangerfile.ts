@@ -102,7 +102,7 @@ if (newFiles > 10) {
  */
 const envFile = danger.git.fileMatch('/^.env$/')
 if (envFile) {
-  fail('Please so no commit the env file to GIT')
+  fail('Please do not commit the env file to GIT')
 }
 
 /**

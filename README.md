@@ -178,3 +178,28 @@ $ docker-compose run --rm node npm run test
 Documentation: https://developer.marvel.com/docs
 
 If you need to generate keys for the Marvel API: https://developer.marvel.com/account
+
+
+## Danger JS
+
+Documentation: https://danger.systems/js/
+
+### Test Locally
+
+Install Globally: `npm install -g danger`
+
+Hookup to Bitbucket Cloud:
+
+1. Add Oauth Consumer for Workspace called "DangerJS" https://support.atlassian.com/bitbucket-cloud/docs/use-oauth-on-bitbucket-cloud/
+    a) Grant read/write permissions for pull requests
+    b) Grant read permissions for accounts
+    c) Enable "This is a private consumer"
+
+2. Get Key and use for local environment variable `DANGER_BITBUCKETCLOUD_OAUTH_KEY=<YOUR-KEY>`
+3. Get secret and use for local environment variable `DANGER_BITBUCKETCLOUD_OAUTH_SECRET=<YOUR-SECRET>`
+4. Run (Example) `danger --dangerfile "dangerfile.ts" pr "https://bitbucket.org/jump24team/marvel-inertia-js/pull-requests/28"`
+
+### Test On Bitbucket Pipelines
+
+1. Add Key and Consumer to "Pipelines" > "Repository Variables" in Bitbucket
+2. Setup `bitbucket-pipelines.yml` like in this project
