@@ -18,7 +18,7 @@ class Characters extends MarvelCharacters
         parent::__construct($client);
     }
 
-    public function randomCharactersForHomepage(int $limit = 6)
+    public function randomCharactersForHomepage(int $limit = 6): array
     {
         $key = 'home.characters';
 
@@ -27,7 +27,7 @@ class Characters extends MarvelCharacters
         if ($this->cache->has($key)) {
             $characters = $this->cache->get($key);
         } else {
-            $characters = $this->index(random_int(1, $maxSupportedPage), $limit)->data;
+            $characters = (array)($this->index(random_int(1, $maxSupportedPage), $limit)->data ?? []);
 
             $this->cache->put($key, $characters, Carbon::parse('+24 hours'));
         }
