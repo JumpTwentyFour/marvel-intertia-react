@@ -3,7 +3,7 @@ import Layout from '../../Layout'
 import { ComicType } from '../../types/comic'
 import ComicCard from '../../Components/ComicCard'
 
-interface Props {
+type Props = {
   comic: ComicType
 }
 
