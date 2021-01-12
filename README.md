@@ -226,6 +226,11 @@ $ docker-compose run -p 8080:8080 --rm node npm run hot
 $ docker-compose run --rm node npm run test
 ```
 
+##### npm run prod
+
+```
+$ docker-compose run --rm node npm run prod
+```
 
 ---
 

@@ -1,14 +1,34 @@
 import React from 'react'
+import { Inertia } from '@inertiajs/inertia'
+import route from 'ziggy-js'
 import Layout from '../Layout'
 import { ComicType } from '../types/comic'
 import ComicList from '../Components/ComicList'
+import Search from '../Components/Global/Search'
 
 type ComicsProps = {
   comics: Record<'data', Array<ComicType>>
 }
 
 const Comics = (props: ComicsProps): JSX.Element => {
-  return <ComicList comics={props.comics.data} />
+  const handleChange = (term: string): void => {
+    Inertia.visit(route('comics.list-all').toString(), {
+      data: { title: term },
+      preserveState: true,
+    })
+  }
+
+  const params = new URLSearchParams(window.location.search)
+
+  return (
+    <React.Fragment>
+      <Search
+        handleChange={handleChange}
+        term={params.get('title') ?? undefined}
+      />
+      <ComicList comics={props.comics.data} />
+    </React.Fragment>
+  )
 }
 
 Comics.displayName = 'Comics'

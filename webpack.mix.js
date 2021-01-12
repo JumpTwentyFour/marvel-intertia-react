@@ -27,11 +27,13 @@ mix
       host: '127.0.0.1',
       port: '8080',
     },
-    postCss: [require('tailwindcss')],
-    processCssUrls: false,
   })
   .ts('resources/js/app.tsx', 'public/js')
   .sass('resources/css/app.scss', 'public/css')
+  .options({
+    processCssUrls: false,
+    postCss: [require('tailwindcss')],
+  })
   .alias({
     ziggy: path.resolve('vendor/tightenco/ziggy/dist'),
   })
