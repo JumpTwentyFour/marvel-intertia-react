@@ -16,7 +16,10 @@ describe('<Search />', () => {
       target: { value: 'Hulk' },
     })
 
-    expect(setState).toHaveBeenCalledWith({ term: 'Hulk' })
+    expect(setState).toHaveBeenCalledWith({
+      term: 'Hulk',
+      isSearchVisible: false,
+    })
   })
 
   test('Will push search term up to handleChange consumer on submit of button', async () => {
