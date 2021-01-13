@@ -13,8 +13,8 @@ class ShowComic extends Controller
 {
     public function __invoke(Request $request, Comics $comicsClient): Response
     {
-        $resource = $comicsClient->load($request->id);
-        $comic = ComicData::fromMarvelComicsResource($resource);
+        $api = $comicsClient->load($request->id);
+        $comic = ComicData::parseSingleResultFromMarvelComicsApi($api);
 
         if ($comic === null) {
             abort(404, 'We couldn\'t find that comic');

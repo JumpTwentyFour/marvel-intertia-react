@@ -2,7 +2,7 @@
 
 namespace App\DataTransferObjects;
 
-use Marvel\Comics as MarvelComicsResource;
+use Marvel\Comics as MarvelComicsApi;
 use Spatie\DataTransferObject\DataTransferObject;
 
 class ComicData extends DataTransferObject
@@ -12,19 +12,19 @@ class ComicData extends DataTransferObject
     public string $description;
     public ThumbnailData $thumbnail;
 
-    public static function fromMarvelComicsResource(MarvelComicsResource $resource): ?self
+    public static function parseSingleResultFromMarvelComicsApi(MarvelComicsApi $api): ?self
     {
-        if (!isset($resource->id)) {
+        if (!isset($api->id)) {
             // Comic was not found from API request
             return null;
         }
 
-        $thumbnail = new ThumbnailData($resource->thumbnail); /** @phpstan-ignore-line */
+        $thumbnail = new ThumbnailData($api->thumbnail); /** @phpstan-ignore-line */
 
         return new self([
-            'id' => $resource->id,
-            'title' => $resource->title, /** @phpstan-ignore-line */
-            'description' => $resource->description ?? '', /** @phpstan-ignore-line */
+            'id' => $api->id,
+            'title' => $api->title, /** @phpstan-ignore-line */
+            'description' => $api->description ?? '', /** @phpstan-ignore-line */
             'thumbnail' => $thumbnail,
         ]);
     }
