@@ -71,6 +71,8 @@ const Characters = (props: CharactersProps): JSX.Element => {
         pageLinkClassName='pagination__link'
         previousClassName='pagination__item previous'
         nextClassName='pagination__item next'
+        previousLinkClassName='pagination__link'
+        nextLinkClassName='pagination__link'
         previousLabel=''
         nextLabel=''
         containerClassName='pagination col-span-6 md:col-span-12 flex justify-center items-center mt-5 md:mt-8 xl:mt-10'
