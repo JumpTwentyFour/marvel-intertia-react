@@ -26,7 +26,6 @@ const Characters = (props: CharactersProps): JSX.Element => {
         <Search
           handleChange={handleChange}
           term={params.get('name') ?? undefined}
-          isSearchVisible={true}
         />
         <header className='flex-grow mr-5 md:mr-8 xl:mr-10'>
           <h1 className='header-title text-3xl md:text-5xl font-semibold'>

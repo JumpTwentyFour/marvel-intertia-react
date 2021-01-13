@@ -22,10 +22,21 @@ const Comics = (props: ComicsProps): JSX.Element => {
 
   return (
     <React.Fragment>
-      <Search
-        handleChange={handleChange}
-        term={params.get('title') ?? undefined}
-      />
+      <div
+        className='page-title col-span-6 md:col-span-12 relative
+      border-b border-solid border-gray-200 border-opacity-10 pb-2.5
+      mb-5 md:mb-8 xl:mb-10 flex items-center flex-row-reverse'
+      >
+        <Search
+          handleChange={handleChange}
+          term={params.get('title') ?? undefined}
+        />
+        <header className='flex-grow mr-5 md:mr-8 xl:mr-10'>
+          <h1 className='header-title text-3xl md:text-5xl font-semibold'>
+            {params.get('title') ?? 'All Comics'}
+          </h1>
+        </header>
+      </div>
       <ComicList comics={props.comics.data} />
     </React.Fragment>
   )
