@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Inertia } from '@inertiajs/inertia'
 import { usePage } from '@inertiajs/inertia-react'
+import { Inertia } from '@inertiajs/inertia'
 import Layout from '../../Layout'
 import ValidationErrors from '../../Components/Form/ValidationErrors'
 
