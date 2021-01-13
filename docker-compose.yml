@@ -45,6 +45,23 @@ services:
       - docker_network
     command: "npm install"
 
+  mysql:
+    container_name: marvel_mysql
+    image: mysql:8.0.20
+    volumes:
+      - ./mysql/data:/var/lib/mysql:cached
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: marvel
+      MYSQL_USER: marvel_user
+      MYSQL_PASSWORD: jump24
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    networks:
+      - docker_network
+    ports:
+      - 4406:3306
+
 networks:
   docker_network:
     driver: bridge
