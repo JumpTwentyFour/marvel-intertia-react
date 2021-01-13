@@ -23,6 +23,18 @@ module.exports = {
       red: colors.rose,
       blue: '#090228',
     },
+    fill: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.trueGray,
+      indigo: colors.indigo,
+      purple: colors.violet,
+      pink: colors.pink,
+      red: colors.rose,
+      blue: '#090228',
+    },
     extend: {
       boxShadow: {
         '3xl': '0px 10px 30px -10px rgba(0, 0, 0, 0.5)',
@@ -30,6 +42,7 @@ module.exports = {
       },
       zIndex: {
         '1': '1',
+        '2': '2',
         'inset-1': '-1',
       },
     },
