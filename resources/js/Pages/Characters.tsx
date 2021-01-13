@@ -42,10 +42,21 @@ const Characters = (props: CharactersProps): JSX.Element => {
 
   return (
     <React.Fragment>
-      <Search
-        handleChange={handleSearchChange}
-        term={params.get('name') ?? undefined}
-      />
+      <div
+        className='page-title col-span-6 md:col-span-12 relative
+      border-b border-solid border-gray-200 border-opacity-10 pb-2.5
+      mb-5 md:mb-8 xl:mb-10 flex items-center flex-row-reverse'
+      >
+        <Search
+          handleChange={handleSearchChange}
+          term={params.get('name') ?? undefined}
+        />
+        <header className='flex-grow mr-5 md:mr-8 xl:mr-10'>
+          <h1 className='header-title text-3xl md:text-5xl font-semibold'>
+            {params.get('name') ?? 'All Characters'}
+          </h1>
+        </header>
+      </div>
       <CharacterList characters={props.characters.data} />
       <ReactPaginate
         disableInitialCallback={true}
@@ -54,7 +65,15 @@ const Characters = (props: CharactersProps): JSX.Element => {
         marginPagesDisplayed={2}
         pageRangeDisplayed={1}
         onPageChange={onPageChange}
-        nextClassName='paginationNext'
+        breakClassName='pagination__item'
+        breakLinkClassName='pagination__link'
+        pageClassName='pagination__item'
+        pageLinkClassName='pagination__link'
+        previousClassName='pagination__item previous'
+        nextClassName='pagination__item next'
+        previousLabel=''
+        nextLabel=''
+        containerClassName='pagination col-span-6 md:col-span-12 flex justify-center items-center mt-5 md:mt-8 xl:mt-10'
       />
     </React.Fragment>
   )
