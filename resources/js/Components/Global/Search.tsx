@@ -40,22 +40,22 @@ const Search = (props: SearchType): ReactElement => {
 
   const showSearch = (event: React.MouseEvent<HTMLElement>): void => {
     event.preventDefault()
-    setState(prevState => ({
+    setState({
       ...state,
-      isSearchVisible: !prevState.isSearchVisible,
-    }))
+      isSearchVisible: !state.isSearchVisible,
+    })
   }
 
   return (
     <div className='search flex items-center'>
       <div
         className={`search__field absolute flex items-center left-0 -top-1 w-full overflow-hidden ${
-          state.isSearchVisible ? 'z-inset-1' : 'z-1'
+          state.isSearchVisible ? 'z-1' : 'z-inset-1'
         }`}
       >
         <input
           className={`fade-up bg-transparent header-title text-3xl md:text-5xl font-semibold flex-grow text-white placeholder-white ${
-            state.isSearchVisible ? '' : 'fade-up--active'
+            state.isSearchVisible ? 'fade-up--active' : ''
           }`}
           placeholder='Search...'
           value={state.term}
@@ -73,7 +73,7 @@ const Search = (props: SearchType): ReactElement => {
       </div>
       <span
         className={`search__trigger cursor-pointer ${
-          state.isSearchVisible ? '' : 'search__trigger--active'
+          state.isSearchVisible ? 'search__trigger--active' : ''
         }`}
         onClick={showSearch}
       >
