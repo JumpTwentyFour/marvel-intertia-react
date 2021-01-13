@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        if (!User::where('email', 'alex@jump24.co.uk')->exists()) {
+            User::factory()->create([
+                'email' => 'alex@jump24.co.uk',
+                'password' => bcrypt('testing')
+            ]);
+        }
+
+        if (!User::where('email', 'anneka@jump24.co.uk')->exists()) {
+            User::factory()->create([
+                'email' => 'anneka@jump24.co.uk',
+                'password' => bcrypt('testing')
+            ]);
+        }
+
+        if (!User::where('email', 'dan@jump24.co.uk')->exists()) {
+            User::factory()->create([
+                'email' => 'dan@jump24.co.uk',
+                'password' => bcrypt('testing')
+            ]);
+        }
+
+        if (!User::where('email', 'luke@jump24.co.uk')->exists()) {
+            User::factory()->create([
+                'email' => 'luke@jump24.co.uk',
+                'password' => bcrypt('testing')
+            ]);
+        }
     }
 }
