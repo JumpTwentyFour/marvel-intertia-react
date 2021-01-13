@@ -1,6 +1,17 @@
 pipelines:
   pull-requests:
     '**':
+      - step:
+          name: Install and Build NPM
+          image: node:15
+          caches:
+            - node
+          script:
+            - npm ci
+            - npm run prod
+          artifacts:
+            - node_modules/**
+            - public/**
       - parallel:
         - step:
             name: Testing CSS and JavaScript
@@ -8,7 +19,6 @@ pipelines:
             caches:
               - node
             script:
-              - npm install
               - npm run stylelint
               - npm run lint
               - npm run tsc

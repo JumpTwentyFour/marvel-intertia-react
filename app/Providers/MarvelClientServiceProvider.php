@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\Characters;
 use Illuminate\Support\ServiceProvider;
-use Marvel\Characters;
 use Marvel\Client;
 
 class MarvelClientServiceProvider extends ServiceProvider
@@ -22,11 +22,11 @@ class MarvelClientServiceProvider extends ServiceProvider
 
             return new Client($publicKey, $privateKey);
         });
-        
+
         $this->app->singleton(Characters::class, function (): Characters {
             $client = app()->make(Client::class);
 
-            return new Characters($client);
+            return new Characters($client, $this->app->make('cache'));
         });
     }
 }

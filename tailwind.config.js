@@ -1,25 +1,17 @@
 // tailwind.config.js
 const colors = require('tailwindcss/colors')
 module.exports = {
-  purge: ['./resources/**/*.blade.php', './resources/**/*.js', './resources/**/*.vue'],
+  purge: [
+    './resources/**/*.blade.php',
+    './resources/**/*.js',
+    './resources/**/*.tsx',
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
       body: ['Montserrat', 'Helvetica', 'sans-serif'],
     },
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      black: colors.black,
-      white: colors.white,
-      gray: colors.trueGray,
-      indigo: colors.indigo,
-      purple: colors.violet,
-      pink: colors.pink,
-      red: colors.rose,
-      blue: '#090228',
-    },
-    fill: {
       transparent: 'transparent',
       current: 'currentColor',
       black: colors.black,
