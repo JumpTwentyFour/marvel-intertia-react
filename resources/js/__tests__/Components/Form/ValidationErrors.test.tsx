@@ -5,7 +5,12 @@ import ValidationErrors from '../../../Components/Form/ValidationErrors'
 describe('<ValidationErrors />', () => {
   test('Will render multiple errors', () => {
     const { getByText } = render(
-      <ValidationErrors errors={{ email: 'The email field is required.', password: 'The password field is required.' }} />,
+      <ValidationErrors
+        errors={{
+          email: 'The email field is required.',
+          password: 'The password field is required.',
+        }}
+      />,
     )
     const errorHeading = getByText('Whoops! Something went wrong.')
     expect(errorHeading).toBeInTheDocument()
