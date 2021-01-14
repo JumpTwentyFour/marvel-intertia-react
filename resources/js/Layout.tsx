@@ -18,6 +18,17 @@ const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
           </div>
         </section>
       </main>
+      <footer className='site-footer pb-7'>
+        <div className='container'>
+          <div className='content'>
+            <div className='col-span-6 md:col-span-12 text-center md:text-right'>
+              <p className='text-xs'>
+                Data provided by Marvel. &copy; 2014 Marvel
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
