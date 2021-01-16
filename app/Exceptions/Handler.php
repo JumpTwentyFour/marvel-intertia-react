@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
     {
         $response = parent::render($request, $e);
 
-        if ($response->status() === Response::HTTP_TOO_MANY_REQUESTS) {
+        if ($response->getStatusCode() === Response::HTTP_TOO_MANY_REQUESTS) {
             session()->flash('message', 'Too many requests please try again shortly.');
             return Inertia::location(url()->current());
         }
