@@ -1,7 +1,7 @@
 import React from 'react'
 import { usePage } from '@inertiajs/inertia-react'
 import Navigation from './Components/Global/Navigation'
-import Flash from "./Components/Global/Flash";
+import Flash from './Components/Global/Flash'
 
 const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
   const { flash } = usePage().props
