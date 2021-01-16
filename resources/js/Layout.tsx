@@ -1,6 +1,7 @@
 import React from 'react'
 import { usePage } from '@inertiajs/inertia-react'
 import Navigation from './Components/Global/Navigation'
+import Flash from "./Components/Global/Flash";
 
 const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
   const { flash } = usePage().props
@@ -17,7 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
       <main className='py-14'>
         <section>
           <div className='container'>
-            {flash && <div className='flash'>{flash.message}</div>}
+            {flash && <Flash>{flash.message}</Flash>}
             <div className='content'>{children}</div>
           </div>
         </section>
