@@ -31,11 +31,11 @@ class FortifyServiceProvider extends ServiceProvider
             return Inertia::render('Auth/Login');
         });
 
-        RateLimiter::for('login', function (Request $request) {
+        RateLimiter::for('login', function (Request $request): Limit {
             return Limit::perMinute(5)->by($request->email . $request->ip());
         });
 
-        RateLimiter::for('two-factor', function (Request $request) {
+        RateLimiter::for('two-factor', function (Request $request): Limit {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
     }
