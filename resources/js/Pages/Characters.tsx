@@ -48,7 +48,7 @@ const Characters = (props: CharactersProps): JSX.Element => {
       mb-5 md:mb-8 xl:mb-10 flex items-center flex-row-reverse'
       >
         <Search
-          handleChange={handleChange}
+          handleChange={handleSearchChange}
           term={params.get('name') ?? undefined}
         />
         <header className='flex-grow mr-5 md:mr-8 xl:mr-10'>
