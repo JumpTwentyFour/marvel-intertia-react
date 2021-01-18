@@ -12,7 +12,7 @@ class AssembleTest extends TestCase
     {
         $response = $this->get('/assemble');
         $response->assertStatus(Response::HTTP_OK);
-        $response->assertInertia(function(Assert $page) {
+        $response->assertInertia(function (Assert $page) {
             $page->component('Assemble', false)
                 ->has('characters.data', 7)
                 ->has('characters.data', function (Assert $page) {
