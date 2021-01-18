@@ -12,10 +12,10 @@ class AssembleTest extends TestCase
     {
         $response = $this->get('/assemble');
         $response->assertStatus(Response::HTTP_OK);
-        $response->assertInertia(fn (Assert $inertia) => $inertia
+        $response->assertInertia(fn (Assert $page) => $page
             ->component('Assemble', false)
             ->has('characters.data', 7)
-            ->has('characters.data', fn (Assert $inertia) => $inertia
+            ->has('characters.data', fn (Assert $page) => $page
                 ->where('0.name', 'Captain America')
                 ->where('1.name', 'Iron Man')
                 ->where('1.name', 'Iron Man')
