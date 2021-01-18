@@ -12,21 +12,21 @@ class AssembleTest extends TestCase
     {
         $response = $this->get('/assemble');
         $response->assertStatus(Response::HTTP_OK);
-        $response->assertInertia(fn (Assert $page) => $page
-            ->component('Assemble', false)
-            ->has('characters.data', 7)
-            ->has('characters.data', fn (Assert $page) => $page
-                ->where('0.name', 'Captain America')
-                ->where('1.name', 'Iron Man')
-                ->where('1.name', 'Iron Man')
-                ->where('2.name', 'Thor')
-                ->where('3.name', 'Hulk')
-                ->where('4.name', 'Wasp')
-                ->where('5.name', 'Hank Pym')
-                ->where('6.name', 'Black Widow')
-                ->etc()
-            )
-            ->has('errors')
-        );
+        $response->assertInertia(function(Assert $page) {
+            $page->component('Assemble', false)
+                ->has('characters.data', 7)
+                ->has('characters.data', function (Assert $page) {
+                    $page->where('0.name', 'Captain America')
+                        ->where('1.name', 'Iron Man')
+                        ->where('1.name', 'Iron Man')
+                        ->where('2.name', 'Thor')
+                        ->where('3.name', 'Hulk')
+                        ->where('4.name', 'Wasp')
+                        ->where('5.name', 'Hank Pym')
+                        ->where('6.name', 'Black Widow')
+                        ->etc();
+                })
+                ->has('errors');
+        });
     }
 }
