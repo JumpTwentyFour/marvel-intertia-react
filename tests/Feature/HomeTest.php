@@ -12,9 +12,9 @@ class HomeTest extends TestCase
     {
         $response = $this->get('/');
         $response->assertStatus(Response::HTTP_OK);
-        $response->assertInertia(fn (Assert $inertia) => $inertia
+        $response->assertInertia(fn (Assert $page) => $page
             ->component('Home', false)
-            ->has('characters.data', 6, fn (Assert $inertia) => $inertia
+            ->has('characters.data', 6, fn (Assert $page) => $page
                 ->hasAll([
                     'id',
                     'name',

@@ -12,9 +12,9 @@ class ComicTest extends TestCase
     {
         $response = $this->get('/comics');
         $response->assertStatus(Response::HTTP_OK);
-        $response->assertInertia(fn (Assert $inertia) => $inertia
+        $response->assertInertia(fn (Assert $page) => $page
             ->component('Comics', false)
-            ->has('comics.data', 100, fn (Assert $inertia) => $inertia
+            ->has('comics.data', 100, fn (Assert $page) => $page
                 ->hasAll(['id', 'title', 'description', 'thumbnail'])
             )
             ->has('errors')
@@ -25,9 +25,9 @@ class ComicTest extends TestCase
     {
         $response = $this->get('/comics?title=Marvel');
         $response->assertStatus(Response::HTTP_OK);
-        $response->assertInertia(fn (Assert $inertia) => $inertia
+        $response->assertInertia(fn (Assert $page) => $page
             ->component('Comics', false)
-            ->has('comics.data.0', fn (Assert $inertia) => $inertia
+            ->has('comics.data.0', fn (Assert $page) => $page
                 ->has('title', 'Marvel')
                 ->etc()
             )
@@ -39,7 +39,7 @@ class ComicTest extends TestCase
     {
         $response = $this->get('/comics?page=10');
         $response->assertStatus(Response::HTTP_OK);
-        $response->assertInertia(fn (Assert $inertia) => $inertia
+        $response->assertInertia(fn (Assert $page) => $page
             ->component('Comics', false)
             ->has('comics.data')
         );
@@ -49,7 +49,7 @@ class ComicTest extends TestCase
     {
         $response = $this->get('/comics?page=1000');
         $response->assertStatus(Response::HTTP_OK);
-        $response->assertInertia(fn (Assert $inertia) => $inertia
+        $response->assertInertia(fn (Assert $page) => $page
             ->component('Comics', false)
             ->has('comics.data', 0)
         );
