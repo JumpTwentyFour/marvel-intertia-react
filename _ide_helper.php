@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.21.0.
+ * Generated for Laravel 8.22.1.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -5294,6 +5294,17 @@
         {
                         /** @var \Illuminate\Support\Testing\Fakes\EventFake $instance */
                         $instance->assertNotDispatched($event, $callback);
+        }
+                    /**
+         * Assert that no events were dispatched.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function assertNothingDispatched()
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\EventFake $instance */
+                        $instance->assertNothingDispatched();
         }
                     /**
          * Get all of the events matching a truth-test callback.
