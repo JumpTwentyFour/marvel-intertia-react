@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { usePage } from '@inertiajs/inertia-react'
+import { InertiaLink, usePage } from '@inertiajs/inertia-react'
 import { Inertia } from '@inertiajs/inertia'
+import route from 'ziggy-js'
 import Layout from '../../Layout'
 import ValidationErrors from '../../Components/Form/ValidationErrors'
 
@@ -78,6 +79,13 @@ const Login = (): JSX.Element => {
         </div>
 
         <div className='flex items-center justify-end mt-4'>
+          <InertiaLink
+            href={route('password.request').toString()}
+            className='underline text-sm text-gray-600 hover:text-gray-900'
+          >
+            Forgot your password?
+          </InertiaLink>
+
           <button className='ml-4' onClick={onClick}>
             Login
           </button>
