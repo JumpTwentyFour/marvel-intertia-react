@@ -23,6 +23,7 @@
         "barryvdh/laravel-ide-helper": "^2.9.0",
         "beyondcode/laravel-dump-server": "^1.0",
         "brianium/paratest": "^6.1.2",
+        "claudiodekker/inertia-laravel-testing": "^2.2",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
         "enlightn/enlightn": "^1.0",
         "facade/ignition": "^2.5",

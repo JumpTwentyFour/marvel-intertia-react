@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use ClaudioDekker\Inertia\Assert;
 use Illuminate\Http\Response;
 use Tests\TestCase;
 
@@ -10,17 +11,22 @@ class AssembleTest extends TestCase
     public function test_assemble_page_will_return_the_avenger_characters(): void
     {
         $response = $this->get('/assemble');
-
         $response->assertStatus(Response::HTTP_OK);
-        $response->assertHasProp('characters');
-        $response->assertPropCount('characters.data', 7);
-
-        $response->assertPropValue('characters.data.0.name', 'Captain America');
-        $response->assertPropValue('characters.data.1.name', 'Iron Man');
-        $response->assertPropValue('characters.data.2.name', 'Thor');
-        $response->assertPropValue('characters.data.3.name', 'Hulk');
-        $response->assertPropValue('characters.data.4.name', 'Wasp');
-        $response->assertPropValue('characters.data.5.name', 'Hank Pym');
-        $response->assertPropValue('characters.data.6.name', 'Black Widow');
+        $response->assertInertia(function (Assert $page) {
+            $page->component('Assemble', false)
+                ->has('characters.data', 7)
+                ->has('characters.data', function (Assert $page) {
+                    $page->where('0.name', 'Captain America')
+                        ->where('1.name', 'Iron Man')
+                        ->where('1.name', 'Iron Man')
+                        ->where('2.name', 'Thor')
+                        ->where('3.name', 'Hulk')
+                        ->where('4.name', 'Wasp')
+                        ->where('5.name', 'Hank Pym')
+                        ->where('6.name', 'Black Widow')
+                        ->etc();
+                })
+                ->has('errors');
+        });
     }
 }
