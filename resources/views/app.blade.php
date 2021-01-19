@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="{{ asset('/images/favicon.ico') }}">
         <title>Marvel Tester - @yield('title')</title>
         @if (isset($meta))
             <meta name="description" content="{{ $meta }}">
