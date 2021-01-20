@@ -12,21 +12,6 @@ import { danger, fail, message, warn } from 'danger'
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 /**
- * Rule: Exactly 1 reviewer is required.
- * Reason: No reviewer tends to leave a PR in a state where nobody is
- *         responsible. Similarly, more than 1 reviewer doesn't clearly state
- *         who is responsible for the review.
- */
-const reviewersCount = danger.bitbucket_cloud.pr.reviewers.length
-if (reviewersCount === 0) {
-  fail(`🕵 Whoops, I don't see any reviewers. Remember to add one.`)
-} else if (reviewersCount > 1) {
-  warn(
-    `It's great to have ${reviewersCount} reviewers. Remember though that more than 1 reviewer may lead to uncertainty as to who is responsible for the review.`,
-  )
-}
-
-/**
  * Rule: Ensure the PR title contains a Jira ticket key.
  * Reason: When looking at the list of PRs, seeing the Jira ticket in the PR
  *         title makes it very efficient to know what to look at.
