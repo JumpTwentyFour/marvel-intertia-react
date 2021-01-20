@@ -7,7 +7,7 @@ use Spatie\Csp\Policies\Basic;
 
 class ExtendedContentSecurityPolicy extends Basic
 {
-    public function configure()
+    public function configure(): void
     {
         parent::configure();
 
