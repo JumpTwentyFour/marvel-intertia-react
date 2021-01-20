@@ -10,7 +10,7 @@
         @endif
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <script src="{{ mix('js/app.js') }}" defer></script>
-        @routes
+        @routes(false, csp_nonce())
     </head>
     <body class="antialiased">
         <div class="site">
