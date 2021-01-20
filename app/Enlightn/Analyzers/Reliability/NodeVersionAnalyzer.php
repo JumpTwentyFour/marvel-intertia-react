@@ -2,10 +2,10 @@
 
 namespace App\Enlightn\Analyzers\Reliability;
 
-use Enlightn\Enlightn\Analyzers\Security\SecurityAnalyzer;
+use Enlightn\Enlightn\Analyzers\Reliability\ReliabilityAnalyzer;
 use Illuminate\Filesystem\Filesystem;
 
-class NodeVersionAnalyzer extends SecurityAnalyzer
+class NodeVersionAnalyzer extends ReliabilityAnalyzer
 {
     /**
      * The title describing the analyzer.
