@@ -27,7 +27,7 @@
 }
 
 .checkbox {
-  display: none;
+  @apply hidden;
 }
 
 .checkbox__input {

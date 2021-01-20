@@ -22,6 +22,7 @@ module.exports = {
       pink: colors.pink,
       red: colors.rose,
       blue: '#090228',
+      pinkish: '#9D174D',
     },
     fill: {
       transparent: 'transparent',
