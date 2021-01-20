@@ -13,7 +13,7 @@
         @routes
     </head>
     <body class="antialiased">
-        <div class="site">
+        <div class="site h-full">
             @inertia
         </div>
     </body>

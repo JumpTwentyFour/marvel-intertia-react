@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react'
-import SearchIcon from '../Svgs/SearchIcon'
+import SearchIcon from '../Svg/SearchIcon'
 
 type SearchType = {
   term?: string
