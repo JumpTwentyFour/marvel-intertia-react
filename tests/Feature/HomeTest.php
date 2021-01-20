@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use ClaudioDekker\Inertia\Assert;
 use Illuminate\Http\Response;
 use Tests\TestCase;
 
@@ -9,50 +10,45 @@ class HomeTest extends TestCase
 {
     public function test_homepage_will_return_six_random_characters(): void
     {
-        $this->get('/')
-            ->assertStatus(Response::HTTP_OK)
-            ->assertHasProp('characters')
-            ->assertPropCount('characters.data', 6)
-            ->assertPropValue('characters.data', function ($characters) {
-                $this->assertEquals(
-                    [
+        $response = $this->get('/');
+        $response->assertStatus(Response::HTTP_OK);
+        $response->assertInertia(function (Assert $page) {
+            $page->component('Home', false)
+                ->has('characters.data', 6, function (Assert $page) {
+                    $page->hasAll([
                         'id',
                         'name',
                         'description',
                         'thumbnail',
+                        'thumbnail.path',
+                        'thumbnail.extension',
                         'resourceURI',
                         'comics',
+                        'comics',
+                        'comics.available',
+                        'comics.collectionURI',
+                        'comics.items',
+                        'comics.returned',
                         'series',
+                        'series.available',
+                        'series.collectionURI',
+                        'series.items',
+                        'series.returned',
                         'stories',
+                        'stories.available',
+                        'stories.collectionURI',
+                        'stories.items',
+                        'stories.returned',
                         'events',
+                        'events.available',
+                        'events.collectionURI',
+                        'events.items',
+                        'events.returned',
                         'urls',
-                    ],
-                    array_keys($characters[0])
-                );
-
-                $this->assertEquals(['path', 'extension'], array_keys($characters[0]['thumbnail']));
-
-                $this->assertEquals(
-                    ['available', 'collectionURI', 'items', 'returned'],
-                    array_keys($characters[0]['comics'])
-                );
-
-                $this->assertEquals(
-                    ['available', 'collectionURI', 'items', 'returned'],
-                    array_keys($characters[0]['series'])
-                );
-
-                $this->assertEquals(
-                    ['available', 'collectionURI', 'items', 'returned'],
-                    array_keys($characters[0]['stories'])
-                );
-
-                $this->assertEquals(
-                    ['available', 'collectionURI', 'items', 'returned'],
-                    array_keys($characters[0]['events'])
-                );
-
-                $this->assertEquals(['type', 'url'], array_keys($characters[0]['urls'][0]));
-            });
+                        'urls.0.type',
+                        'urls.0.url',
+                    ]);
+                });
+        });
     }
 }

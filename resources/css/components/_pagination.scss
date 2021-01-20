@@ -1,0 +1,52 @@
+.pagination__item {
+  @apply px-2
+    relative;
+}
+
+.pagination__item.disabled .pagination__link {
+  @apply opacity-60
+    cursor-not-allowed;
+}
+
+.pagination__link {
+  @apply p-2
+    flex
+    flex-col
+    items-center
+    justify-center;
+}
+
+.pagination__item.selected .pagination__link {
+  @apply font-semibold;
+}
+
+.previous .pagination__link:before,
+.next .pagination__link:before,
+.previous .pagination__link:after,
+.next .pagination__link:after {
+  @apply bg-white
+    relative;
+  content: '';
+  width: 1px;
+  height: 8px;
+}
+
+.previous .pagination__link:after,
+.next .pagination__link:before {
+  transform: rotate(315deg);
+}
+
+.previous .pagination__link:before,
+.next .pagination__link:after {
+  transform: rotate(45deg);
+}
+
+.previous .pagination__link:before,
+.next .pagination__link:before {
+  @apply top-px;
+}
+
+.previous .pagination__link:after,
+.next .pagination__link:after {
+  @apply bottom-px;
+}

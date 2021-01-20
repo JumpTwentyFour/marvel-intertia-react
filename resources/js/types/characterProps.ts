@@ -1,5 +1,9 @@
 import { CharacterType } from './character'
+import { Meta } from './resource/meta'
 
 export type CharactersProps = {
-  characters: Record<'data', Array<CharacterType>>
+  characters: {
+    data: Array<CharacterType>
+    meta: Meta
+  }
 }
