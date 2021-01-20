@@ -5,7 +5,7 @@ namespace App\Enlightn\Analyzers\Concerns;
 use Illuminate\Filesystem\Filesystem;
 use ReflectionClass;
 use ReflectionException;
-use SplFileInfo;
+use Symfony\Component\Finder\SplFileInfo;
 
 trait AnalyzesFiles
 {
@@ -22,6 +22,10 @@ trait AnalyzesFiles
 
     public function classHasMethod(string $className, string $method): bool
     {
+        if (!class_exists($className)) {
+            return false;
+        }
+
         try {
             $mirror = new ReflectionClass($className);
             return $mirror->hasMethod($method);

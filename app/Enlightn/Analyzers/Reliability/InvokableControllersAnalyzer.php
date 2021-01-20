@@ -48,7 +48,7 @@ class InvokableControllersAnalyzer extends ReliabilityAnalyzer
      *
      * @param \Illuminate\Filesystem\Filesystem $files
      */
-    public function handle(Filesystem $files)
+    public function handle(Filesystem $files): void
     {
         $controllerRootNamespace = 'app/Http/Controllers';
 
@@ -56,7 +56,7 @@ class InvokableControllersAnalyzer extends ReliabilityAnalyzer
 
         $files = $this->getAllFilesInNamespace($files, $controllerRootNamespace);
 
-        $files = array_filter($files, function (string $fileName) use ($ignoreFiles) {
+        $files = array_filter($files, function (string $fileName) use ($ignoreFiles): bool {
             return !in_array($fileName, $ignoreFiles, true);
         });
 
