@@ -7,11 +7,12 @@
 @import 'resets/default';
 @import 'resets/form';
 
+@import 'global/headers';
 @import 'global/layout';
 @import 'global/navigation';
-@import 'global/headers';
 
+@import 'components/animations';
+@import 'components/buttons';
 @import 'components/card';
 @import 'components/forms';
 @import 'components/pagination';
-@import 'components/animations';

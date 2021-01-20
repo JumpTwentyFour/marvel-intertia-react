@@ -91,17 +91,16 @@ const Login = (): JSX.Element => {
           </label>
         </div>
 
-        <div className='flex items-center justify-end mt-4'>
+        <div className='flex flex-col'>
+          <button className='button' onClick={onClick}>
+            <span className='button__content bg-pink-50'>Login</span>
+          </button>
           <InertiaLink
             href={route('password.request').toString()}
-            className='underline text-sm text-gray-600 hover:text-gray-900'
+            className='underline text-sm opacity-60'
           >
             Forgot your password?
           </InertiaLink>
-
-          <button className='ml-4' onClick={onClick}>
-            Login
-          </button>
         </div>
       </form>
     </React.Fragment>
