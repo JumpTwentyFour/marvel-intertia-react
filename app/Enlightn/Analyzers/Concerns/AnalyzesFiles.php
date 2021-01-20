@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Enlightn\Analyzers\Concerns;
+
 use Illuminate\Filesystem\Filesystem;
 use ReflectionClass;
 use ReflectionException;
