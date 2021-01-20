@@ -34,7 +34,7 @@ if (reviewersCount === 0) {
 const prTitle = danger.bitbucket_cloud.pr.title
 const ticketPattern = /MP-\d+/g
 if (!ticketPattern.test(prTitle)) {
-  fail(`🔍 I can't find the Jira ticket number in the PR title.`)
+  warn(`🔍 I can't find the Jira ticket number in the PR title.`)
 }
 
 /**
@@ -45,7 +45,7 @@ if (!ticketPattern.test(prTitle)) {
 const prDescription = danger.bitbucket_cloud.pr.description
 const ticketUrlPattern = /https:\/\/jumptwentyfour\.atlassian\.net\/browse\/MP-(\d+)/g
 if (!ticketUrlPattern.test(prDescription)) {
-  fail(`🔍 I can't find the Jira ticket URL in the PR body.`)
+  warn(`🔍 I can't find the Jira ticket URL in the PR body.`)
 }
 
 /**
