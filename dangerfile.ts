@@ -107,24 +107,6 @@ if (newFiles > 10) {
   warn('Please avoid creating a PR with so many new files.')
 }
 
-/**
- * Rule: Ensure the .env file is not committed to projects
- * Reason: It should never be committed
- */
-const envPattern = /^.env$/
-
-if (!envPattern.test(danger.bitbucket_cloud.pr.source.branch.name)) {
-  fail(`Please do not commit the env file to GIT.`)
-}
-
-/**
- * Rule: Ensure an NVMRC file is committed to JS projects
- * Reason: It ensures a consistent version of NPM for each user
- */
-const nvmrcFile = danger.git.fileMatch('.nvrmrc')
-if (!nvmrcFile) {
-  warn('Please commit an NVMRC file is a JS project')
-}
 
 /**
  * Rule: Ensure a PR does not exceed the character threshold
