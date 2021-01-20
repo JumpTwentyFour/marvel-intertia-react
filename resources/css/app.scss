@@ -4,10 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'resets/default';
+@import 'resets/form';
+
 @import 'global/layout';
 @import 'global/navigation';
 @import 'global/headers';
 
 @import 'components/card';
+@import 'components/forms';
 @import 'components/pagination';
 @import 'components/animations';
