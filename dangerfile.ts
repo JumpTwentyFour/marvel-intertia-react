@@ -12,21 +12,6 @@ import { danger, fail, message, warn } from 'danger'
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 /**
- * Rule: Exactly 1 reviewer is required.
- * Reason: No reviewer tends to leave a PR in a state where nobody is
- *         responsible. Similarly, more than 1 reviewer doesn't clearly state
- *         who is responsible for the review.
- */
-const reviewersCount = danger.bitbucket_cloud.pr.reviewers.length
-if (reviewersCount === 0) {
-  fail(`🕵 Whoops, I don't see any reviewers. Remember to add one.`)
-} else if (reviewersCount > 1) {
-  warn(
-    `It's great to have ${reviewersCount} reviewers. Remember though that more than 1 reviewer may lead to uncertainty as to who is responsible for the review.`,
-  )
-}
-
-/**
  * Rule: Ensure the PR title contains a Jira ticket key.
  * Reason: When looking at the list of PRs, seeing the Jira ticket in the PR
  *         title makes it very efficient to know what to look at.
@@ -34,7 +19,7 @@ if (reviewersCount === 0) {
 const prTitle = danger.bitbucket_cloud.pr.title
 const ticketPattern = /MP-\d+/g
 if (!ticketPattern.test(prTitle)) {
-  fail(`🔍 I can't find the Jira ticket number in the PR title.`)
+  warn(`🔍 I can't find the Jira ticket number in the PR title.`)
 }
 
 /**
@@ -45,7 +30,7 @@ if (!ticketPattern.test(prTitle)) {
 const prDescription = danger.bitbucket_cloud.pr.description
 const ticketUrlPattern = /https:\/\/jumptwentyfour\.atlassian\.net\/browse\/MP-(\d+)/g
 if (!ticketUrlPattern.test(prDescription)) {
-  fail(`🔍 I can't find the Jira ticket URL in the PR body.`)
+  warn(`🔍 I can't find the Jira ticket URL in the PR body.`)
 }
 
 /**
@@ -107,24 +92,6 @@ if (newFiles > 10) {
   warn('Please avoid creating a PR with so many new files.')
 }
 
-/**
- * Rule: Ensure the .env file is not committed to projects
- * Reason: It should never be committed
- */
-const envPattern = /^.env$/
-
-if (!envPattern.test(danger.bitbucket_cloud.pr.source.branch.name)) {
-  fail(`Please do not commit the env file to GIT.`)
-}
-
-/**
- * Rule: Ensure an NVMRC file is committed to JS projects
- * Reason: It ensures a consistent version of NPM for each user
- */
-const nvmrcFile = danger.git.fileMatch('.nvrmrc')
-if (!nvmrcFile) {
-  warn('Please commit an NVMRC file is a JS project')
-}
 
 /**
  * Rule: Ensure a PR does not exceed the character threshold
