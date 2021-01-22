@@ -8,9 +8,17 @@
         @if (isset($meta))
             <meta name="description" content="{{ $meta }}">
         @endif
+        @if (config('app.env') !== 'local')
+            <script nonce="{{ csp_nonce() }}">
+                // before React is loaded disable the devtools
+                if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === 'object') {
+                    __REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function() {};
+                }
+            </script>
+        @endif
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <script src="{{ mix('js/app.js') }}" defer></script>
-        @routes
+        @routes(false, csp_nonce())
     </head>
     <body class="antialiased">
         <div class="site h-full">
