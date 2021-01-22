@@ -1,6 +1,7 @@
 declare module '@inertiajs/inertia' {
   type Flash = {
-    message: string
+    message: string,
+    type: string
   }
 
   namespace Inertia {

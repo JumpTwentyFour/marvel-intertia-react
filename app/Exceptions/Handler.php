@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Domain\Flash\Facades\Flash;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Response;
 use Inertia\Inertia;
@@ -50,7 +51,7 @@ class Handler extends ExceptionHandler
         $response = parent::render($request, $e);
 
         if ($response->getStatusCode() === Response::HTTP_TOO_MANY_REQUESTS) {
-            session()->flash('message', 'Too many requests please try again shortly.');
+            Flash::error('Too many requests please try again shortly.');
             return Inertia::location(url()->current());
         }
 

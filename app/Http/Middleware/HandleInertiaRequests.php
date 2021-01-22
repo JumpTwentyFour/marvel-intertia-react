@@ -38,7 +38,8 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'flash' => [
-                'message' => fn () => $request->session()->get('message'),
+                'message' => fn () => $request->session()->get('inertia', ''),
+                'type' => fn () => $request->session()->get('inertia', ''),
             ],
         ]);
     }
