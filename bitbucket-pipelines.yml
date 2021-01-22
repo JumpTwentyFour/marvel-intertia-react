@@ -65,8 +65,9 @@ pipelines:
               - composer run phpstan
               - composer run test
               - composer run analyse
-      services:
-        - mysql
+            services:
+              - mysql
+
 
 definitions:
   services:
