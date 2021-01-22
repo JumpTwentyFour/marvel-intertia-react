@@ -20,7 +20,7 @@ const Login = (): JSX.Element => {
   ): void => {
     event.preventDefault()
     Inertia.post(
-      '/login',
+      route('login').toString(),
       {
         email: state.email,
         password: state.password,
