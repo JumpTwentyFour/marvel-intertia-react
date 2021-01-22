@@ -1,0 +1,11 @@
+.button {
+  @apply flex
+    justify-center
+    items-center;
+}
+
+.button__content {
+  @apply py-2.5
+    px-4
+    rounded-full;
+}

@@ -11,7 +11,7 @@
   @apply pb-0;
 }
 
-.card__image img {
+.card__image:not(.card__image--comic) img {
   @apply top-1/2
     left-0;
   transform: translateY(-50%);
