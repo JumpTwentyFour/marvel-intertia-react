@@ -62,3 +62,4 @@ pipelines:
               - composer run phpcs
               - composer run phpstan
               - composer run test
+              - composer run analyse
