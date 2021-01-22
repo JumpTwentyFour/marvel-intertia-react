@@ -38,3 +38,7 @@ mix
     ziggy: path.resolve('vendor/tightenco/ziggy/dist'),
   })
   .version()
+
+if (!mix.inProduction()) {
+  mix.sourceMaps()
+}
