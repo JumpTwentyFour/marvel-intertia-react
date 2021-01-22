@@ -18,6 +18,7 @@ return [
     'exclude_analyzers' => [
         \Enlightn\Enlightn\Analyzers\Security\PHPIniAnalyzer::class,
         \Enlightn\Enlightn\Analyzers\Performance\CacheHeaderAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\QueueDriverAnalyzer::class,
     ],
 
     /*
