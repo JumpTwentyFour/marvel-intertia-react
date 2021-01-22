@@ -1,0 +1,54 @@
+.field {
+  @apply flex
+    flex-col
+    mb-8
+    border-b
+    border-solid
+    border-white;
+}
+
+.field--no-border {
+  @apply border-0;
+}
+
+.label {
+  @apply flex
+    uppercase
+    text-xs
+    font-medium
+    mb-2
+    opacity-60;
+}
+
+.input {
+  @apply text-base
+    py-1.5;
+  background: transparent;
+}
+
+.checkbox {
+  @apply hidden;
+}
+
+.checkbox__input {
+  @apply w-4
+    h-4
+    bg-white
+    flex
+    justify-center
+    items-center
+    mr-4;
+}
+
+.label--checkbox {
+  @apply mb-0;
+}
+
+.checkbox__wrapper svg {
+  transform: scale(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.checkbox:checked + .checkbox__wrapper svg {
+  transform: scale(1);
+}
