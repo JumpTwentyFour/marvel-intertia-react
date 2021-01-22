@@ -118,8 +118,7 @@
             "vendor/bin/phpcs --standard=./phpcs.xml --extensions=php ."
         ],
         "analyse": [
-            "@phpcs",
-            "@phpstan"
+            "php artisan enlightn"
         ],
         "project-install-local": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
