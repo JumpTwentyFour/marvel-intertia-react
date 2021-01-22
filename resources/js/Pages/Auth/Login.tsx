@@ -36,8 +36,9 @@ const Login = (): JSX.Element => {
 
   return (
     <React.Fragment>
-      <ValidationErrors errors={errors} />
       <form className='col-span-6 sm:col-span-4 sm:col-start-2 md:col-span-6 md:col-start-4 lg:col-span-4 lg:col-start-5 flex flex-col justify-center'>
+        <ValidationErrors errors={errors} />
+
         <div className='field'>
           <label htmlFor='email' className='label'>
             Email
@@ -47,6 +48,7 @@ const Login = (): JSX.Element => {
             type='email'
             required
             className='input'
+            autoComplete='email'
             autoFocus
             onChange={event =>
               setState({ ...state, email: event.target.value })

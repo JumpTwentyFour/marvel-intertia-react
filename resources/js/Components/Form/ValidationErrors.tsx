@@ -14,7 +14,7 @@ const ValidationErrors = (props: ValidationErrorsType): ReactElement => {
           <div className='font-medium text-red-600'>
             Whoops! Something went wrong.
           </div>
-          <ul className='mt-3 list-disc list-inside text-sm text-red-600'>
+          <ul className='mt-3 mb-8 list-disc list-inside text-sm text-red-600'>
             {Object.keys(props.errors).map((error, key) => (
               <li key={key}>{props.errors[error]}</li>
             ))}
