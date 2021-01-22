@@ -2,7 +2,6 @@
 
 namespace App\Http\Policies;
 
-use Illuminate\Support\Facades\App;
 use Spatie\Csp\Directive;
 use Spatie\Csp\Policies\Basic;
 
