@@ -54,7 +54,7 @@ pipelines:
               - docker-php-ext-install zip
               - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
               - composer install
-              - cp .env.example .env
+              - cp .env.pipelines .env
               - echo "MARVEL_PUBLIC_API_KEY=$MARVEL_PUBLIC_API_KEY" >> .env
               - echo "MARVEL_PRIVATE_API_KEY=$MARVEL_PRIVATE_API_KEY" >> .env
               - php artisan key:generate
@@ -63,3 +63,13 @@ pipelines:
               - composer run phpstan
               - composer run test
               - composer run analyse
+
+definitions:
+  services:
+    mysql:
+      image: mysql:8.0.20
+      environment:
+        MYSQL_DATABASE: 'marvel'
+        MYSQL_ROOT_PASSWORD: 'testing'
+        MYSQL_USER: 'marvel_user'
+        MYSQL_PASSWORD: 'jump24'
