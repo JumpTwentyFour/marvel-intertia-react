@@ -8,6 +8,11 @@ return [
      */
     'policy' => \App\Http\Policies\ExtendedContentSecurityPolicy::class,
 
+    /**
+     * Should the CSP report only
+     */
+    'report_only' => env('CSP_REPORT_ONLY', false),
+
     /*
      * This policy which will be put in report only mode. This is great for testing out
      * a new policy or changes to existing csp policy without breaking anything.

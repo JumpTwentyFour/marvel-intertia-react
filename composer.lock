@@ -6086,16 +6086,16 @@
         },
         {
             "name": "claudiodekker/inertia-laravel-testing",
-            "version": "2.2.4",
+            "version": "2.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/claudiodekker/inertia-laravel-testing.git",
-                "reference": "08fb703e9cb37da701654fd95105d05e58a70d63"
+                "reference": "8c8191b2b910ebdd4979911c9fbae60a188a85b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/claudiodekker/inertia-laravel-testing/zipball/08fb703e9cb37da701654fd95105d05e58a70d63",
-                "reference": "08fb703e9cb37da701654fd95105d05e58a70d63",
+                "url": "https://api.github.com/repos/claudiodekker/inertia-laravel-testing/zipball/8c8191b2b910ebdd4979911c9fbae60a188a85b4",
+                "reference": "8c8191b2b910ebdd4979911c9fbae60a188a85b4",
                 "shasum": ""
             },
             "require": {
@@ -6146,7 +6146,7 @@
             ],
             "support": {
                 "issues": "https://github.com/claudiodekker/inertia-laravel-testing/issues",
-                "source": "https://github.com/claudiodekker/inertia-laravel-testing/tree/2.2.4"
+                "source": "https://github.com/claudiodekker/inertia-laravel-testing/tree/2.2.5"
             },
             "funding": [
                 {
@@ -6158,7 +6158,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-21T18:58:34+00:00"
+            "time": "2021-01-22T11:10:25+00:00"
         },
         {
             "name": "composer/ca-bundle",
