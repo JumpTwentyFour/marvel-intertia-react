@@ -28,7 +28,7 @@ class ComicTest extends TestCase
         $response->assertInertia(function (Assert $page) {
             $page->component('Comics', false)
                 ->has('comics.data.0', function (Assert $page) {
-                    $page->has('title', 'Marvel')
+                    $page->has('title')
                         ->etc();
                 })
                 ->has('errors');

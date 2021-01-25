@@ -1,13 +1,5 @@
 import React, { ReactElement } from 'react'
-
-type SVGType = {
-  fill?: string
-  strokeWidth?: string
-  strokeColor?: string
-  width?: string
-  height?: string
-  className?: string
-}
+import { SVGType } from '../../types/svgs'
 
 const SearchIcon = (props: SVGType): ReactElement => {
   return (

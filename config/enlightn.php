@@ -15,7 +15,15 @@ return [
     'analyzers' => ['*'],
 
     // If you wish to skip running some analyzers, list the classes in the array below.
-    'exclude_analyzers' => [],
+    'exclude_analyzers' => [
+        \Enlightn\Enlightn\Analyzers\Security\PHPIniAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\CacheHeaderAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\QueueDriverAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Reliability\DatabaseStatusAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Security\FilePermissionsAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\OpcacheAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\MysqlSingleServerAnalyzer::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +39,7 @@ return [
     'analyzer_paths' => [
         'Enlightn\\Enlightn\\Analyzers' => base_path('vendor/enlightn/enlightn/src/Analyzers'),
         'Enlightn\\EnlightnPro\\Analyzers' => base_path('vendor/enlightn/enlightnpro/src/Analyzers'),
-        'App\\Enlightn\\Analyzers' => base_path('app/Enlightn//Analyzers'),
+        'JumpTwentyFour\\ProjectAnalyzers\\Analyzers' => base_path('vendor/jumptwentyfour/project-analysers/src/Analyzers')
     ],
 
     /*
@@ -76,6 +84,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Exclusions From Reporting
+    |--------------------------------------------------------------------------
+    |
+    | Specify the analyzer classes that you wish to exclude from reporting. This
+    | means that if any of these analyzers fail, they will not be counted
+    | towards the exit status of the Enlightn command. This is useful
+    | if you wish to run the command in your CI/CD pipeline.
+    | Example: [\Enlightn\Enlightn\Analyzers\Security\XSSAnalyzer::class].
+    |
+    */
+    'dont_report' => [],
+
+    /*
+    |--------------------------------------------------------------------------
     | Analyzer Configurations
     |--------------------------------------------------------------------------
     |
@@ -115,5 +137,11 @@ return [
     'writable_directories' => [
         storage_path(),
         app()->bootstrapPath('cache'),
+    ],
+
+    'invokable' => [
+        'ignore_controllers' => [
+            \App\Http\Controllers\Controller::class,
+        ]
     ],
 ];
