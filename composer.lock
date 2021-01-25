@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5aa656986cf8b75ce7b480be5491faa5",
+    "content-hash": "f0bb43aea4f52aef2b6dd6ef3fda2c68",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7904,6 +7904,50 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
+            "name": "jumptwentyfour/project-analysers",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JumpTwentyFour/project-analysers.git",
+                "reference": "e82c79016f4ab2eee4d073d7f64bbef67919632c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JumpTwentyFour/project-analysers/zipball/e82c79016f4ab2eee4d073d7f64bbef67919632c",
+                "reference": "e82c79016f4ab2eee4d073d7f64bbef67919632c",
+                "shasum": ""
+            },
+            "require": {
+                "enlightn/enlightn": "^1.0",
+                "illuminate/filesystem": "^8.0",
+                "php": "^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JumpTwentyFour\\ProjectAnalyzers\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Williams",
+                    "email": "alex@jump24.co.uk",
+                    "homepage": "https://jump24.co.uk",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A base set of analysers extending upon Laravel Enlightn to enforce consistency, security and reliability",
+            "support": {
+                "source": "https://github.com/JumpTwentyFour/project-analysers/tree/main",
+                "issues": "https://github.com/JumpTwentyFour/project-analysers/issues"
+            },
+            "time": "2021-01-25T09:25:26+00:00"
+        },
+        {
             "name": "justinrainbow/json-schema",
             "version": "5.2.10",
             "source": {
@@ -11797,6 +11841,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "jumptwentyfour/project-analysers": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
