@@ -4,11 +4,10 @@ import { Inertia } from '@inertiajs/inertia'
 import route from 'ziggy-js'
 import Layout from '../../Layout'
 import ValidationErrors from '../../Components/Form/ValidationErrors'
-import Status from '../../Components/Form/Status'
 
 type ResetPasswordProps = {
-  email: string,
-  token: string,
+  email: string
+  token: string
 }
 
 const ResetPassword = (props: ResetPasswordProps): JSX.Element => {
@@ -36,7 +35,6 @@ const ResetPassword = (props: ResetPasswordProps): JSX.Element => {
   return (
     <React.Fragment>
       <form className='col-span-6 sm:col-span-4 sm:col-start-2 md:col-span-6 md:col-start-4 lg:col-span-4 lg:col-start-5 flex flex-col justify-center'>
-
         <ValidationErrors errors={errors} />
 
         <div className='field'>
