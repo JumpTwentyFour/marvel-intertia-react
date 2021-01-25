@@ -6,7 +6,7 @@ parameters:
     level: 8
     paths:
         - app
-    excludes_analyse:
+    excludePaths:
         - '.phpstorm.meta.php'
         - '_ide_helper.php'
         - 'server.php'
