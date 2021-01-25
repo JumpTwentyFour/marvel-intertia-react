@@ -19,6 +19,10 @@ return [
         \Enlightn\Enlightn\Analyzers\Security\PHPIniAnalyzer::class,
         \Enlightn\Enlightn\Analyzers\Performance\CacheHeaderAnalyzer::class,
         \Enlightn\Enlightn\Analyzers\Performance\QueueDriverAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Reliability\DatabaseStatusAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Security\FilePermissionsAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\OpcacheAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\MysqlSingleServerAnalyzer::class,
     ],
 
     /*
@@ -90,14 +94,7 @@ return [
     | Example: [\Enlightn\Enlightn\Analyzers\Security\XSSAnalyzer::class].
     |
     */
-    'dont_report' => [
-        \Enlightn\Enlightn\Analyzers\Reliability\DatabaseStatusAnalyzer::class,
-        \Enlightn\Enlightn\Analyzers\Performance\RouteCachingAnalyzer::class,
-        \Enlightn\Enlightn\Analyzers\Security\FilePermissionsAnalyzer::class,
-        \Enlightn\Enlightn\Analyzers\Performance\OpcacheAnalyzer::class,
-        \Enlightn\Enlightn\Analyzers\Performance\MysqlSingleServerAnalyzer::class,
-        \Enlightn\Enlightn\Analyzers\Security\FilePermissionsAnalyzer::class,
-    ],
+    'dont_report' => [],
 
     /*
     |--------------------------------------------------------------------------
