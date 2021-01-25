@@ -94,6 +94,9 @@ return [
         \Enlightn\Enlightn\Analyzers\Reliability\DatabaseStatusAnalyzer::class,
         \Enlightn\Enlightn\Analyzers\Performance\RouteCachingAnalyzer::class,
         \Enlightn\Enlightn\Analyzers\Security\FilePermissionsAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\OpcacheAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\MysqlSingleServerAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Security\FilePermissionsAnalyzer::class,
     ],
 
     /*
@@ -137,5 +140,11 @@ return [
     'writable_directories' => [
         storage_path(),
         app()->bootstrapPath('cache'),
+    ],
+
+    'invokable' => [
+        'ignore_controllers' => [
+            \App\Http\Controllers\Controller::class,
+        ]
     ],
 ];
