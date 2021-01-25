@@ -58,11 +58,17 @@ pipelines:
               - echo "MARVEL_PUBLIC_API_KEY=$MARVEL_PUBLIC_API_KEY" >> .env
               - echo "MARVEL_PRIVATE_API_KEY=$MARVEL_PRIVATE_API_KEY" >> .env
               - php artisan key:generate
+              - php artisan migrate
               - composer run lint
               - composer run phpcs
               - composer run phpstan
+              - php artisan serve &
+              - sleep 5
               - composer run test
               - composer run analyse
+            services:
+              - mysql
+
 
 definitions:
   services:
