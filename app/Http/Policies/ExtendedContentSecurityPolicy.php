@@ -16,7 +16,9 @@ class ExtendedContentSecurityPolicy extends Basic
         $this->addDirective(Directive::STYLE, 'https://fonts.googleapis.com');
 
         if (config('csp.report_only') === true) {
-            $this->reportOnly();
+            return;
         }
+
+        $this->reportOnly();
     }
 }

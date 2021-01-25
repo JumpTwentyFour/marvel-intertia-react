@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0bb43aea4f52aef2b6dd6ef3fda2c68",
+    "content-hash": "975e600db9e8f3335d07226579a9875d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7904,6 +7904,44 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
+            "name": "jumptwentyfour/php-coding-standards",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JumpTwentyFour/php-coding-standards.git",
+                "reference": "affbc3968c22c91e8bd7786d016377f763eef038"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JumpTwentyFour/php-coding-standards/zipball/affbc3968c22c91e8bd7786d016377f763eef038",
+                "reference": "affbc3968c22c91e8bd7786d016377f763eef038",
+                "shasum": ""
+            },
+            "require": {
+                "slevomat/coding-standard": "^6.4",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Williams",
+                    "email": "alex@jump24.co.uk",
+                    "homepage": "https://jump24.co.uk",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Coding standards for our PHP applications.",
+            "support": {
+                "source": "https://github.com/JumpTwentyFour/php-coding-standards/tree/main",
+                "issues": "https://github.com/JumpTwentyFour/php-coding-standards/issues"
+            },
+            "time": "2021-01-25T11:13:51+00:00"
+        },
+        {
             "name": "jumptwentyfour/project-analysers",
             "version": "dev-main",
             "source": {
@@ -11842,6 +11880,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "jumptwentyfour/project-analysers": 20,
+        "jumptwentyfour/php-coding-standards": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
