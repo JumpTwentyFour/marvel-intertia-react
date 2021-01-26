@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use ClaudioDekker\Inertia\Assert;
 use Illuminate\Http\Response;
 use Tests\TestCase;
@@ -11,9 +10,7 @@ class HomeTest extends TestCase
 {
     public function test_homepage_will_return_six_random_characters(): void
     {
-        $user = User::factory()->create();
-
-        $response = $this->actingAs($user)->get('/');
+        $response = $this->get('/');
         $response->assertStatus(Response::HTTP_OK);
         $response->assertInertia(function (Assert $page) {
             $page->component('Home', false)
