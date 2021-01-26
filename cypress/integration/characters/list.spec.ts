@@ -1,9 +1,4 @@
 /// <reference types="cypress" />
-/// <reference path="../../support/index.d.ts" />
-
-beforeEach(() => {
-  cy.login({ email: 'cypress@jump24.co.uk' })
-})
 
 context('Marvel - List Characters', () => {
   describe('When I visit characters list page', () => {

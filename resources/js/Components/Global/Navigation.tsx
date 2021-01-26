@@ -1,8 +1,43 @@
-import React, { FC, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import { InertiaLink } from '@inertiajs/inertia-react'
 import route from 'ziggy-js'
 
-const Navigation: FC = (): ReactElement => {
+type NavProps = {
+  authenticated: boolean
+}
+
+const Navigation = (props: NavProps): ReactElement => {
+  const renderAuthLinks = (): ReactElement => {
+    if (props.authenticated) {
+      return (
+        <li className='site-menu__item'>
+          <InertiaLink
+            href={route('logout').toString()}
+            method='post'
+            as='button'
+            type='button'
+            className='site-menu__link'
+          >
+            Logout
+          </InertiaLink>
+        </li>
+      )
+    }
+
+    return (
+      <li className='site-menu__item'>
+        <InertiaLink
+          href={route('login').toString()}
+          as='button'
+          type='button'
+          className='site-menu__link'
+        >
+          Login
+        </InertiaLink>
+      </li>
+    )
+  }
+
   return (
     <nav data-cy='navigation' className='col-span-6 md:col-span-12'>
       <ul className='site-menu flex justify-center items-center'>
@@ -38,17 +73,7 @@ const Navigation: FC = (): ReactElement => {
             Assemble
           </InertiaLink>
         </li>
-        <li className='site-menu__item'>
-          <InertiaLink
-            href={route('logout').toString()}
-            method='post'
-            as='button'
-            type='button'
-            className='site-menu__link'
-          >
-            Logout
-          </InertiaLink>
-        </li>
+        {renderAuthLinks()}
       </ul>
     </nav>
   )

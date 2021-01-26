@@ -9,7 +9,9 @@ const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
     <div className='site-wrapper min-h-full'>
       <header className='pt-7 border-b border-solid border-gray-200 border-opacity-10'>
         <div className='container'>
-          <div className='content'>{authenticated && <Navigation />}</div>
+          <div className='content'>
+            <Navigation authenticated={authenticated} />
+          </div>
         </div>
       </header>
       <main className='py-14 flex items-stretch justify-center'>
