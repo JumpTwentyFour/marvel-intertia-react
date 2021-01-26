@@ -28,7 +28,7 @@ const Login = (): JSX.Element => {
       },
       {
         onFinish: () => {
-          state.password = ''
+          setState({ ...state, password: '' })
         },
       },
     )
@@ -39,11 +39,12 @@ const Login = (): JSX.Element => {
       <form className='col-span-6 sm:col-span-4 sm:col-start-2 md:col-span-6 md:col-start-4 lg:col-span-4 lg:col-start-5 flex flex-col justify-center'>
         <ValidationErrors errors={errors} />
 
-        <div className='field'>
+        <div data-cy='email-field' className='field'>
           <label htmlFor='email' className='label'>
             Email
           </label>
           <input
+            data-cy='email-input'
             id='email'
             type='email'
             required
@@ -56,11 +57,12 @@ const Login = (): JSX.Element => {
           />
           {errors.email && <div>{errors.email}</div>}
         </div>
-        <div className='field'>
+        <div data-cy='password-field' className='field'>
           <label htmlFor='password' className='label'>
             Password
           </label>
           <input
+            data-cy='password-input'
             id='password'
             type='password'
             required
@@ -74,6 +76,7 @@ const Login = (): JSX.Element => {
         </div>
         <div className='field field--no-border'>
           <input
+            data-cy='remember-me-input'
             id='remember'
             type='checkbox'
             name='remember'
@@ -94,10 +97,15 @@ const Login = (): JSX.Element => {
         </div>
 
         <div className='flex flex-col'>
-          <button className='button mb-4' onClick={onClick}>
+          <button
+            data-cy='login-button'
+            className='button mb-4'
+            onClick={onClick}
+          >
             <span className='button__content bg-pinkish w-full'>Login</span>
           </button>
           <InertiaLink
+            data-cy='forgot-password-link'
             href={route('password.request').toString()}
             className='underline text-sm opacity-60'
           >

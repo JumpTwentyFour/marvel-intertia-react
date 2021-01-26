@@ -30,6 +30,16 @@ If your `.env` file doesn't exist, this will copy the `.env.example` file, and t
 
 It will then generate an `APP_KEY` using artisan.
 
+### Cypress
+In order to run Cypress tests you must ensure the `cypress.json` file matches your local environment.
+If it doesn't create a `cypress.env.json` file which any overrides you have. E.g.
+
+```
+{
+    "baseUrl": "https://my.url"
+}
+```
+Then run the following command:- `npx cypress open --config-file=cypress.env.json`
 
 ---
 
@@ -175,6 +185,25 @@ $ docker-compose run --rm node npm run test
 $ docker-compose run --rm node npm run prod
 ```
 
+#### Cypress:
+
+##### Running Cypress In Browser
+
+```
+npx cypress open
+```
+
+##### Running Cypress in Headless Mode
+
+```
+npx cypress run --headless
+```
+
+##### Running Cypress with a different config file
+
+```
+npx cypress open --config-file=cypress.env.json
+```
 ---
 
 

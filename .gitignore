@@ -133,6 +133,7 @@ docker/mysql/data/**
 /vendor
 .env
 .env.backup
+.env.cypress
 .phpunit.result.cache
 docker-compose.override.yml
 Homestead.json
@@ -143,3 +144,8 @@ yarn-error.log
 /public/mix-manifest.json
 /public/css/**
 mysql/**
+
+#Cypress
+/cypress/screenshots
+/cypress/videos
+cypress.env.json
