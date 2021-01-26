@@ -29,7 +29,8 @@ class SecureHeaders
          * https://github.com/helmetjs/helmet/issues/230
          * https://github.com/github/secure_headers/issues/439
          */
-         // $response->headers->set('X-XSS-Protection', 0);
+        // phpcs:ignore
+        // $response->headers->set('X-XSS-Protection', 0);
 
         /**
          * You can register your websites domain https://hstspreload.org/ so it is always preloaded via HTTPS

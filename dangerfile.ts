@@ -12,28 +12,6 @@ import { danger, fail, message, warn } from 'danger'
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 /**
- * Rule: Ensure the PR title contains a Jira ticket key.
- * Reason: When looking at the list of PRs, seeing the Jira ticket in the PR
- *         title makes it very efficient to know what to look at.
- */
-const prTitle = danger.bitbucket_cloud.pr.title
-const ticketPattern = /MP-\d+/g
-if (!ticketPattern.test(prTitle)) {
-  warn(`🔍 I can't find the Jira ticket number in the PR title.`)
-}
-
-/**
- * Rule: Ensure the PR body contains a link to the Jira ticket.
- * Reason: It's the most efficient way to jump from Github to Jira to update the
- *         ticket.
- */
-const prDescription = danger.bitbucket_cloud.pr.description
-const ticketUrlPattern = /https:\/\/jumptwentyfour\.atlassian\.net\/browse\/MP-(\d+)/g
-if (!ticketUrlPattern.test(prDescription)) {
-  warn(`🔍 I can't find the Jira ticket URL in the PR body.`)
-}
-
-/**
  * Rule: Ensure the PR body contains a link to the Jira ticket.
  * Reason: It's the most efficient way to jump from Github to Jira to update the
  *         ticket.

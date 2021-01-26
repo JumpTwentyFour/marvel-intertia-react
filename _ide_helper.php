@@ -14572,7 +14572,48 @@
      
 }
 
-        namespace Facade\Ignition\Facades { 
+        namespace App\Domain\Flash\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Flash {
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function success($message)
+        {
+                        /** @var \App\Domain\Flash\Flash $instance */
+                        return $instance->success($message);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function warning($message)
+        {
+                        /** @var \App\Domain\Flash\Flash $instance */
+                        return $instance->warning($message);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function error($message)
+        {
+                        /** @var \App\Domain\Flash\Flash $instance */
+                        return $instance->error($message);
+        }
+         
+    }
+     
+}
+
+    namespace Facade\Ignition\Facades { 
             /**
      * Class Flare.
      *
@@ -18070,6 +18111,7 @@ namespace  {
             class URL extends \Illuminate\Support\Facades\URL {}
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
+            class Flash extends \App\Domain\Flash\Facades\Flash {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
      
 }
