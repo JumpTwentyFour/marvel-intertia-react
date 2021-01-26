@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use ClaudioDekker\Inertia\Assert;
 use Illuminate\Http\Response;
 use Tests\TestCase;
@@ -10,7 +11,9 @@ class AssembleTest extends TestCase
 {
     public function test_assemble_page_will_return_the_avenger_characters(): void
     {
-        $response = $this->get('/assemble');
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->get('/assemble');
         $response->assertStatus(Response::HTTP_OK);
         $response->assertInertia(function (Assert $page) {
             $page->component('Assemble', false)

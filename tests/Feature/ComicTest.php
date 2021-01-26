@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use ClaudioDekker\Inertia\Assert;
 use Illuminate\Http\Response;
 use Tests\TestCase;
@@ -10,7 +11,9 @@ class ComicTest extends TestCase
 {
     public function test_comics_will_return_all_comics(): void
     {
-        $response = $this->get('/comics');
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->get('/comics');
         $response->assertStatus(Response::HTTP_OK);
         $response->assertInertia(function (Assert $page) {
             $page->component('Comics', false)
@@ -23,7 +26,9 @@ class ComicTest extends TestCase
 
     public function test_will_return_comics_by_title(): void
     {
-        $response = $this->get('/comics?title=Marvel');
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->get('/comics?title=Marvel');
         $response->assertStatus(Response::HTTP_OK);
         $response->assertInertia(function (Assert $page) {
             $page->component('Comics', false)
@@ -37,7 +42,9 @@ class ComicTest extends TestCase
 
     public function test_can_search_comics_by_page(): void
     {
-        $response = $this->get('/comics?page=10');
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->get('/comics?page=10');
         $response->assertStatus(Response::HTTP_OK);
         $response->assertInertia(function (Assert $page) {
             $page->component('Comics', false)
@@ -47,7 +54,9 @@ class ComicTest extends TestCase
 
     public function test_will_return_no_comments_when_page_exceeds_limit(): void
     {
-        $response = $this->get('/comics?page=1000');
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->get('/comics?page=1000');
         $response->assertStatus(Response::HTTP_OK);
         $response->assertInertia(function (Assert $page) {
             $page->component('Comics', false)
