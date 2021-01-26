@@ -66,10 +66,5 @@ context('Marvel - Login', () => {
       cy.visit('/login')
       cy.get('[data-cy=navigation').should('not.exist')
     })
-
-    it('Will be redirected to login when unauthenticated', () => {
-      cy.visit('/')
-      cy.location('pathname').should('eq', '/login')
-    })
   })
 })
