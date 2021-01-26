@@ -18,7 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
       <main className='py-14 flex items-stretch justify-center'>
         <section className='w-full flex items-stretch'>
           <div className='container'>
-            {flash && <Flash>{flash.message}</Flash>}
+            {flash && <Flash type={flash.type}>{flash.message}</Flash>}
             <div className='content min-h-full'>{children}</div>
           </div>
         </section>
