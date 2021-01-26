@@ -104,13 +104,22 @@ const Login = (): JSX.Element => {
           >
             <span className='button__content bg-pinkish w-full'>Login</span>
           </button>
-          <InertiaLink
-            data-cy='forgot-password-link'
-            href={route('password.request').toString()}
-            className='underline text-sm opacity-60'
-          >
-            Forgot your password?
-          </InertiaLink>
+          <div className='flex flex-wrap content-center'>
+            <InertiaLink
+              data-cy='forgot-password-link'
+              href={route('password.request').toString()}
+              className='underline text-sm opacity-60 mx-auto'
+            >
+              Forgot your password?
+            </InertiaLink>
+            <InertiaLink
+              data-cy='register-link'
+              href={route('register').toString()}
+              className='underline text-sm opacity-60 mx-auto'
+            >
+              Not registered?
+            </InertiaLink>
+          </div>
         </div>
       </form>
     </React.Fragment>

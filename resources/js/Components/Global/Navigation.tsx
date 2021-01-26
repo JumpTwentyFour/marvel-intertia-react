@@ -4,7 +4,7 @@ import route from 'ziggy-js'
 
 const Navigation: FC = (): ReactElement => {
   return (
-    <nav className='col-span-6 md:col-span-12'>
+    <nav data-cy='navigation' className='col-span-6 md:col-span-12'>
       <ul className='site-menu flex justify-center items-center'>
         <li className='site-menu__item'>
           <InertiaLink
@@ -31,8 +31,22 @@ const Navigation: FC = (): ReactElement => {
           </InertiaLink>
         </li>
         <li className='site-menu__item'>
-          <InertiaLink href='/assemble' className='site-menu__link'>
+          <InertiaLink
+            href={route('characters.assemble').toString()}
+            className='site-menu__link'
+          >
             Assemble
+          </InertiaLink>
+        </li>
+        <li className='site-menu__item'>
+          <InertiaLink
+            href={route('logout').toString()}
+            method='post'
+            as='button'
+            type='button'
+            className='site-menu__link'
+          >
+            Logout
           </InertiaLink>
         </li>
       </ul>

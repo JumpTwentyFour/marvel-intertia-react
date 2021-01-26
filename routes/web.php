@@ -4,6 +4,7 @@ use App\Http\Controllers\Characters\AssembleCharacters;
 use App\Http\Controllers\Characters\ListAllCharacters;
 use App\Http\Controllers\Comics\ListAllComics;
 use App\Http\Controllers\HomeController;
+use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, '__invoke'])->name('home');
+Route::middleware(Authenticate::class)->group(function () {
+    Route::get('/', [HomeController::class, '__invoke'])->name('home');
 
-Route::get('characters', [ListAllCharacters::class, '__invoke'])
-    ->name('characters.list-all');
+    Route::get('characters', [ListAllCharacters::class, '__invoke'])
+        ->name('characters.list-all');
 
-Route::get('assemble', [AssembleCharacters::class, '__invoke'])
-    ->name('characters.assemble');
+    Route::get('assemble', [AssembleCharacters::class, '__invoke'])
+        ->name('characters.assemble');
 
-Route::get('comics', [ListAllComics::class, '__invoke'])
-    ->name('comics.list-all');
+    Route::get('comics', [ListAllComics::class, '__invoke'])
+        ->name('comics.list-all');
+});
