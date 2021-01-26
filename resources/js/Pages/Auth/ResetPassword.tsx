@@ -26,8 +26,7 @@ const ResetPassword = (props: ResetPasswordProps): JSX.Element => {
     event.preventDefault()
     Inertia.post(route('password.update').toString(), state, {
       onFinish: () => {
-        state.password = ''
-        state.password_confirmation = ''
+        setState({ ...state, password: '', password_confirmation: '' })
       },
     })
   }

@@ -13,6 +13,24 @@ const JEST_CONFIG = {
 }
 
 /**
+ * Makes any test file have the `jest` env available so ESLint
+ * does not moan about `describe`, `it`, `test`, etc. all not
+ * existing or being defined.
+ */
+const CYPRESS_CONFIG = {
+  files: [
+    'laravel-commands.js',
+    'laravel-routes.js',
+    'cypress/support/index.js',
+    'cypress/support/assertions.js',
+    '*.spec.{js,ts,tsx}',
+  ],
+  env: {
+    'cypress/globals': true,
+  },
+}
+
+/**
  * Ensures that any storybook 'wrapper' components do not need
  * to define prop-types as it is something of a waste of time.
  */
@@ -50,6 +68,7 @@ const TS_CONFIG = {
       { allowExpressions: true },
     ],
     '@typescript-eslint/no-unused-vars': ['error'],
+    '@typescript-eslint/ban-ts-comment': 'off',
   },
 }
 
@@ -60,7 +79,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['react', 'react-hooks', 'import'],
+  plugins: ['react', 'react-hooks', 'import', 'cypress'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -138,5 +157,5 @@ module.exports = {
       version: 'detect',
     },
   },
-  overrides: [JEST_CONFIG, STORYBOOK_CONFIG, TS_CONFIG],
+  overrides: [JEST_CONFIG, CYPRESS_CONFIG, STORYBOOK_CONFIG, TS_CONFIG],
 }

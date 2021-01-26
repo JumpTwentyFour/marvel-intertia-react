@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "975e600db9e8f3335d07226579a9875d",
+    "content-hash": "5b7dc2ef02372d96d53aa5e18ee071a3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8056,6 +8056,65 @@
             "time": "2020-05-27T16:41:55+00:00"
         },
         {
+            "name": "laracasts/cypress",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/cypress.git",
+                "reference": "c9b8bdabbea70fae85c0a32cda24d861c983ff0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/cypress/zipball/c9b8bdabbea70fae85c0a32cda24d861c983ff0f",
+                "reference": "c9b8bdabbea70fae85c0a32cda24d861c983ff0f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.0",
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laracasts\\Cypress\\CypressServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laracasts\\Cypress\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Cypress Boilerplate",
+            "homepage": "https://github.com/laracasts/cypress",
+            "keywords": [
+                "cypress",
+                "laracasts"
+            ],
+            "support": {
+                "issues": "https://github.com/laracasts/cypress/issues",
+                "source": "https://github.com/laracasts/cypress/tree/1.3.0"
+            },
+            "time": "2021-01-21T15:52:04+00:00"
+        },
+        {
             "name": "mockery/mockery",
             "version": "1.4.2",
             "source": {
@@ -11879,8 +11938,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "jumptwentyfour/project-analysers": 20,
         "jumptwentyfour/php-coding-standards": 20,
+        "jumptwentyfour/project-analysers": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
