@@ -14,14 +14,14 @@ class ShowCharacter extends Controller
     {
         $character = get_object_vars($characterClient->load($characterUuid));
 
-        if (empty($character['id'])) {
+        if (!isset($character['id'])) {
             abort(404);
         }
 
         return Inertia::render(
             'Characters/Show',
             [
-                'character' => new Character($character)
+                'character' => new Character($character),
             ]
         )->withViewData(['meta' => $character['description']]);
     }
