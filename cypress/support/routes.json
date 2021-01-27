@@ -228,6 +228,16 @@
       "HEAD"
     ]
   },
+  "characters.view": {
+    "name": "characters.view",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\Characters\\ShowCharacter@__invoke",
+    "uri": "characters/{character}",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
   "characters.assemble": {
     "name": "characters.assemble",
     "domain": null,
