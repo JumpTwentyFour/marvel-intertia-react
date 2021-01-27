@@ -119,7 +119,7 @@
         "test": [
             "Composer\\Config::disableProcessTimeout",
             "php artisan cache:clear",
-            "php artisan test"
+            "php artisan test --parallel"
         ],
         "test:pipeline": [
             "Composer\\Config::disableProcessTimeout",
