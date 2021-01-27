@@ -8,7 +8,12 @@ type ShowCharactersType = {
 
 const Show = ({ character }: ShowCharactersType): JSX.Element => {
   const characterImageUrl = `${character.thumbnail.path}.${character.thumbnail.extension}`
-  const characterUrl = character.urls ? character.urls[1].url : null
+  const characterProfileUrl = ((): string => {
+    if (!character.urls || !character.urls[2]) {
+      return ''
+    }
+    return character.urls[2].url
+  })()
 
   return (
     <React.Fragment>
@@ -36,11 +41,11 @@ const Show = ({ character }: ShowCharactersType): JSX.Element => {
       </div>
       <div className='flex flex-col col-span-6 sm:col-span-12 md:col-span-8'>
         <p data-cy='description'>{character.description}</p>
-        {characterUrl && (
+        {characterProfileUrl.length > 0 && (
           <a
             data-cy='marvel-link'
             className='underline cursor-pointer py-2 w-max'
-            href={characterUrl}
+            href={characterProfileUrl}
             target='_blank'
             rel='noopener noreferrer'
           >
