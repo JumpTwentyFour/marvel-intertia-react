@@ -27,4 +27,3 @@ Route::get('assemble', [AssembleCharacters::class, '__invoke'])
 
 Route::get('comics', [ListAllComics::class, '__invoke'])
     ->name('comics.list-all');
-
