@@ -3,6 +3,7 @@
 use App\Http\Controllers\Characters\AssembleCharacters;
 use App\Http\Controllers\Characters\ListAllCharacters;
 use App\Http\Controllers\Comics\ListAllComics;
+use App\Http\Controllers\Comics\ListComicsStartsWith;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,6 @@ Route::get('assemble', [AssembleCharacters::class, '__invoke'])
 
 Route::get('comics', [ListAllComics::class, '__invoke'])
     ->name('comics.list-all');
+
+Route::get('comicsStartsWith', [ListComicsStartsWith::class, '__invoke'])
+    ->name('comics.starts-with');
