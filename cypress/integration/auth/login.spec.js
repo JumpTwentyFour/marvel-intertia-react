@@ -5,9 +5,8 @@ context('Marvel - Login', () => {
     it('Will log me in with valid credentials', () => {
       cy.intercept({ method: 'POST', url: '/login' }).as('login')
 
-      cy.log('You will need to run php artisan db:seed for this to pass.')
       cy.visit('/login')
-      cy.get('[data-cy=email-input]').type('alex@jump24.co.uk')
+      cy.get('[data-cy=email-input]').type('cypress@jump24.co.uk')
       cy.get('[data-cy=password-input]').type('testing')
       cy.get('[data-cy=login-button').click()
       cy.wait('@login')
@@ -18,7 +17,7 @@ context('Marvel - Login', () => {
       cy.intercept({ method: 'POST', url: '/login' }).as('login')
 
       cy.visit('/login')
-      cy.get('[data-cy=email-input]').type('alex@jump24.co.uk')
+      cy.get('[data-cy=email-input]').type('cypress@jump24.co.uk')
       cy.get('[data-cy=password-input]').type('invalid-password')
       cy.get('[data-cy=login-button').click()
       cy.wait('@login')
@@ -53,6 +52,19 @@ context('Marvel - Login', () => {
       cy.get('[data-cy=forgot-password-link').click()
       cy.wait('@forgotPassword')
       cy.location('pathname').should('eq', '/forgot-password')
+    })
+
+    it('Will navigate to register page when link is clicked', () => {
+      cy.intercept({ method: 'GET', url: '/register' }).as('register')
+      cy.visit('/login')
+      cy.get('[data-cy=register-link').click()
+      cy.wait('@register')
+      cy.location('pathname').should('eq', '/register')
+    })
+
+    it('Will not display navigation', () => {
+      cy.visit('/login')
+      cy.get('[data-cy=navigation').should('not.exist')
     })
   })
 })

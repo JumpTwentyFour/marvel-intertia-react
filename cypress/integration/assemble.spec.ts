@@ -1,8 +1,11 @@
 /// <reference types="cypress" />
+/// <reference path="../support/index.d.ts" />
 
 context('Marvel - Assemble', () => {
   describe('When I visit the assemble page', () => {
     it('Will display the seven avengers', () => {
+      cy.login({ email: 'cypress@jump24.co.uk' })
+
       cy.visit('/assemble')
       cy.get('[data-cy=character-card]').should('have.length', 7)
       cy.get('[data-cy=character-card]:eq(0)').should(

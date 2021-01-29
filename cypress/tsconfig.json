@@ -8,6 +8,7 @@
     },
     "include": [
         "../node_modules/cypress",
-        "./integration/*/*.spec.ts"
+        "./integration/*/*.spec.ts",
+        "./support/index.d.ts"
     ]
 }
