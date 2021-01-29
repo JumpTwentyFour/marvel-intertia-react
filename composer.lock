@@ -7951,12 +7951,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JumpTwentyFour/project-analysers.git",
-                "reference": "e82c79016f4ab2eee4d073d7f64bbef67919632c"
+                "reference": "4e3a945b0a978546ef3966c42370524dc57bcf96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JumpTwentyFour/project-analysers/zipball/e82c79016f4ab2eee4d073d7f64bbef67919632c",
-                "reference": "e82c79016f4ab2eee4d073d7f64bbef67919632c",
+                "url": "https://api.github.com/repos/JumpTwentyFour/project-analysers/zipball/4e3a945b0a978546ef3966c42370524dc57bcf96",
+                "reference": "4e3a945b0a978546ef3966c42370524dc57bcf96",
                 "shasum": ""
             },
             "require": {
@@ -7987,7 +7987,7 @@
                 "source": "https://github.com/JumpTwentyFour/project-analysers/tree/main",
                 "issues": "https://github.com/JumpTwentyFour/project-analysers/issues"
             },
-            "time": "2021-01-25T09:25:26+00:00"
+            "time": "2021-01-29T09:55:43+00:00"
         },
         {
             "name": "justinrainbow/json-schema",

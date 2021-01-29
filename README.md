@@ -102,6 +102,11 @@ $ docker-compose exec php composer remove guzzlehttp/guzzle
 $ docker-compose exec php composer run lint
 ```
 
+##### composer run analyse
+
+```
+$ docker-compose exec php composer run analyse
+```
 
 #### Artisan Commands:
 
