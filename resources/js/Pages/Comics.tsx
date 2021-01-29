@@ -12,8 +12,10 @@ type ComicsProps = {
 
 const Comics = (props: ComicsProps): JSX.Element => {
   const handleChange = (term: string): void => {
-    Inertia.visit(route('comics.starts-with').toString(), {
-      data: { titleStartsWith: term },
+    Inertia.visit(route('comics.list-all').toString(), {
+      data: {
+        title: term,
+      },
       preserveState: true,
     })
   }
