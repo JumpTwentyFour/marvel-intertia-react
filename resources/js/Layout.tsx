@@ -4,14 +4,14 @@ import Navigation from './Components/Global/Navigation'
 import Flash from './Components/Global/Flash'
 
 const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const { flash } = usePage().props
+  const { flash, authenticated } = usePage().props
 
   return (
     <div className='site-wrapper min-h-full'>
       <header className='pt-7 border-b border-solid border-gray-200 border-opacity-10'>
         <div className='container'>
           <div className='content'>
-            <Navigation />
+            <Navigation authenticated={authenticated} />
           </div>
         </div>
       </header>

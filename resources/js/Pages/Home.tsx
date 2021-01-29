@@ -1,5 +1,6 @@
 import React from 'react'
 import { InertiaLink } from '@inertiajs/inertia-react'
+import route from 'ziggy-js'
 import Layout from '../Layout'
 import { CharacterType } from '../types/character'
 import CharacterList from '../Components/CharacterList'
@@ -18,10 +19,17 @@ Home.layout = (page: JSX.Element): JSX.Element => {
   return (
     <Layout>
       <header className='col-span-6 md:col-span-12 border-b border-solid border-gray-200 border-opacity-10 pb-2.5 mb-5 md:mb-8 xl:mb-10 flex items-center'>
-        <h1 className='header-title text-3xl md:text-5xl font-semibold flex-grow'>
+        <h1
+          className='header-title text-3xl md:text-5xl font-semibold flex-grow'
+          data-cy='title'
+        >
           Featured Characters
         </h1>
-        <InertiaLink href='/characters' className='header-link'>
+        <InertiaLink
+          href={route('characters.list-all').toString()}
+          className='header-link'
+          data-cy='view-all-link'
+        >
           View all characters
         </InertiaLink>
       </header>

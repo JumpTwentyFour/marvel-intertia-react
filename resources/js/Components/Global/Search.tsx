@@ -61,12 +61,13 @@ const Search = (props: SearchType): ReactElement => {
   return (
     <div className='search flex items-center'>
       <div
-        className={`search__field absolute flex items-center left-0 -top-1 w-full 
+        className={`search__field absolute flex items-center left-0 -top-1 w-full
         overflow-hidden border-b border-solid border-gray-200 border-opacity-10 pb-1 ${
           state.isSearchVisible ? 'z-2 flex' : 'z-inset-1 hidden'
         }`}
       >
         <input
+          data-cy='search-input'
           className={`fade-up bg-transparent header-title text-3xl md:text-5xl font-semibold flex-grow text-white placeholder-white ${
             state.isSearchVisible ? 'fade-up--active' : ''
           }`}
@@ -85,6 +86,7 @@ const Search = (props: SearchType): ReactElement => {
         </button>
       </div>
       <span
+        data-cy='search-icon'
         className={`search__trigger cursor-pointer ${
           state.isSearchVisible ? 'hidden' : 'search__trigger--active'
         }`}

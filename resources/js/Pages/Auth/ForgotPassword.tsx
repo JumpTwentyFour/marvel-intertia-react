@@ -21,7 +21,11 @@ const ForgotPassword = (props: ForgotPasswordProps): JSX.Element => {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): void => {
     event.preventDefault()
-    Inertia.post(route('password.email').toString(), state)
+    Inertia.post(route('password.email').toString(), state, {
+      onSuccess: () => {
+        setState({ ...state, email: '' })
+      },
+    })
   }
 
   return (
@@ -41,19 +45,25 @@ const ForgotPassword = (props: ForgotPasswordProps): JSX.Element => {
             Email
           </label>
           <input
+            data-cy='email-input'
             id='email'
             type='email'
             required
             className='input'
             autoComplete='email'
             autoFocus
+            value={state.email}
             onChange={event =>
               setState({ ...state, email: event.target.value })
             }
           />
         </div>
         <div className='flex items-center justify-end mt-4'>
-          <button className='button mb-4' onClick={onClick}>
+          <button
+            data-cy='email-reset-button'
+            className='button mb-4'
+            onClick={onClick}
+          >
             <span className='button__content bg-pinkish w-full'>
               Email Password Reset Link
             </span>
