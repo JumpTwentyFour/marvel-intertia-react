@@ -3,7 +3,6 @@
 use App\Http\Controllers\Characters\AssembleCharacters;
 use App\Http\Controllers\Characters\ListAllCharacters;
 use App\Http\Controllers\Comics\ListAllComics;
-use App\Http\Controllers\Comics\ListComicsStartsWith;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 

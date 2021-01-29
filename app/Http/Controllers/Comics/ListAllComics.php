@@ -15,7 +15,7 @@ class ListAllComics extends Controller
     {
         $comics = $comicsClient->index($request->get('page'), 100, [
             'title' => $request->get('title'),
-            'titleStartsWith' => $request->get('titleStartsWith')
+            'titleStartsWith' => $request->get('titleStartsWith'),
         ]);
 
         return Inertia::render(
