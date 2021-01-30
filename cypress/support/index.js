@@ -21,7 +21,7 @@ import './assertions'
 before(() => {
   cy.task('activateCypressEnvFile', {}, { log: false })
   cy.artisan('config:clear', {}, { log: false })
-
+  cy.artisan('migrate:fresh --seed')
   cy.refreshRoutes()
 })
 

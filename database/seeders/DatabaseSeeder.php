@@ -41,5 +41,12 @@ class DatabaseSeeder extends Seeder
                 'password' => bcrypt('testing')
             ]);
         }
+
+        if (config('app.env') === 'local') {
+            User::factory()->create([
+                'email' => 'cypress@jump24.co.uk',
+                'password' => bcrypt('testing')
+            ]);
+        }
     }
 }

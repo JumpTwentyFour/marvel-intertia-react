@@ -7,7 +7,6 @@ context('Marvel - Forgot Password', () => {
         'resetPassword',
       )
 
-      cy.log('You will need to run php artisan db:seed for this to pass.')
       cy.visit('/forgot-password')
       cy.get('[data-cy=email-input]').type('alex@jump24.co.uk')
       cy.get('[data-cy=email-reset-button').click()
@@ -16,6 +15,11 @@ context('Marvel - Forgot Password', () => {
         'We have emailed your password reset link!',
       )
       cy.get('[data-cy=email-input]').should('have.value', '')
+    })
+
+    it('Will not display navigation', () => {
+      cy.visit('/forgot-password')
+      cy.get('[data-cy=navigation').should('not.exist')
     })
   })
 })

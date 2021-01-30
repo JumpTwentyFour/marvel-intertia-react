@@ -24,6 +24,7 @@ module.exports = {
       blue: '#090228',
       pinkish: '#9D174D',
       green: colors.green,
+      amber: colors.amber,
     },
     fill: {
       transparent: 'transparent',
@@ -37,6 +38,7 @@ module.exports = {
       red: colors.rose,
       blue: '#090228',
       green: colors.green,
+      amber: colors.amber,
     },
     extend: {
       boxShadow: {

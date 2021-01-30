@@ -41,6 +41,8 @@ If it doesn't create a `cypress.env.json` file which any overrides you have. E.g
 ```
 Then run the following command:- `npx cypress open --config-file=cypress.env.json`
 
+If you wish to not have your local database being overwritten by Cypress' setup process, please create an `.env.cypress` file locally.
+
 ---
 
 
@@ -100,6 +102,11 @@ $ docker-compose exec php composer remove guzzlehttp/guzzle
 $ docker-compose exec php composer run lint
 ```
 
+##### composer run analyse
+
+```
+$ docker-compose exec php composer run analyse
+```
 
 #### Artisan Commands:
 
