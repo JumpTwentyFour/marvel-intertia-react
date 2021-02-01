@@ -33,7 +33,7 @@ class ListAllComics extends Controller
             $searchOptions['title'] = $request->get('title');
         }
 
-        if ($request->has('startsWith')) {
+        if ($request->has('titleStartsWith')) {
             $searchOptions['titleStartsWith'] = $request->get('startsWith');
         }
 
