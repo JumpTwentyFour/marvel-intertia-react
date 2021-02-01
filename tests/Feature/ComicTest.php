@@ -35,6 +35,20 @@ class ComicTest extends TestCase
         });
     }
 
+    public function test_will_return_comics_starting_with(): void
+    {
+        $response = $this->get('/comics?startsWith=W');
+        $response->assertStatus(Response::HTTP_OK);
+        $response->assertInertia(function (Assert $page) {
+            $page->component('Comics', false)
+                ->has('comics.data.0', function (Assert $page) {
+                    $page->has('title')
+                        ->etc();
+                })
+                ->has('errors');
+        });
+    }
+
     public function test_can_search_comics_by_page(): void
     {
         $response = $this->get('/comics?page=10');

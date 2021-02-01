@@ -13,7 +13,9 @@ type ComicsProps = {
 const Comics = (props: ComicsProps): JSX.Element => {
   const handleChange = (term: string): void => {
     Inertia.visit(route('comics.list-all').toString(), {
-      data: { title: term },
+      data: {
+        title: term,
+      },
       preserveState: true,
     })
   }

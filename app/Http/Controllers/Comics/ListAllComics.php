@@ -13,7 +13,9 @@ class ListAllComics extends Controller
 {
     public function __invoke(Request $request, Comics $comicsClient): Response
     {
-        $comics = $comicsClient->index($request->get('page'), 100, ['title' => $request->get('title')]);
+        $searchOptions = $this->gatherSearchOptionsFromRequest($request);
+
+        $comics = $comicsClient->index($request->get('page'), 100, $searchOptions);
 
         return Inertia::render(
             'Comics',
@@ -21,5 +23,20 @@ class ListAllComics extends Controller
                 'comics' => new ComicResourceCollection($comics->data),
             ]
         )->withViewData(['meta' => 'A list of marvel comics.']);
+    }
+
+    protected function gatherSearchOptionsFromRequest(Request $request): array
+    {
+        $searchOptions = [];
+
+        if ($request->has('title')) {
+            $searchOptions['title'] = $request->get('title');
+        }
+
+        if ($request->has('startsWith')) {
+            $searchOptions['titleStartsWith'] = $request->get('startsWith');
+        }
+
+        return $searchOptions;
     }
 }
