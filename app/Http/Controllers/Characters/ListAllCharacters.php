@@ -23,7 +23,7 @@ class ListAllCharacters extends Controller
         );
 
         return Inertia::render(
-            'Characters',
+            'Characters/List',
             [
                 'characters' => new CharactersResourceCollection(
                     new LengthAwarePaginator(

@@ -2,7 +2,11 @@
 
 namespace App\Exceptions;
 
+use App\Domain\Flash\Facades\Flash;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Response;
+use Inertia\Inertia;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
@@ -31,5 +35,24 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
+    }
+
+    /**
+     * Prepare exception for rendering.
+     *
+     * @param \Throwable $e
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
+     * @throws \Throwable
+     */
+    public function render($request, Throwable $e)
+    {
+        $response = parent::render($request, $e);
+
+        if ($response->getStatusCode() === Response::HTTP_TOO_MANY_REQUESTS) {
+            Flash::error('Too many requests please try again shortly.');
+            return Inertia::location(url()->current());
+        }
+
+        return $response;
     }
 }

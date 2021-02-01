@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Inertia } from '@inertiajs/inertia'
 import route from 'ziggy-js'
 import ReactPaginate from 'react-paginate'
-import Layout from '../Layout'
-import CharacterList from '../Components/CharacterList'
-import { CharactersProps } from '../types/characterProps'
-import Search from '../Components/Global/Search'
+import Layout from '../../Layout'
+import CharacterList from '../../Components/CharacterList'
+import { CharactersProps } from '../../types/characterProps'
+import Search from '../../Components/Global/Search'
 
-const Characters = (props: CharactersProps): JSX.Element => {
+const List = (props: CharactersProps): JSX.Element => {
   const params = new URLSearchParams(window.location.search)
 
   const [state, setState] = useState({
@@ -84,10 +84,10 @@ const Characters = (props: CharactersProps): JSX.Element => {
   )
 }
 
-Characters.displayName = 'Characters'
+List.displayName = 'Characters'
 
-Characters.layout = (page: JSX.Element): JSX.Element => {
+List.layout = (page: JSX.Element): JSX.Element => {
   return <Layout>{page}</Layout>
 }
 
-export default Characters
+export default List

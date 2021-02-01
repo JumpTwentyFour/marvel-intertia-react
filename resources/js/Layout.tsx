@@ -1,9 +1,10 @@
 import React from 'react'
 import { usePage } from '@inertiajs/inertia-react'
 import Navigation from './Components/Global/Navigation'
+import Flash from './Components/Global/Flash'
 
 const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const { authenticated } = usePage().props
+  const { flash, authenticated } = usePage().props
 
   return (
     <div className='site-wrapper min-h-full'>
@@ -17,6 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
       <main className='py-14 flex items-stretch justify-center'>
         <section className='w-full flex items-stretch'>
           <div className='container'>
+            {flash && <Flash type={flash.type}>{flash.message}</Flash>}
             <div className='content min-h-full'>{children}</div>
           </div>
         </section>
