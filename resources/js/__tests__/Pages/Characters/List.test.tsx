@@ -1,13 +1,13 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { render, fireEvent } from '@testing-library/react'
-import Characters from '../../Pages/Characters'
-import { metaMock } from '../../mocks/resource/meta'
+import List from '../../../Pages/Characters/List'
+import { metaMock } from '../../../mocks/resource/meta'
 
 describe('<Characters />', () => {
   test('Will render component', async () => {
     const wrapper = shallow(
-      <Characters characters={{ data: [], meta: metaMock.build() }} />,
+      <List characters={{ data: [], meta: metaMock.build() }} />,
     )
 
     expect(wrapper.find('CharacterList')).toHaveLength(1)
@@ -21,7 +21,7 @@ describe('<Characters />', () => {
     jest.spyOn(React, 'useState').mockImplementation(useStateMock)
 
     const search = render(
-      <Characters characters={{ data: [], meta: metaMock.build() }} />,
+      <List characters={{ data: [], meta: metaMock.build() }} />,
     )
     fireEvent.click(search.getByLabelText('Next page'))
 
@@ -37,7 +37,7 @@ describe('<Characters />', () => {
     jest.spyOn(React, 'useState').mockImplementation(useStateMock)
 
     const search = render(
-      <Characters characters={{ data: [], meta: metaMock.build() }} />,
+      <List characters={{ data: [], meta: metaMock.build() }} />,
     )
     fireEvent.click(search.getByLabelText('search-button'))
 
