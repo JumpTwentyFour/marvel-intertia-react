@@ -13,17 +13,15 @@ type ComicsProps = {
 }
 
 const Comics = (props: ComicsProps): JSX.Element => {
-  const [state, setState] = useState({
-    searchTerm: '',
-    character: '',
-  })
+  const [searchTerm, setSearchTerm] = useState('')
+  const [character, setCharacter] = useState('')
 
   const handleSearchChange = (term: string): void => {
-    setState({ ...state, searchTerm: term })
+    setSearchTerm(term)
   }
 
   const buttonAction = (character: string): void => {
-    setState({ ...state, character: character })
+    setCharacter(character)
   }
 
   useEffect(() => {
@@ -41,7 +39,7 @@ const Comics = (props: ComicsProps): JSX.Element => {
       data: data,
       preserveState: true,
     })
-  }, [state])
+  }, [searchTerm, character])
 
   const params = new URLSearchParams(window.location.search)
 
