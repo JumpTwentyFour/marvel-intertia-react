@@ -54,7 +54,9 @@ const Comics = (props: ComicsProps): JSX.Element => {
           </h1>
         </header>
       </div>
-      <AlphabeticalFilter buttonAction={buttonAction} characters={alphabet} />
+      <AlphabeticalFilter buttonAction={buttonAction} characters={alphabet}>
+        Children go here, these are like Vue slots I guess
+      </AlphabeticalFilter>
       <ComicList comics={props.comics.data} />
     </React.Fragment>
   )
