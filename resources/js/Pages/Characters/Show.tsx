@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../../Layout'
 import { CharacterType } from '../../types/character'
+import { Url } from '../../types/url'
 
 type ShowCharactersType = {
   character: CharacterType
@@ -8,11 +9,15 @@ type ShowCharactersType = {
 
 const Show = ({ character }: ShowCharactersType): JSX.Element => {
   const characterImageUrl = `${character.thumbnail.path}.${character.thumbnail.extension}`
-  const characterProfileUrl = ((): string => {
-    if (!character.urls || !character.urls[2]) {
+  const characterWikiUrl = ((): string => {
+    if (!character.urls) {
       return ''
     }
-    return character.urls[2].url
+    const detailUrl = character.urls
+      .filter((url: Url): boolean => url.type === 'wiki')
+      .pop()
+
+    return detailUrl ? detailUrl.url : ''
   })()
 
   return (
@@ -41,11 +46,11 @@ const Show = ({ character }: ShowCharactersType): JSX.Element => {
       </div>
       <div className='flex flex-col col-span-6 sm:col-span-12 md:col-span-8'>
         <p data-cy='description'>{character.description}</p>
-        {characterProfileUrl.length > 0 && (
+        {characterWikiUrl.length > 0 && (
           <a
             data-cy='marvel-link'
             className='underline cursor-pointer py-2 w-max'
-            href={characterProfileUrl}
+            href={characterWikiUrl}
             target='_blank'
             rel='noopener noreferrer'
           >
