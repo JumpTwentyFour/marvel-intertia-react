@@ -1,4 +1,6 @@
 import React from 'react'
+import route from 'ziggy-js'
+import { InertiaLink } from '@inertiajs/inertia-react'
 import { truncate } from '../helpers/truncate'
 import { CharacterType } from '../types/character'
 
@@ -17,7 +19,14 @@ const CharacterCard = (props: CharacterType): JSX.Element => {
         />
       </div>
       <div className='card__details flex flex-col p-5 md:p-8 lg:p-10'>
-        <h3 className='card__title text-3xl font-semibold'>{props.name}</h3>
+        <h3 className='card__title text-3xl font-semibold'>
+          <InertiaLink
+            href={route('characters.view', props.id).toString()}
+            data-cy='view-character-link'
+          >
+            {props.name}
+          </InertiaLink>
+        </h3>
         <p className='mt-6'>{truncate(props.description, 120)}</p>
       </div>
     </div>

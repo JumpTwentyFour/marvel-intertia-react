@@ -59,4 +59,18 @@ context('Marvel - List Characters', () => {
 
     cy.contains('No Characters Found')
   })
+
+  it('Can navigate to individual character page', () => {
+    cy.intercept({ method: 'GET', url: '/characters/' }).as('showCharacter')
+
+    cy.visit('/characters')
+    cy.get('[data-cy=character-card]:eq(0)')
+      .find('[data-cy=view-character-link]')
+      .click()
+
+    cy.wait('@showCharacter')
+
+    cy.location('pathname').should('include', '/characters/')
+    cy.get('[data-cy=title]').should('exist')
+  })
 })
