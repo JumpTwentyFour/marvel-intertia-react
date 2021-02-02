@@ -25,7 +25,10 @@ const Comics = (props: ComicsProps): JSX.Element => {
   }
 
   useEffect(() => {
-    const data = { title: searchTerm, titleStartsWith: character }
+    const data = {
+      ...(searchTerm && { title: searchTerm }),
+      ...(character && { titleStartsWith: character})
+    }
 
     Inertia.visit(route('comics.list-all').toString(), {
       data,
