@@ -1,9 +1,5 @@
 import React from 'react'
-
-type FilterButtonProps = {
-  character: string
-  buttonAction: () => void
-}
+import { FilterButtonProps } from '../../types/components/filter/FilterButtonProps'
 
 const AlphabeticalNumberButton = (props: FilterButtonProps): JSX.Element => {
   return (

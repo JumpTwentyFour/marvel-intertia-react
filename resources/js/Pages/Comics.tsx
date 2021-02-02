@@ -2,15 +2,10 @@ import React, {useEffect, useState} from 'react'
 import { Inertia } from '@inertiajs/inertia'
 import route from 'ziggy-js'
 import Layout from '../Layout'
-import { ComicType } from '../types/comic'
 import ComicList from '../Components/ComicList'
 import Search from '../Components/Global/Search'
 import AlphabeticalFilter from '../Components/Filter/AlphabeticalFilter'
-import {comicTypeMock} from "../mocks/comic";
-
-type ComicsProps = {
-  comics: Record<'data', Array<ComicType>>
-}
+import { ComicsProps } from '../types/comicProps'
 
 const Comics = (props: ComicsProps): JSX.Element => {
   const [searchTerm, setSearchTerm] = useState('')

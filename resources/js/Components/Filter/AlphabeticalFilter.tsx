@@ -1,12 +1,8 @@
 import React from 'react'
+import { AlphabetFilterProps } from '../../types/components/filter/AlphabetFilterProps'
 import AlphabeticalNumberButton from './AlphabeticalNumberButton'
 
-interface AlphabetFilterType {
-  characters: Array<string>
-  buttonAction: (character: string) => void
-}
-
-const AlphabeticalFilter: React.FC<AlphabetFilterType> = ({
+const AlphabeticalFilter: React.FC<AlphabetFilterProps> = ({
   characters,
   buttonAction,
 }) => {
