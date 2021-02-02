@@ -51,7 +51,6 @@ class CharactersTest extends TestCase
 
     public function test_will_not_use_cache_for_single_character_if_cache_is_empty(): void
     {
-        // First call cache is empty and stores to cache, second call cache has value so now accesses cache.
         Cache::shouldReceive('has')
             ->once()
             ->with('characters.1009220')
