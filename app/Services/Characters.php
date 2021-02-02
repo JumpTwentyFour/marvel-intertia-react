@@ -18,6 +18,22 @@ class Characters extends MarvelCharacters
         parent::__construct($client);
     }
 
+    public function getCharacter(string $id): ?array
+    {
+        $key = 'characters.' . $id;
+
+        if ($this->cache->has($key)) {
+            $character = $this->cache->get($key);
+        }
+
+        if (!isset($character['id'])) {
+            $character = array_except(get_object_vars($this->load($id)), ['cache', 'client']);
+            $this->cache->put($key, $character, Carbon::parse('+24 hours'));
+        }
+
+        return $character;
+    }
+
     public function randomCharactersForHomepage(int $limit = 6): array
     {
         $key = 'home.characters';
