@@ -244,3 +244,17 @@ Hookup to Bitbucket Cloud:
 
 1. Add Key and Consumer to "Pipelines" > "Repository Variables" in Bitbucket
 2. Setup `bitbucket-pipelines.yml` like in this project
+
+## Enlightn
+This application makes use of https://www.laravel-enlightn.com/ to analyse common Security, Performance and Reliability
+issues in code. We have also extended upon this package as a company to provide our own rules that follow
+standards we adhere to https://github.com/JumpTwentyFour/project-analysers.
+
+Please note that enlightn is designed primarily to be run in a development pipeline
+or on production as recommended by the creator. There are known issues to us of running this in Docker locally
+where specific analyzers will fail such as HSTS and CSP headers as Enlightn is unable to make a request internally in
+Docker. The analysers can be tested locally outside of Docker however the pipeline must always be used as the source of
+truth.
+
+All configuration can be found in `config/enlightn.php`
+
