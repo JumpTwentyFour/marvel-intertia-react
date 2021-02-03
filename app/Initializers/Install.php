@@ -8,7 +8,7 @@ use MadWeb\Initializer\Contracts\Runner;
 
 class Install
 {
-    public function local(Runner $run)
+    public function local(Runner $run): void
     {
         $run->external('composer', 'install')
             ->artisan('key:generate')
@@ -24,7 +24,7 @@ class Install
             ->artisan('storage:link');
     }
 
-    public function node(Runner $run)
+    public function node(Runner $run): void
     {
         $run
             ->external('nvm', 'use')

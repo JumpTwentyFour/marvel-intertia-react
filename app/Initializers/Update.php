@@ -9,7 +9,7 @@ use MadWeb\Initializer\Contracts\Runner;
 
 class Update
 {
-    public function local(Runner $run)
+    public function local(Runner $run): void
     {
         $run->external('composer', 'install')
             ->artisan('migrate')
@@ -25,7 +25,7 @@ class Update
             ->artisan('cache:clear');
     }
 
-    public function node(Runner $run)
+    public function node(Runner $run): void
     {
         $run
             ->external('nvm', 'use')
