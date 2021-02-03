@@ -2,12 +2,15 @@ import React from 'react'
 import Layout from '../../Layout'
 import { CharacterType } from '../../types/character'
 import { Url } from '../../types/url'
+import { ComicType } from '../../types/comic'
+import ComicCard from '../../Components/ComicCard'
 
 type ShowCharactersType = {
   character: CharacterType
+  comics: Record<'data', Array<ComicType>>
 }
 
-const Show = ({ character }: ShowCharactersType): JSX.Element => {
+const Show = ({ character, comics }: ShowCharactersType): JSX.Element => {
   const characterImageUrl = `${character.thumbnail.path}.${character.thumbnail.extension}`
   const characterWikiUrl = ((): string => {
     if (!character.urls) {
@@ -23,7 +26,7 @@ const Show = ({ character }: ShowCharactersType): JSX.Element => {
   return (
     <React.Fragment>
       <div
-        className='page-title col-span-6 md:col-span-12 relative
+        className='page-title col-span-12 relative
       border-b border-solid border-gray-200 border-opacity-10 pb-2.5
       mb-5 md:mb-8 xl:mb-10 flex items-center flex-row-reverse'
       >
@@ -36,7 +39,7 @@ const Show = ({ character }: ShowCharactersType): JSX.Element => {
           </h1>
         </header>
       </div>
-      <div className='flex flex-col col-span-6 sm:col-span-12 md:col-span-4'>
+      <div className='flex flex-col col-span-12 md:col-span-4'>
         <img
           data-cy='image'
           src={characterImageUrl}
@@ -58,6 +61,14 @@ const Show = ({ character }: ShowCharactersType): JSX.Element => {
           </a>
         )}
       </div>
+      {comics.data.length > 0 && (
+        <h2 className='header-title text-2xl md:text-3xl font-semibold col-span-12'>
+          Comics
+        </h2>
+      )}
+      {comics.data.map((comic: ComicType, index: number) => (
+        <ComicCard key={index} {...comic} />
+      ))}
     </React.Fragment>
   )
 }

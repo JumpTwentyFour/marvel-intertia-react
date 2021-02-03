@@ -34,6 +34,24 @@ class Characters extends MarvelCharacters
         return $character;
     }
 
+    public function getComicsForCharacter(string $id, int $limit = 21): array
+    {
+        $key = 'characters.' . $id . '.comics';
+
+        if ($this->cache->has($key)) {
+            $comics = $this->cache->get($key);
+        } else {
+            $comics = $this->client->get('/v1/public/characters/' . $id . '/comics', ['limit' => $limit]);
+            $this->cache->put($key, $comics, Carbon::parse('+24 hours'));
+        }
+
+        if (!isset($comics['data'])) {
+            return [];
+        }
+
+        return $comics['data'];
+    }
+
     public function randomCharactersForHomepage(int $limit = 6): array
     {
         $key = 'home.characters';

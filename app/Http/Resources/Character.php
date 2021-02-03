@@ -23,15 +23,15 @@ class Character extends JsonResource
     {
         return [
             'id' => $this['id'],
-            'name' => $this['name'],
-            'description' => $this['description'],
-            'thumbnail' => new Thumbnail($this['thumbnail']),
-            'resourceURI' => $this['resourceURI'],
-            'comics' => $this['comics'],
-            'series' => $this['series'],
-            'stories' => $this['stories'],
-            'events' => $this['events'],
-            'urls' => $this['urls'],
+            'name' => $this['name'] ?? '',
+            'description' => $this['description'] ?? '',
+            'thumbnail' => new Thumbnail($this['thumbnail'] ?? []),
+            'resourceURI' => $this['resourceURI'] ?? '',
+            'comics' => $this['comics'] ?? [],
+            'series' => $this['series'] ?? [],
+            'stories' => $this['stories'] ?? [],
+            'events' => $this['events'] ?? [],
+            'urls' => $this['urls'] ?? [],
         ];
     }
 }
