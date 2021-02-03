@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Inertia } from '@inertiajs/inertia'
 import route from 'ziggy-js'
 import Layout from '../Layout'
@@ -6,6 +6,7 @@ import ComicList from '../Components/ComicList'
 import Search from '../Components/Global/Search'
 import AlphabeticalFilter from '../Components/Filter/AlphabeticalFilter'
 import { ComicsProps } from '../types/comicProps'
+import AlphabeticalNumberButton from '../Components/Filter/AlphabeticalNumberButton'
 
 const Comics = (props: ComicsProps): JSX.Element => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -22,7 +23,7 @@ const Comics = (props: ComicsProps): JSX.Element => {
   useEffect(() => {
     const data = {
       ...(searchTerm && { title: searchTerm }),
-      ...(character && { titleStartsWith: character})
+      ...(character && { titleStartsWith: character }),
     }
 
     Inertia.visit(route('comics.list-all').toString(), {
@@ -54,8 +55,16 @@ const Comics = (props: ComicsProps): JSX.Element => {
           </h1>
         </header>
       </div>
-      <AlphabeticalFilter buttonAction={buttonAction} characters={alphabet}>
-        Children go here, these are like Vue slots I guess
+      <AlphabeticalFilter>
+        {alphabet.map((character: string, key: number) => (
+          <AlphabeticalNumberButton
+            key={key}
+            character={character}
+            buttonAction={() => {
+              buttonAction(character)
+            }}
+          />
+        ))}
       </AlphabeticalFilter>
       <ComicList comics={props.comics.data} />
     </React.Fragment>
