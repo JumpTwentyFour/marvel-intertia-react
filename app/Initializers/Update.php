@@ -11,10 +11,9 @@ class Update
 {
     public function local(Runner $run)
     {
-        $run
-//            ->external('composer', 'install')
-//            ->artisan('migrate')
-//            ->artisan('db:seed')
+        $run->external('composer', 'install')
+            ->artisan('migrate')
+            ->artisan('db:seed')
             ->artisan(
                 'enlightn',
                 ['analyzer' => [
