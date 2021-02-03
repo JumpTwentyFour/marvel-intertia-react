@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Initializers\Install;
+use App\Initializers\Update;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,5 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->app->bind('app.installer', Install::class);
+        $this->app->bind('app.updater', Update::class);
     }
 }
