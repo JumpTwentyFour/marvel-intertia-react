@@ -2,6 +2,9 @@
 
 namespace App\Initializers;
 
+use Enlightn\Enlightn\Analyzers\Performance\ConfigCachingAnalyzer;
+use Enlightn\Enlightn\Analyzers\Performance\RouteCachingAnalyzer;
+use Enlightn\Enlightn\Analyzers\Reliability\EnvVariableAnalyzer;
 use MadWeb\Initializer\Contracts\Runner;
 
 class Update
@@ -9,15 +12,15 @@ class Update
     public function local(Runner $run)
     {
         $run
-            ->external('composer', 'install')
-            ->artisan('migrate')
-            ->artisan('db:seed')
+//            ->external('composer', 'install')
+//            ->artisan('migrate')
+//            ->artisan('db:seed')
             ->artisan(
                 'enlightn',
                 ['analyzer' => [
-                    'Enlightn\\Enlightn\\Analyzers\\Reliability\\EnvVariableAnalyzer',
-                    'Enlightn\\Enlightn\\Analyzers\\Performance\\ConfigCachingAnalyzer',
-                    'Enlightn\\Enlightn\\Analyzers\\Performance\\RouteCachingAnalyzer',
+                    EnvVariableAnalyzer::class,
+                    ConfigCachingAnalyzer::class,
+                    RouteCachingAnalyzer::class,
                 ]],
             )
             ->artisan('cache:clear');

@@ -2,6 +2,8 @@
 
 namespace App\Initializers;
 
+use Enlightn\Enlightn\Analyzers\Reliability\DatabaseStatusAnalyzer;
+use Enlightn\Enlightn\Analyzers\Reliability\DirectoryWritePermissionsAnalyzer;
 use MadWeb\Initializer\Contracts\Runner;
 
 class Install
@@ -15,8 +17,8 @@ class Install
             ->artisan(
                 'enlightn',
                 ['analyzer' => [
-                    'Enlightn\\Enlightn\\Analyzers\\Reliability\\DirectoryWritePermissionsAnalyzer',
-                    'Enlightn\\Enlightn\\Analyzers\\Reliability\\DatabaseStatusAnalyzer',
+                    DirectoryWritePermissionsAnalyzer::class,
+                    DatabaseStatusAnalyzer::class,
                 ]],
             )
             ->artisan('storage:link');
