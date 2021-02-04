@@ -28,7 +28,13 @@ $ docker-compose exec php composer run project-install-local
 
 If your `.env` file doesn't exist, this will copy the `.env.example` file, and then install your PHP dependencies using composer.
 
-It will then generate an `APP_KEY` using artisan.
+It will then run a set of commands as defined in `App\Initializers\Install`. This contains a set of Enlightn checks
+which will analyze your project for potential setup issues such as file permissions
+and an inaccessible database.
+
+It is recommended whenever you start a new feature from main, or pull down a code from a colleague, that you also run
+`php artisan app:update -v` this will again ensure your application is up to date with any changes made upstream
+in the repository.
 
 ### Cypress
 In order to run Cypress tests you must ensure the `cypress.json` file matches your local environment.

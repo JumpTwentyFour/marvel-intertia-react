@@ -16,15 +16,17 @@ return [
 
     // If you wish to skip running some analyzers, list the classes in the array below.
     'exclude_analyzers' => [
-        \Enlightn\Enlightn\Analyzers\Security\PHPIniAnalyzer::class,
         \Enlightn\Enlightn\Analyzers\Performance\CacheHeaderAnalyzer::class,
-        \Enlightn\Enlightn\Analyzers\Performance\QueueDriverAnalyzer::class,
-        \Enlightn\Enlightn\Analyzers\Reliability\DatabaseStatusAnalyzer::class,
-        \Enlightn\Enlightn\Analyzers\Security\FilePermissionsAnalyzer::class,
-        \Enlightn\Enlightn\Analyzers\Performance\OpcacheAnalyzer::class,
         \Enlightn\Enlightn\Analyzers\Performance\MysqlSingleServerAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\OpcacheAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\QueueDriverAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Security\PHPIniAnalyzer::class,
     ],
 
+    // If you wish to skip running some analyzers in CI mode, list the classes below.
+    'ci_mode_exclude_analyzers' => [
+        \Enlightn\Enlightn\Analyzers\Security\FilePermissionsAnalyzer::class,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Enlightn Analyzer Paths
