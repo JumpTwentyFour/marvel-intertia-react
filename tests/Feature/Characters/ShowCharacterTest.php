@@ -47,8 +47,14 @@ class ShowCharacterTest extends TestCase
             $mock->shouldReceive('getCharacter')
                 ->once()->with('1009220')
                 ->andReturn([
-                    'id' => '1009220',
-                    'description' => 'Test',
+                    'id' => 1009220,
+                    'name' => 'Test Comic',
+                    'description' => 'Test Description',
+                    'thumbnail' => [
+                        'extension' => '',
+                        'path' => '',
+                    ],
+                    'resourceURI' => '',
                 ]);
             $mock->shouldReceive('getComicsForCharacter')->once()->with('1009220')->andReturn([]);
         });

@@ -27,6 +27,7 @@
         "laravel/fortify": "^1.7",
         "laravel/framework": "^8.1",
         "laravel/helpers": "^1.2",
+        "spatie/data-transfer-object": "^2.8",
         "mad-web/laravel-initializer": "^3.3",
         "spatie/laravel-csp": "^2.6",
         "tightenco/ziggy": "^1.0"

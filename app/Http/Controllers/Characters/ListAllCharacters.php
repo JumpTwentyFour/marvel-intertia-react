@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Characters;
 
+use App\DataTransferObjects\Collections\CharacterCollection;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Characters as CharactersResourceCollection;
+use App\Http\Resources\Character;
+use App\Services\Characters;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Inertia\Inertia;
 use Inertia\Response;
-use Marvel\Characters;
 
 class ListAllCharacters extends Controller
 {
@@ -22,17 +23,14 @@ class ListAllCharacters extends Controller
             ['nameStartsWith' => $request->get('name')]
         );
 
+        $paginated = new LengthAwarePaginator($characters->data, $characters->total, $perPage, $request->get('page'));
+
+        $characters = CharacterCollection::create($characters->data)->toPaginatedResource(Character::class, $paginated);
+
         return Inertia::render(
             'Characters/List',
             [
-                'characters' => new CharactersResourceCollection(
-                    new LengthAwarePaginator(
-                        $characters->data,
-                        $characters->total,
-                        $perPage,
-                        $request->get('page')
-                    )
-                ),
+                'characters' => $characters,
             ]
         )->withViewData(['meta' => 'A list of marvel characters.']);
     }

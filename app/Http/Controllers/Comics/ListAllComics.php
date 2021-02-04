@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Comics;
 
+use App\DataTransferObjects\Collections\ComicCollection;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Comics as ComicResourceCollection;
+use App\Http\Resources\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Inertia\Inertia;
 use Inertia\Response;
 use Marvel\Comics;
@@ -17,10 +19,12 @@ class ListAllComics extends Controller
 
         $comics = $comicsClient->index($request->get('page'), 100, $searchOptions);
 
+        $paginated = new LengthAwarePaginator($comics->data, $comics->total, 100, $request->get('page'));
+
         return Inertia::render(
             'Comics',
             [
-                'comics' => new ComicResourceCollection($comics->data),
+                'comics' => ComicCollection::create($comics->data)->toPaginatedResource(Comic::class, $paginated),
             ]
         )->withViewData(['meta' => 'A list of marvel comics.']);
     }

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Characters as CharactersResourceCollection;
+use App\DataTransferObjects\Collections\CharacterCollection;
+use App\Http\Resources\Character;
 use App\Services\Characters;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -11,10 +12,10 @@ class HomeController extends Controller
 {
     public function __invoke(Characters $characterClient): Response
     {
-        $characters = $characterClient->randomCharactersForHomepage();
+        $characters = CharacterCollection::create($characterClient->randomCharactersForHomepage());
 
         return Inertia::render('Home', [
-            'characters' => new CharactersResourceCollection($characters),
+            'characters' => $characters->toResource(Character::class),
         ]);
     }
 }
