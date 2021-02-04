@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\DataTransferObjects\Comic as ComicDto;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Comic extends JsonResource
@@ -13,6 +14,11 @@ class Comic extends JsonResource
      */
     public static $wrap = '';
 
+    public function __construct(ComicDto $comicDto)
+    {
+        parent::__construct($comicDto);
+    }
+
     /**
      * Transform the resource into an array.
      *
@@ -21,11 +27,13 @@ class Comic extends JsonResource
      */
     public function toArray($request)
     {
+        $comic = $this->resource->toArray();
+
         return [
-            'id' => $this['id'],
-            'title' => $this['title'],
-            'description' => (string)$this['description'],
-            'thumbnail' => new Thumbnail($this['thumbnail']),
+            'id' => $comic['id'],
+            'title' => $comic['title'],
+            'description' => (string)$comic['description'],
+            'thumbnail' => new Thumbnail($comic['thumbnail']),
         ];
     }
 }

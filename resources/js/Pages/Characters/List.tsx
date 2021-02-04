@@ -64,7 +64,7 @@ const List = (props: CharactersProps): JSX.Element => {
       <ReactPaginate
         disableInitialCallback={true}
         initialPage={state.page - 1}
-        pageCount={props.characters.meta.last_page}
+        pageCount={props.characters.meta.lastPage}
         marginPagesDisplayed={2}
         pageRangeDisplayed={1}
         onPageChange={onPageChange}
