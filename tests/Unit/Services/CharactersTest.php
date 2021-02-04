@@ -64,4 +64,22 @@ class CharactersTest extends TestCase
 
         $characters->getCharacter('1009220');
     }
+
+    public function test_will_use_cache_for_comic_retrieval_on_characters(): void
+    {
+        Cache::shouldReceive('has')
+            ->times(2)
+            ->with('characters.1009220.comics')
+            ->andReturn(false, true);
+
+        Cache::shouldReceive('put')->times(1);
+
+        Cache::shouldReceive('get')->times(1);
+
+        $characters = $this->app->make(Characters::class);
+
+        $characters->getComicsForCharacter('1009220');
+
+        $characters->getComicsForCharacter('1009220');
+    }
 }

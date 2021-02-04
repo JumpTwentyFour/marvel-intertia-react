@@ -11,7 +11,7 @@ context('Marvel - Show Character', () => {
           '60 years, Captain America is the living, breathing symbol of freedom and liberty.',
       )
       cy.get('[data-cy=marvel-link]').contains('View Marvel Profile')
-      cy.get('[data-cy=image]').should('exist')
+      cy.get('[data-cy=comic-card]').should('have.length', 21)
     })
   })
 })
