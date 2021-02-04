@@ -1,7 +1,9 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, cleanup } from '@testing-library/react'
 
 import Search from '../../../Components/Global/Search'
+
+afterEach(cleanup)
 
 describe('<Search />', () => {
   test('Will update state when search input is updated', async () => {
@@ -20,6 +22,13 @@ describe('<Search />', () => {
       term: 'Hulk',
       isSearchVisible: false,
     })
+  })
+
+  test('Will focus on search input when search is clicked', async () => {
+    const { getByLabelText } = render(<Search />)
+    fireEvent.click(getByLabelText('search-button'))
+    const input = getByLabelText('search-input')
+    expect(input).toBe(document.activeElement)
   })
 
   test('Will push search term up to handleChange consumer on submit of button', async () => {
