@@ -65,7 +65,7 @@ pipelines:
               - php artisan serve &
               - sleep 5
               - composer run test
-              - composer run analyse
+              - php artisan enlightn --ci
             services:
               - mysql
 
