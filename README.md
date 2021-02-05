@@ -244,7 +244,7 @@ Hookup to Bitbucket Cloud:
 
 2. Get Key and use for local environment variable `DANGER_BITBUCKETCLOUD_OAUTH_KEY=<YOUR-KEY>`
 3. Get secret and use for local environment variable `DANGER_BITBUCKETCLOUD_OAUTH_SECRET=<YOUR-SECRET>`
-4. Run (Example) `danger --dangerfile "dangerfile.ts" pr "https://bitbucket.org/jump24team/marvel-inertia-js/pull-requests/28"`
+4. Run (Example) `danger --dangerfile "danger/dangerfile.ts" pr "https://bitbucket.org/jump24team/marvel-inertia-js/pull-requests/28"`
 
 ### Test On Bitbucket Pipelines
 
