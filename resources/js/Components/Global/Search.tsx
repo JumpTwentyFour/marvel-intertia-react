@@ -53,6 +53,10 @@ const Search = (props: SearchType): ReactElement => {
     event.preventDefault()
     if (props.handleChange) {
       props.handleChange(state.term ?? '')
+      setState({
+        ...state,
+        isSearchVisible: false,
+      })
     }
   }
 
