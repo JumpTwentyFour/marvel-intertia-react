@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Inertia } from '@inertiajs/inertia'
 import route from 'ziggy-js'
 import ReactPaginate from 'react-paginate'
-import Layout from '../Layout'
-import CharacterList from '../Components/CharacterList'
-import { CharactersProps } from '../types/characterProps'
-import Search from '../Components/Global/Search'
+import Layout from '../../Layout'
+import CharacterList from '../../Components/CharacterList'
+import { CharactersProps } from '../../types/characterProps'
+import Search from '../../Components/Global/Search'
 
-const Characters = (props: CharactersProps): JSX.Element => {
+const List = (props: CharactersProps): JSX.Element => {
   const params = new URLSearchParams(window.location.search)
 
   const [state, setState] = useState({
@@ -52,7 +52,10 @@ const Characters = (props: CharactersProps): JSX.Element => {
           term={params.get('name') ?? undefined}
         />
         <header className='flex-grow mr-5 md:mr-8 xl:mr-10'>
-          <h1 className='header-title text-3xl md:text-5xl font-semibold'>
+          <h1
+            data-cy='title'
+            className='header-title text-3xl md:text-5xl font-semibold'
+          >
             {params.get('name') ?? 'All Characters'}
           </h1>
         </header>
@@ -61,7 +64,7 @@ const Characters = (props: CharactersProps): JSX.Element => {
       <ReactPaginate
         disableInitialCallback={true}
         initialPage={state.page - 1}
-        pageCount={props.characters.meta.last_page}
+        pageCount={props.characters.meta.lastPage}
         marginPagesDisplayed={2}
         pageRangeDisplayed={1}
         onPageChange={onPageChange}
@@ -81,10 +84,10 @@ const Characters = (props: CharactersProps): JSX.Element => {
   )
 }
 
-Characters.displayName = 'Characters'
+List.displayName = 'Characters'
 
-Characters.layout = (page: JSX.Element): JSX.Element => {
+List.layout = (page: JSX.Element): JSX.Element => {
   return <Layout>{page}</Layout>
 }
 
-export default Characters
+export default List

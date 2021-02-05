@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useState, useRef, useEffect } from 'react'
 import SearchIcon from '../Svg/SearchIcon'
 
 type SearchType = {
@@ -11,6 +11,21 @@ const Search = (props: SearchType): ReactElement => {
   const [state, setState] = useState({
     term: props.term,
     isSearchVisible: false,
+  })
+
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const focusOnSearchInput = (): void => {
+    if (
+      inputRef.current !== null &&
+      inputRef.current.classList.contains('fade-up--active')
+    ) {
+      inputRef.current.focus()
+    }
+  }
+
+  useEffect(() => {
+    focusOnSearchInput()
   })
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -36,7 +51,6 @@ const Search = (props: SearchType): ReactElement => {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): void => {
     event.preventDefault()
-
     if (props.handleChange) {
       props.handleChange(state.term ?? '')
     }
@@ -61,18 +75,22 @@ const Search = (props: SearchType): ReactElement => {
   return (
     <div className='search flex items-center'>
       <div
-        className={`search__field absolute flex items-center left-0 -top-1 w-full 
+        className={`search__field absolute flex items-center left-0 -top-1 w-full
         overflow-hidden border-b border-solid border-gray-200 border-opacity-10 pb-1 ${
           state.isSearchVisible ? 'z-2 flex' : 'z-inset-1 hidden'
         }`}
       >
         <input
+          data-cy='search-input'
           className={`fade-up bg-transparent header-title text-3xl md:text-5xl font-semibold flex-grow text-white placeholder-white ${
             state.isSearchVisible ? 'fade-up--active' : ''
           }`}
+          ref={inputRef}
           placeholder='Search...'
+          autoFocus={true}
           value={state.term}
           aria-label='search-input'
+          type='text'
           onKeyDown={handleEnter}
           onChange={handleChange}
         />
@@ -85,6 +103,7 @@ const Search = (props: SearchType): ReactElement => {
         </button>
       </div>
       <span
+        data-cy='search-icon'
         className={`search__trigger cursor-pointer ${
           state.isSearchVisible ? 'hidden' : 'search__trigger--active'
         }`}

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Characters\AssembleCharacters;
 use App\Http\Controllers\Characters\ListAllCharacters;
+use App\Http\Controllers\Characters\ShowCharacter;
 use App\Http\Controllers\Comics\ListAllComics;
 use App\Http\Controllers\Comics\ShowComic;
 use App\Http\Controllers\HomeController;
@@ -24,6 +25,9 @@ Route::get('/', [HomeController::class, '__invoke'])->name('home');
 
 Route::get('characters', [ListAllCharacters::class, '__invoke'])
     ->name('characters.list-all');
+
+Route::get('characters/{character}', [ShowCharacter::class, '__invoke'])
+    ->name('characters.view');
 
 Route::get('assemble', [AssembleCharacters::class, '__invoke'])
     ->name('characters.assemble');

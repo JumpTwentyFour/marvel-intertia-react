@@ -1,0 +1,10 @@
+{
+    "projectId": "marvel-inertia",
+    "baseUrl": "https://marvel.docker",
+    "watchForFileChanges": false,
+    "viewportWidth": 1280,
+    "viewportHeight": 800,
+    "video": false,
+    "requestTimeout": 10000,
+    "chromeWebSecurity": false
+}

@@ -28,7 +28,9 @@ $ docker-compose exec php composer run project-install-local
 
 If your `.env` file doesn't exist, this will copy the `.env.example` file, and then install your PHP dependencies using composer.
 
-It will then generate an `APP_KEY` using artisan.
+It will then run a set of commands as defined in `App\Initializers\Install`. This contains a set of Enlightn checks
+which will analyze your project for potential setup issues such as file permissions
+and an inaccessible database.
 
 You will need to get API keys for the Marvel API, they are saved in 1Password, or you can generate new ones here:
 https://developer.marvel.com/account
@@ -64,6 +66,31 @@ APP_URL=http://marvel.test
 ```
 
 You can also use `https://` if you prefer, but this means you won't be able to use Webpack Hot Module Replacement until I can figure out how to configure it to use WebSockets over `wss://` instead of `ws://`
+
+
+---
+
+
+### Development
+
+It is recommended whenever you start a new feature from main, or pull down a code from a colleague, that you also run
+`php artisan app:update -v` this will again ensure your application is up to date with any changes made upstream
+in the repository.
+
+
+### Cypress
+
+In order to run Cypress tests you must ensure the `cypress.json` file matches your local environment.
+If it doesn't create a `cypress.env.json` file which any overrides you have. E.g.
+
+```
+{
+    "baseUrl": "https://marvel.test"
+}
+```
+Then run the following command:- `npx cypress open --config-file=cypress.env.json`
+
+If you wish to not have your local database being overwritten by Cypress' setup process, please create an `.env.cypress` file locally.
 
 
 ---
@@ -129,6 +156,12 @@ $ docker-compose exec php composer run lint
 
 ```
 $ docker-compose exec php composer run test
+```
+
+##### composer run analyse
+
+```
+$ docker-compose exec php composer run analyse
 ```
 
 
@@ -232,7 +265,29 @@ $ docker-compose run --rm node npm run test
 $ docker-compose run --rm node npm run prod
 ```
 
+<<<<<<< HEAD
 
+=======
+#### Cypress:
+
+##### Running Cypress In Browser
+
+```
+npx cypress open
+```
+
+##### Running Cypress in Headless Mode
+
+```
+npx cypress run --headless
+```
+
+##### Running Cypress with a different config file
+
+```
+npx cypress open --config-file=cypress.env.json
+```
+>>>>>>> origin/master
 ---
 
 
@@ -287,3 +342,16 @@ Hookup to Bitbucket Cloud:
 
 1. Add Key and Consumer to "Pipelines" > "Repository Variables" in Bitbucket
 2. Setup `bitbucket-pipelines.yml` like in this project
+
+## Enlightn
+This application makes use of https://www.laravel-enlightn.com/ to analyse common Security, Performance and Reliability
+issues in code. We have also extended upon this package as a company to provide our own rules that follow
+standards we adhere to https://github.com/JumpTwentyFour/project-analysers.
+
+Please note that enlightn is designed primarily to be run in a development pipeline
+or on production as recommended by the creator. There are known issues to us of running this in Docker locally
+where specific analyzers will fail such as HSTS and CSP headers as Enlightn is unable to make a request internally in
+Docker. The analysers can be tested locally outside of Docker however the pipeline must always be used as the source of
+truth.
+
+All configuration can be found in `config/enlightn.php`

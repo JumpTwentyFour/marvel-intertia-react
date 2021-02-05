@@ -1,11 +1,16 @@
 import React from 'react'
+import route from 'ziggy-js'
+import { InertiaLink } from '@inertiajs/inertia-react'
 import { truncate } from '../helpers/truncate'
 import { CharacterType } from '../types/character'
 
 const CharacterCard = (props: CharacterType): JSX.Element => {
   const characterImageUrl = `${props.thumbnail.path}.${props.thumbnail.extension}`
   return (
-    <div className='card col-span-6 sm:col-span-3 md:col-span-4 bg-blue shadow-4xl hover:shadow-3xl flex flex-col'>
+    <div
+      data-cy='character-card'
+      className='card col-span-6 sm:col-span-3 md:col-span-4 bg-blue shadow-4xl hover:shadow-3xl flex flex-col'
+    >
       <div className='card__image w-full relative overflow-hidden flex items-center content-center'>
         <img
           src={characterImageUrl}
@@ -14,7 +19,14 @@ const CharacterCard = (props: CharacterType): JSX.Element => {
         />
       </div>
       <div className='card__details flex flex-col p-5 md:p-8 lg:p-10'>
-        <h3 className='card__title text-3xl font-semibold'>{props.name}</h3>
+        <h3 className='card__title text-3xl font-semibold'>
+          <InertiaLink
+            href={route('characters.view', props.id).toString()}
+            data-cy='view-character-link'
+          >
+            {props.name}
+          </InertiaLink>
+        </h3>
         <p className='mt-6'>{truncate(props.description, 120)}</p>
       </div>
     </div>
