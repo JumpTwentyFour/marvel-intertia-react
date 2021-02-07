@@ -15,9 +15,7 @@ const Flash = (props: FlashProps): ReactElement => {
 
   return (
     <div
-      className={`px-6 py-4 border-0 rounded relative mb-4 ${
-        backgroundColour[type]
-      }`}
+      className={`px-6 py-4 border-0 rounded relative mb-4 ${backgroundColour[type]}`}
     >
       <span className='inline-block align-middle mr-8'>{children}</span>
     </div>
