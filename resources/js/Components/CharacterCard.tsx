@@ -3,10 +3,11 @@ import route from 'ziggy-js'
 import { InertiaLink } from '@inertiajs/inertia-react'
 import { truncate } from '../helpers/truncate'
 import { CharacterType } from '../types/character'
+import { marvelImageUrl } from '../helpers/marvelImageUrl'
 
 const CharacterCard = (props: CharacterType): JSX.Element => {
   const { thumbnail, name, id, description } = props
-  const characterImageUrl = `${thumbnail.path}.${thumbnail.extension}`
+  const characterImageUrl = marvelImageUrl(thumbnail.path, thumbnail.extension)
   return (
     <div
       data-cy='character-card'
