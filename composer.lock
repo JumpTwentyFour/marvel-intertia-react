@@ -5018,16 +5018,16 @@
         },
         {
             "name": "tightenco/ziggy",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tighten/ziggy.git",
-                "reference": "4777dafd683873978ccc529085187d03b750d39f"
+                "reference": "be2b257b7a1a4d712e370505324220127595c0ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tighten/ziggy/zipball/4777dafd683873978ccc529085187d03b750d39f",
-                "reference": "4777dafd683873978ccc529085187d03b750d39f",
+                "url": "https://api.github.com/repos/tighten/ziggy/zipball/be2b257b7a1a4d712e370505324220127595c0ae",
+                "reference": "be2b257b7a1a4d712e370505324220127595c0ae",
                 "shasum": ""
             },
             "require": {
@@ -5078,9 +5078,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tighten/ziggy/issues",
-                "source": "https://github.com/tighten/ziggy/tree/v1.0.4"
+                "source": "https://github.com/tighten/ziggy/tree/v1.0.5"
             },
-            "time": "2020-12-06T22:07:45+00:00"
+            "time": "2021-02-05T15:30:28+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -7281,16 +7281,16 @@
         },
         {
             "name": "enlightn/enlightn",
-            "version": "v1.10.0",
+            "version": "v1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enlightn/enlightn.git",
-                "reference": "8d79d4458188592e2452f6dfe89f6f2adc24ed63"
+                "reference": "78d0d3fcc003c679c58dce6d93f9d0a66cd37f38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/8d79d4458188592e2452f6dfe89f6f2adc24ed63",
-                "reference": "8d79d4458188592e2452f6dfe89f6f2adc24ed63",
+                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/78d0d3fcc003c679c58dce6d93f9d0a66cd37f38",
+                "reference": "78d0d3fcc003c679c58dce6d93f9d0a66cd37f38",
                 "shasum": ""
             },
             "require": {
@@ -7356,9 +7356,9 @@
             "support": {
                 "docs": "https://www.laravel-enlightn.com/docs/",
                 "issues": "https://github.com/enlightn/enlightn/issues",
-                "source": "https://github.com/enlightn/enlightn/tree/v1.10.0"
+                "source": "https://github.com/enlightn/enlightn/tree/v1.11.0"
             },
-            "time": "2021-02-04T18:24:48+00:00"
+            "time": "2021-02-06T19:22:39+00:00"
         },
         {
             "name": "enlightn/security-checker",
@@ -7491,16 +7491,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.5.10",
+            "version": "2.5.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "98154e8b991fb616304c213cd405299ffedc26f5"
+                "reference": "e91d67353054bf827c64687fcac5ea44e4dcec54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/98154e8b991fb616304c213cd405299ffedc26f5",
-                "reference": "98154e8b991fb616304c213cd405299ffedc26f5",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/e91d67353054bf827c64687fcac5ea44e4dcec54",
+                "reference": "e91d67353054bf827c64687fcac5ea44e4dcec54",
                 "shasum": ""
             },
             "require": {
@@ -7564,7 +7564,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2021-02-02T10:15:48+00:00"
+            "time": "2021-02-05T12:52:11+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -7972,20 +7972,38 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JumpTwentyFour/php-coding-standards.git",
-                "reference": "e3e53f537e1e1f10793e7f692eb44d587f19098c"
+                "reference": "1e3723094288155fa4d69dd5a3092ea261771caf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JumpTwentyFour/php-coding-standards/zipball/e3e53f537e1e1f10793e7f692eb44d587f19098c",
-                "reference": "e3e53f537e1e1f10793e7f692eb44d587f19098c",
+                "url": "https://api.github.com/repos/JumpTwentyFour/php-coding-standards/zipball/1e3723094288155fa4d69dd5a3092ea261771caf",
+                "reference": "1e3723094288155fa4d69dd5a3092ea261771caf",
                 "shasum": ""
             },
             "require": {
+                "laravel/framework": "^6.0|^7.0|^8.0",
+                "nikic/php-parser": "^4.0",
+                "nunomaduro/larastan": "^0.6.11",
+                "php": "^8.0",
                 "slevomat/coding-standard": "^6.4",
                 "squizlabs/php_codesniffer": "^3.5"
             },
+            "require-dev": {
+                "phpunit/phpunit": "^7.3 || ^8.2 || ^9.3"
+            },
             "default-branch": true,
             "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JumpTwentyFour\\PhpCodingStandards\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/",
+                    "JumpTwentyFour\\PhpCodingStandards\\": "src/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -8002,7 +8020,7 @@
                 "source": "https://github.com/JumpTwentyFour/php-coding-standards/tree/main",
                 "issues": "https://github.com/JumpTwentyFour/php-coding-standards/issues"
             },
-            "time": "2021-02-01T20:10:56+00:00"
+            "time": "2021-02-05T15:58:43+00:00"
         },
         {
             "name": "jumptwentyfour/project-analysers",
@@ -9238,16 +9256,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.71",
+            "version": "0.12.72",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5"
+                "reference": "ae32fb1c5e97979f424c3ccec4ee435a35754769"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5",
-                "reference": "d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ae32fb1c5e97979f424c3ccec4ee435a35754769",
+                "reference": "ae32fb1c5e97979f424c3ccec4ee435a35754769",
                 "shasum": ""
             },
             "require": {
@@ -9278,7 +9296,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.71"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.72"
             },
             "funding": [
                 {
@@ -9294,7 +9312,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-01T18:24:00+00:00"
+            "time": "2021-02-06T18:34:03+00:00"
         },
         {
             "name": "phpstan/phpstan-strict-rules",
