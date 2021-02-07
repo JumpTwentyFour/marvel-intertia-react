@@ -1,12 +1,11 @@
 import React from 'react'
 import route from 'ziggy-js'
 import { InertiaLink } from '@inertiajs/inertia-react'
-import { truncate } from '../helpers/truncate'
 import { CharacterType } from '../types/character'
 import { marvelImageUrl } from '../helpers/marvelImageUrl'
 
 const CharacterCard = (props: CharacterType): JSX.Element => {
-  const { thumbnail, name, id, description } = props
+  const { thumbnail, name, id } = props
   const characterImageUrl = marvelImageUrl(thumbnail.path, thumbnail.extension)
   return (
     <div
@@ -29,7 +28,6 @@ const CharacterCard = (props: CharacterType): JSX.Element => {
             {name}
           </InertiaLink>
         </h3>
-        <p className='mt-6'>{truncate(description, 120)}</p>
       </div>
     </div>
   )
