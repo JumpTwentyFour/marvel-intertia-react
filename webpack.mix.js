@@ -38,7 +38,7 @@ mix
     ziggy: path.resolve('vendor/tightenco/ziggy/dist'),
   })
   .version()
-
+  .webpackConfig(require('./webpack.config.js'))
 if (!mix.inProduction()) {
   mix.sourceMaps()
 }
