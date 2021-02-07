@@ -6,6 +6,7 @@ type FlashProps = {
 }
 
 const Flash = (props: FlashProps): ReactElement => {
+  const { type, children } = props
   const backgroundColour: { [index: string]: string } = {
     success: 'bg-green-600',
     warning: 'bg-amber-600',
@@ -14,11 +15,9 @@ const Flash = (props: FlashProps): ReactElement => {
 
   return (
     <div
-      className={`px-6 py-4 border-0 rounded relative mb-4 ${
-        backgroundColour[props.type]
-      }`}
+      className={`px-6 py-4 border-0 rounded relative mb-4 ${backgroundColour[type]}`}
     >
-      <span className='inline-block align-middle mr-8'>{props.children}</span>
+      <span className='inline-block align-middle mr-8'>{children}</span>
     </div>
   )
 }
