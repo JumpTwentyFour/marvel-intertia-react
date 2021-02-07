@@ -5,7 +5,8 @@ import { truncate } from '../helpers/truncate'
 import { CharacterType } from '../types/character'
 
 const CharacterCard = (props: CharacterType): JSX.Element => {
-  const characterImageUrl = `${props.thumbnail.path}.${props.thumbnail.extension}`
+  const { thumbnail, name, id, description } = props
+  const characterImageUrl = `${thumbnail.path}.${thumbnail.extension}`
   return (
     <div
       data-cy='character-card'
@@ -14,20 +15,20 @@ const CharacterCard = (props: CharacterType): JSX.Element => {
       <div className='card__image w-full relative overflow-hidden flex items-center content-center'>
         <img
           src={characterImageUrl}
-          alt={props.name}
+          alt={name}
           className='w-full absolute object-cover'
         />
       </div>
       <div className='card__details flex flex-col p-5 md:p-8 lg:p-10'>
         <h3 className='card__title text-3xl font-semibold'>
           <InertiaLink
-            href={route('characters.view', props.id).toString()}
+            href={route('characters.view', id).toString()}
             data-cy='view-character-link'
           >
-            {props.name}
+            {name}
           </InertiaLink>
         </h3>
-        <p className='mt-6'>{truncate(props.description, 120)}</p>
+        <p className='mt-6'>{truncate(description, 120)}</p>
       </div>
     </div>
   )
