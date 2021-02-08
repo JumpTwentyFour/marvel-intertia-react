@@ -7,8 +7,9 @@ type NavProps = {
 }
 
 const Navigation = (props: NavProps): ReactElement => {
+  const { authenticated } = props
   const renderAuthLinks = (): ReactElement => {
-    if (props.authenticated) {
+    if (authenticated) {
       return (
         <li className='site-menu__item'>
           <InertiaLink

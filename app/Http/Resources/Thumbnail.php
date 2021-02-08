@@ -16,8 +16,8 @@ class Thumbnail extends JsonResource
     public function toArray($request)
     {
         return [
-            'path' => $this->determinePath($this['path']),
-            'extension' => $this['extension'],
+            'path' => $this->determinePath($this['path'] ?? ''),
+            'extension' => $this['extension'] ?? '',
         ];
     }
 

@@ -4,7 +4,8 @@ import CharacterList from '../Components/CharacterList'
 import { CharactersProps } from '../types/characterProps'
 
 const Characters = (props: CharactersProps): JSX.Element => {
-  return <CharacterList characters={props.characters.data} />
+  const { characters } = props
+  return <CharacterList characters={characters.data} />
 }
 
 Characters.displayName = 'Assemble'

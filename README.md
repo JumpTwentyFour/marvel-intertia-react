@@ -28,7 +28,13 @@ $ docker-compose exec php composer run project-install-local
 
 If your `.env` file doesn't exist, this will copy the `.env.example` file, and then install your PHP dependencies using composer.
 
-It will then generate an `APP_KEY` using artisan.
+It will then run a set of commands as defined in `App\Initializers\Install`. This contains a set of Enlightn checks
+which will analyze your project for potential setup issues such as file permissions
+and an inaccessible database.
+
+It is recommended whenever you start a new feature from main, or pull down a code from a colleague, that you also run
+`php artisan app:update -v` this will again ensure your application is up to date with any changes made upstream
+in the repository.
 
 ### Cypress
 In order to run Cypress tests you must ensure the `cypress.json` file matches your local environment.
@@ -238,9 +244,23 @@ Hookup to Bitbucket Cloud:
 
 2. Get Key and use for local environment variable `DANGER_BITBUCKETCLOUD_OAUTH_KEY=<YOUR-KEY>`
 3. Get secret and use for local environment variable `DANGER_BITBUCKETCLOUD_OAUTH_SECRET=<YOUR-SECRET>`
-4. Run (Example) `danger --dangerfile "dangerfile.ts" pr "https://bitbucket.org/jump24team/marvel-inertia-js/pull-requests/28"`
+4. Run (Example) `danger --dangerfile "danger/dangerfile.ts" pr "https://bitbucket.org/jump24team/marvel-inertia-js/pull-requests/28"`
 
 ### Test On Bitbucket Pipelines
 
 1. Add Key and Consumer to "Pipelines" > "Repository Variables" in Bitbucket
 2. Setup `bitbucket-pipelines.yml` like in this project
+
+## Enlightn
+This application makes use of https://www.laravel-enlightn.com/ to analyse common Security, Performance and Reliability
+issues in code. We have also extended upon this package as a company to provide our own rules that follow
+standards we adhere to https://github.com/JumpTwentyFour/project-analysers.
+
+Please note that enlightn is designed primarily to be run in a development pipeline
+or on production as recommended by the creator. There are known issues to us of running this in Docker locally
+where specific analyzers will fail such as HSTS and CSP headers as Enlightn is unable to make a request internally in
+Docker. The analysers can be tested locally outside of Docker however the pipeline must always be used as the source of
+truth.
+
+All configuration can be found in `config/enlightn.php`
+

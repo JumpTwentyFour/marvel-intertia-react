@@ -25,7 +25,7 @@ pipelines:
               - npm run test
               - npm install -g danger
               - export LANG="C.UTF-8"
-              - danger --dangerfile "dangerfile.ts" ci
+              - danger --dangerfile "danger/dangerfile.ts" ci
         - step:
             name: Testing PHP
             image: php:8-fpm
@@ -65,7 +65,7 @@ pipelines:
               - php artisan serve &
               - sleep 5
               - composer run test
-              - composer run analyse
+              - php artisan enlightn --ci
             services:
               - mysql
 

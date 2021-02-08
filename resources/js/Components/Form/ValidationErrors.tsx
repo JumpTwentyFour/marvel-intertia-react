@@ -5,7 +5,9 @@ type ValidationErrorsType = {
 }
 
 const ValidationErrors = (props: ValidationErrorsType): ReactElement => {
-  const hasErrors = Object.keys(props.errors).length > 0
+  const { errors } = props
+
+  const hasErrors = Object.keys(errors).length > 0
 
   return (
     <React.Fragment>
@@ -18,8 +20,8 @@ const ValidationErrors = (props: ValidationErrorsType): ReactElement => {
             data-cy='validation-errors'
             className='mt-3 mb-8 list-disc list-inside text-sm text-red-600'
           >
-            {Object.keys(props.errors).map((error, key) => (
-              <li key={key}>{props.errors[error]}</li>
+            {Object.keys(errors).map((error, key) => (
+              <li key={key}>{errors[error]}</li>
             ))}
           </ul>
         </React.Fragment>

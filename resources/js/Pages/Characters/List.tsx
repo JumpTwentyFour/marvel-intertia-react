@@ -9,6 +9,7 @@ import Search from '../../Components/Global/Search'
 
 const List = (props: CharactersProps): JSX.Element => {
   const params = new URLSearchParams(window.location.search)
+  const { characters } = props
 
   const [state, setState] = useState({
     page: Number(params.get('page') ?? 1),
@@ -60,11 +61,11 @@ const List = (props: CharactersProps): JSX.Element => {
           </h1>
         </header>
       </div>
-      <CharacterList characters={props.characters.data} />
+      <CharacterList characters={characters.data} />
       <ReactPaginate
         disableInitialCallback={true}
         initialPage={state.page - 1}
-        pageCount={props.characters.meta.last_page}
+        pageCount={characters.meta.lastPage}
         marginPagesDisplayed={2}
         pageRangeDisplayed={1}
         onPageChange={onPageChange}

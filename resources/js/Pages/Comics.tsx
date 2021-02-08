@@ -50,7 +50,10 @@ const Comics = (props: ComicsProps): JSX.Element => {
           term={params.get('title') ?? undefined}
         />
         <header className='flex-grow mr-5 md:mr-8 xl:mr-10'>
-          <h1 className='header-title text-3xl md:text-5xl font-semibold'>
+          <h1
+            data-cy='title'
+            className='header-title text-3xl md:text-5xl font-semibold'
+          >
             {params.get('title') ?? 'All Comics'}
           </h1>
         </header>

@@ -27,7 +27,8 @@
         "laravel/fortify": "^1.7",
         "laravel/framework": "^8.1",
         "laravel/helpers": "^1.2",
-        "mad-web/laravel-initializer": "^3.0",
+        "spatie/data-transfer-object": "^2.8",
+        "mad-web/laravel-initializer": "^3.3",
         "spatie/laravel-csp": "^2.6",
         "tightenco/ziggy": "^1.0"
     },
@@ -133,8 +134,7 @@
         ],
         "project-install-local": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "@composer install",
-            "@php artisan key:generate"
+            "@php artisan app:install -v"
         ]
     },
     "config": {
