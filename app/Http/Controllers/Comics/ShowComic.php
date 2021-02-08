@@ -2,29 +2,30 @@
 
 namespace App\Http\Controllers\Comics;
 
-use App\DataTransferObjects\ComicData;
+use App\DataTransferObjects\Comic as ComicDto;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Resources\Comic;
+use App\Services\Comics;
+use Illuminate\Http\Response as HttpResponse;
 use Inertia\Inertia;
-use Inertia\Response;
-use Marvel\Comics;
+use Inertia\Response as InertiaResponse;
+use Spatie\DataTransferObject\DataTransferObjectError;
 
 class ShowComic extends Controller
 {
-    public function __invoke(Request $request, Comics $comicsClient): Response
+    public function __invoke(string $comicId, Comics $comicClient): InertiaResponse
     {
-        $api = $comicsClient->load($request->id);
-        $comic = ComicData::parseSingleResultFromMarvelComicsApi($api);
-
-        if ($comic === null) {
-            abort(404, 'We couldn\'t find that comic');
+        try {
+            $comic = ComicDto::fromApi((array)$comicClient->getComic($comicId));
+        } catch (DataTransferObjectError $e) {
+            abort(HttpResponse::HTTP_NOT_FOUND);
         }
 
         return Inertia::render(
             'Comics/ShowComic',
             [
-                'comic' => $comic,
+                'comic' => new Comic($comic),
             ]
-        )->withViewData(['meta' => 'A marvel comic.']);
+        )->withViewData(['meta' => $comic->description]);
     }
 }
