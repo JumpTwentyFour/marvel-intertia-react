@@ -174,12 +174,6 @@ $ docker-compose exec php php artisan list
 $ docker-compose exec php php artisan optimize:clear
 ```
 
-##### Re-generate Ziggy Routes
-
-```
-$ docker-compose exec php php artisan ziggy:generate
-```
-
 
 ---
 
