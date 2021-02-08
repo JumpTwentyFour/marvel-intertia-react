@@ -14,7 +14,7 @@ const ComicCard = (props: ComicType): JSX.Element => {
         />
       </div>
       <div className='card__details flex flex-col p-5 md:p-8 lg:p-10'>
-        <h3 className='card__title text-3xl font-semibold'>{props.title}</h3>
+        <h3 className='card__title text-3xl font-semibold' data-cy='comic-card-title'>{props.title}</h3>
         <p className='mt-6'>{truncate(props.description, 150)}</p>
       </div>
     </div>
