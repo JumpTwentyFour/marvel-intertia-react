@@ -38,11 +38,7 @@ mix
     ziggy: path.resolve('vendor/tightenco/ziggy/dist'),
   })
   .version()
-<<<<<<< HEAD
-  .sourceMaps()
-=======
-
+  .webpackConfig(require('./webpack.config.js'))
 if (!mix.inProduction()) {
   mix.sourceMaps()
 }
->>>>>>> origin/master
