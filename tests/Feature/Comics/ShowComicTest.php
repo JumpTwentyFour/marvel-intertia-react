@@ -2,10 +2,8 @@
 
 namespace Tests\Feature\Comics;
 
-use App\Services\Comics;
 use ClaudioDekker\Inertia\Assert;
 use Illuminate\Http\Response;
-use Mockery\MockInterface;
 use Tests\TestCase;
 
 class ShowComicTest extends TestCase
