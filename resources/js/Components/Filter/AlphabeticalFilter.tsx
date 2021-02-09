@@ -1,5 +1,8 @@
 import React from 'react'
-import { AlphabetFilterProps } from '../../types/components/filter/AlphabetFilterProps'
+
+type AlphabetFilterProps = {
+  children: React.ReactNode
+}
 
 const AlphabeticalFilter: React.FC<AlphabetFilterProps> = ({ children }) => {
   return (

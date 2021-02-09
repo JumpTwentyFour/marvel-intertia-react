@@ -1,5 +1,9 @@
 import React from 'react'
-import { FilterButtonProps } from '../../types/components/filter/FilterButtonProps'
+
+type FilterButtonProps = {
+  character: string
+  buttonAction: () => void
+}
 
 const AlphabeticalNumberButton = (props: FilterButtonProps): JSX.Element => {
   const cypressDataAttribute = 'character-filter-button-' + props.character

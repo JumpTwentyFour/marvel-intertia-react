@@ -42,20 +42,41 @@ context('Marvel - List Comics', () => {
         'Guardians (2004) #1',
       )
     })
-  })
 
-  it('Will display no comics found when no comics are found for search', () => {
-    cy.intercept({
-      method: 'GET',
-      url: '/comics?name=batman',
-    }).as('search')
+    it('Will display no comics found when no comics are found for search', () => {
+      cy.intercept({
+        method: 'GET',
+        url: '/comics?title=batman',
+      }).as('search')
 
-    cy.visit('/comics')
-    cy.get('[data-cy=search-icon]').click()
-    cy.get('[data-cy=search-input]').type('batman{enter}')
+      cy.visit('/comics')
+      cy.get('[data-cy=search-icon]').click()
+      cy.get('[data-cy=search-input]').type('batman{enter}')
 
-    cy.wait('@search')
+      cy.wait('@search')
 
-    cy.contains('No Comics Found')
+      cy.contains('No Comics Found')
+    })
+
+    it.only('Will filter items when I click the alphabet filter', () => {
+      const character = String.fromCharCode(65 + Math.floor(Math.random() * 26))
+
+      cy.intercept({
+        method: 'GET',
+        url: `/comics?titleStartsWith=${character}`,
+      }).as('characterFilter')
+
+      cy.visit('/comics')
+
+      const dataSelector = '[data-cy=character-filter-button-' + character + ']'
+      cy.get(dataSelector).click()
+
+      cy.wait('@characterFilter')
+
+      cy.get('[data-cy=comic-card-title]').each(title => {
+        const regEx = new RegExp('^' + character)
+        expect(title.text()).to.match(regEx)
+      })
+    })
   })
 })
