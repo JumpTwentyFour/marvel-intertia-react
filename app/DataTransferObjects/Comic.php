@@ -14,8 +14,8 @@ class Comic extends FlexibleDataTransferObject
 
     public Thumbnail $thumbnail;
 
-    public static function fromApi(array $character): self
+    public static function fromApi(array $comic): self
     {
-        return new self($character);
+        return new self($comic);
     }
 }
