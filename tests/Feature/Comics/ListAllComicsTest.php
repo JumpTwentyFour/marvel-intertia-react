@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Comics;
 
 use ClaudioDekker\Inertia\Assert;
 use Illuminate\Http\Response;
 use Tests\TestCase;
 
-class ComicTest extends TestCase
+class ListAllComicsTest extends TestCase
 {
     public function test_comics_will_return_all_comics(): void
     {

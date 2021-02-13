@@ -15,7 +15,12 @@ const ComicCard = (props: ComicType): JSX.Element => {
         <img src={comicImageUrl} alt={title} className='w-full object-cover' />
       </div>
       <div className='card__details flex flex-col p-5 md:p-8 lg:p-10'>
-        <h3 className='card__title text-3xl font-semibold'>{title}</h3>
+        <h3
+          className='card__title text-3xl font-semibold'
+          data-cy='comic-card-title'
+        >
+          {title}
+        </h3>
         {description && <p className='mt-6'>{truncate(description, 150)}</p>}
       </div>
     </div>

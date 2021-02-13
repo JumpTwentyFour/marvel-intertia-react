@@ -257,5 +257,15 @@
       "GET",
       "HEAD"
     ]
+  },
+  "comics.show": {
+    "name": "comics.show",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\Comics\\ShowComic@__invoke",
+    "uri": "comics/{id}",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
   }
 }
