@@ -60,7 +60,7 @@ pipelines:
               - php artisan key:generate
               - php artisan migrate
               - composer run lint
-              - composer run phpcs
+              - composer run ecs
               - composer run phpstan
               - php artisan serve &
               - sleep 5

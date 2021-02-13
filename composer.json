@@ -126,8 +126,8 @@
             "Composer\\Config::disableProcessTimeout",
             "phpunit -d memory_limit=2048M --colors=always --log-junit ./test-reports/junit.xml"
         ],
-        "phpcs": [
-            "vendor/bin/phpcs --standard=./phpcs.xml --extensions=php ."
+        "ecs": [
+            "vendor/bin/ecs check"
         ],
         "analyse": [
             "php artisan enlightn"
