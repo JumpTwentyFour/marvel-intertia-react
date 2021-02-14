@@ -8028,12 +8028,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JumpTwentyFour/php-coding-standards.git",
-                "reference": "55c253d711b157f5a80d90f4c0edb58b11997077"
+                "reference": "e71ffe069fea46b6f9cad1a0cce5920418b23e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JumpTwentyFour/php-coding-standards/zipball/55c253d711b157f5a80d90f4c0edb58b11997077",
-                "reference": "55c253d711b157f5a80d90f4c0edb58b11997077",
+                "url": "https://api.github.com/repos/JumpTwentyFour/php-coding-standards/zipball/e71ffe069fea46b6f9cad1a0cce5920418b23e8a",
+                "reference": "e71ffe069fea46b6f9cad1a0cce5920418b23e8a",
                 "shasum": ""
             },
             "require": {
@@ -8076,7 +8076,7 @@
                 "source": "https://github.com/JumpTwentyFour/php-coding-standards/tree/main",
                 "issues": "https://github.com/JumpTwentyFour/php-coding-standards/issues"
             },
-            "time": "2021-02-11T10:55:01+00:00"
+            "time": "2021-02-13T19:49:27+00:00"
         },
         {
             "name": "jumptwentyfour/project-analysers",

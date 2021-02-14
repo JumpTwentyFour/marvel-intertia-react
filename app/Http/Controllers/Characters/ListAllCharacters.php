@@ -20,7 +20,9 @@ class ListAllCharacters extends Controller
         $characters = $characterClient->index(
             $request->get('page'),
             $perPage,
-            ['nameStartsWith' => $request->get('name')]
+            [
+                'nameStartsWith' => $request->get('name'),
+            ]
         );
 
         $paginated = new LengthAwarePaginator($characters->data, $characters->total, $perPage, $request->get('page'));
@@ -32,6 +34,8 @@ class ListAllCharacters extends Controller
             [
                 'characters' => $characters,
             ]
-        )->withViewData(['meta' => 'A list of marvel characters.']);
+        )->withViewData([
+            'meta' => 'A list of marvel characters.',
+        ]);
     }
 }

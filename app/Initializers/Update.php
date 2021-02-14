@@ -16,11 +16,13 @@ class Update
             ->artisan('db:seed')
             ->artisan(
                 'enlightn',
-                ['analyzer' => [
-                    EnvVariableAnalyzer::class,
-                    ConfigCachingAnalyzer::class,
-                    RouteCachingAnalyzer::class,
-                ]],
+                [
+                    'analyzer' => [
+                        EnvVariableAnalyzer::class,
+                        ConfigCachingAnalyzer::class,
+                        RouteCachingAnalyzer::class,
+                    ],
+                ],
             )
             ->artisan('cache:clear');
     }

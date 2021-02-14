@@ -20,6 +20,8 @@ class AssembleCharacters extends Controller
             [
                 'characters' => $characters->toResource(Character::class),
             ]
-        )->withViewData(['meta' => 'Avengers, assemble!']);
+        )->withViewData([
+            'meta' => 'Avengers, assemble!',
+        ]);
     }
 }

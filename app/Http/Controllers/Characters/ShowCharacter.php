@@ -31,6 +31,8 @@ class ShowCharacter extends Controller
                 'character' => new Character($character),
                 'comics' => ComicCollection::create($comics['results'] ?? [])->toResource(Comic::class),
             ]
-        )->withViewData(['meta' => $character->description]);
+        )->withViewData([
+            'meta' => $character->description,
+        ]);
     }
 }

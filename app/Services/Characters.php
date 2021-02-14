@@ -41,7 +41,9 @@ class Characters extends MarvelCharacters
         if ($this->cache->has($key)) {
             $comics = $this->cache->get($key);
         } else {
-            $comics = $this->client->get('/v1/public/characters/' . $id . '/comics', ['limit' => $limit]);
+            $comics = $this->client->get('/v1/public/characters/' . $id . '/comics', [
+                'limit' => $limit,
+            ]);
             $this->cache->put($key, $comics, Carbon::parse('+24 hours'));
         }
 

@@ -40,7 +40,9 @@ class CharactersTest extends TestCase
 
         Cache::shouldReceive('put')->times(1);
 
-        Cache::shouldReceive('get')->times(1)->andReturn(['id' => '1009220']);
+        Cache::shouldReceive('get')->times(1)->andReturn([
+            'id' => '1009220',
+        ]);
 
         $characters = $this->app->make(Characters::class);
 
