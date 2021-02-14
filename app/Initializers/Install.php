@@ -16,10 +16,12 @@ class Install
             ->artisan('db:seed')
             ->artisan(
                 'enlightn',
-                ['analyzer' => [
-                    DirectoryWritePermissionsAnalyzer::class,
-                    DatabaseStatusAnalyzer::class,
-                ]],
+                [
+                    'analyzer' => [
+                        DirectoryWritePermissionsAnalyzer::class,
+                        DatabaseStatusAnalyzer::class,
+                    ],
+                ],
             )
             ->artisan('storage:link');
     }

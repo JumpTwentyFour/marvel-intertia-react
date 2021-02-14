@@ -26,7 +26,9 @@ class ListAllComics extends Controller
             [
                 'comics' => ComicCollection::create($comics->data)->toPaginatedResource(Comic::class, $paginated),
             ]
-        )->withViewData(['meta' => 'A list of marvel comics.']);
+        )->withViewData([
+            'meta' => 'A list of marvel comics.',
+        ]);
     }
 
     protected function gatherSearchOptionsFromRequest(Request $request): array

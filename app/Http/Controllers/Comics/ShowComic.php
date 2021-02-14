@@ -26,6 +26,8 @@ class ShowComic extends Controller
             [
                 'comic' => new Comic($comic),
             ]
-        )->withViewData(['meta' => $comic->description]);
+        )->withViewData([
+            'meta' => $comic->description,
+        ]);
     }
 }
