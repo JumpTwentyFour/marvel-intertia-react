@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot()
+    public function boot(): void
     {
         $this->app->bind('app.installer', Install::class);
         $this->app->bind('app.updater', Update::class);
