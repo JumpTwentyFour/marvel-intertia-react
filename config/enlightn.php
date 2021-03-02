@@ -41,7 +41,7 @@ return [
     'analyzer_paths' => [
         'Enlightn\\Enlightn\\Analyzers' => base_path('vendor/enlightn/enlightn/src/Analyzers'),
         'Enlightn\\EnlightnPro\\Analyzers' => base_path('vendor/enlightn/enlightnpro/src/Analyzers'),
-        'JumpTwentyFour\\ProjectAnalyzers\\Analyzers' => base_path('vendor/jumptwentyfour/project-analysers/src/Analyzers')
+        'JumpTwentyFour\\ProjectAnalyzers\\Analyzers' => base_path('vendor/jumptwentyfour/project-analysers/src/Analyzers'),
     ],
 
     /*
@@ -144,6 +144,6 @@ return [
     'invokable' => [
         'ignore_controllers' => [
             \App\Http\Controllers\Controller::class,
-        ]
+        ],
     ],
 ];

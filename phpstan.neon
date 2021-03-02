@@ -1,6 +1,5 @@
 includes:
-    - vendor/phpstan/phpstan-strict-rules/rules.neon
-    - vendor/nunomaduro/larastan/extension.neon
+    - ./vendor/jumptwentyfour/php-coding-standards/phpstan.neon
 
 parameters:
     level: 8
